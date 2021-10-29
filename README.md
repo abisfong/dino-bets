@@ -30,3 +30,14 @@ bet or simply enjoy the race!
 - Javascript
 - CSS
 - HTML
+
+## Implementation Timeline
+**Day 1 | October 29th**
+> Design the page layout and implement timer, betting, and racing logic. 
+**Day 2-3 | October 30th-31st**
+> Attach js logic to HTML components through listeners
+> Create animations for button, timer, and betting components
+**Day 4-5 | November 1st-2nd**
+> Create Dino Race animations
+**Day 6 | November 3rd**
+> Work on backlog or bonus features
