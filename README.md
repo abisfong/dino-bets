@@ -30,6 +30,8 @@ bet or simply enjoy the race!
 - Javascript
 - CSS
 - HTML
+- Webpack
+- npm
 
 ## Implementation Timeline
 **Day 1 | October 29th**
