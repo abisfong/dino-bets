@@ -40,8 +40,7 @@ bet or simply enjoy the race!
 
 **Day 2-3 | October 30th-31st**
 > Attach js logic to HTML components through listeners
-<br>
-
+>
 > Create animations for button, timer, and betting components
 <br>
 
