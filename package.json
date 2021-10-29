@@ -4,7 +4,9 @@
   "description": "Dino Races with bets",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production",
+    "watch": "webpack --watch --mode=development"
   },
   "author": "Abraham Fong",
   "license": "ISC",
