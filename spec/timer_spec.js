@@ -46,4 +46,12 @@ describe("Timer", function() {
       expect(timer.seconds).toBe(17);
     });
   });
+
+  describe("#tick", function () {
+    it("should decrement the timer by 1", function () {
+      timer = new Timer(timerEl, 45);
+      timer.tick();
+      expect(timer.seconds).toBe(44);
+    });
+  });
 });
