@@ -1,3 +1,5 @@
+import Timer from "../src/js/timer";
+
 describe("Timer", function() {
   let timerEl = document.createElement('div');
   let timeEl = document.createElement('div');
@@ -52,6 +54,14 @@ describe("Timer", function() {
       timer = new Timer(timerEl, 45);
       timer.tick();
       expect(timer.seconds).toBe(44);
+    });
+  });
+
+  describe("#setTime", function () {
+    it("should set the time (in seconds)", function () {
+      timer = new Timer(timerEl, 60);
+      timer.setTime(75);
+      expect(timer.time).toBe(75);
     });
   });
 });

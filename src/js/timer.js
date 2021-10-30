@@ -1,4 +1,4 @@
-class Timer {
+export default class Timer {
   // 'time' is in seconds
   constructor(timerEl, time = 0) {
     this.timerEl = timerEl;
@@ -42,10 +42,16 @@ class Timer {
     clearInterval(this.intervalId);
   }
 
+  reset() {
+    this.pause();
+    this.timeElapsed = 0;
+    this.printTime();
+  }
+
   setTime(time) {
     this.time = time;
   }
 }
 
-if (window === undefined)
-  module.exports = Timer;
+// if (window === undefined)
+//   module.exports = Timer;
