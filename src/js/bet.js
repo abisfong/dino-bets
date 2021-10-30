@@ -14,7 +14,8 @@ export default class Bet {
     switch(this.type) {
       case "win":
         return 1 / this.race.dinoCount;
-      case "show"
+      case "show":
+        return 3 / this.race.dinoCount;
     }
   }
 }
