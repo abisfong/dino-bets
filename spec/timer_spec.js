@@ -33,4 +33,17 @@ describe("Timer", function() {
       expect(timer.timeEl.innerHTML).toBe("07:16:38");
     });
   });
+
+  
+  describe("#updateTime", function () {
+    let hours = 5 * 60 * 60;
+    let minutes = 12 * 60;
+    let seconds = 17;
+    it("should update the time instance variables, hours, minutes, and seconds", function () {
+      timer = new Timer(timerEl, hours + minutes + seconds);
+      expect(timer.hours).toBe(5);
+      expect(timer.minutes).toBe(12);
+      expect(timer.seconds).toBe(17);
+    });
+  });
 });
