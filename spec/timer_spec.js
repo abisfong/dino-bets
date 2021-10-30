@@ -20,4 +20,17 @@ describe("Timer", function() {
       console.log(timer.timerEl);
     });
   });
+
+  describe("#printTime", function () {
+    let hours = 7 * 60 * 60;
+    let minutes = 16 * 60;
+    let seconds = 38;
+    it("should update the time HTML element content with the correct time", function () {
+      timer = new Timer(timerEl, hours + minutes + seconds);
+      expect(timer.hours).toBe(7);
+      expect(timer.minutes).toBe(16);
+      expect(timer.seconds).toBe(38);
+      expect(timer.timeEl.innerHTML).toBe("07:16:38");
+    });
+  });
 });
