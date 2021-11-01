@@ -1,5 +1,3 @@
-import Timer from "../src/js/timer";
-
 describe("Timer", function() {
   let timerEl = document.createElement('div');
   let timeEl = document.createElement('div');
@@ -9,6 +7,14 @@ describe("Timer", function() {
   timerEl.appendChild(timeEl);
   
   describe("#contructor", function() {
+    it("should accept a timer HTML element and an optional time amount (in seconds)", function () {
+      timer1 = new Timer(timerEl, 30);
+      timer2 = new Timer(timerEl);
+      expect(timer1.timerEl).toBe(timerEl);
+      expect(timer1.time).toBe(30);
+      expect(timer2.time).toBe(0);
+    });
+
     it("should initialize timer object at 00:00:00 when no time is passed in", function () {
       timer = new Timer(timerEl);
       expect(timer.time).toBe(0);
@@ -19,7 +25,6 @@ describe("Timer", function() {
       timer = new Timer(timerEl, 300);
       expect(timer.time).toBe(300);
       expect(timer.timeEl.innerText).toBe("00:05:00");
-      console.log(timer.timerEl);
     });
   });
 

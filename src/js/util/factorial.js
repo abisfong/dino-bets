@@ -1,7 +1,7 @@
 export default function factorial(num) {
   let product = 1;
   for(let i = 2; i <= num; i++) {
-    product *= num;
+    product *= i;
   }
-  return num;
+  return product;
 }

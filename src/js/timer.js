@@ -52,6 +52,3 @@ export default class Timer {
     this.time = time;
   }
 }
-
-// if (window === undefined)
-//   module.exports = Timer;
