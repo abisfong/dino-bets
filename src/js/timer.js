@@ -5,7 +5,10 @@ export default class Timer {
     this.timeElapsed = 0;
     this.time = time;
     this.timeEl = timerEl.querySelector(".time");
+    this.startPauseEl = timerEl.querySelector('.timer-start-pause-btn');
+    this.resetEl = timerEl.querySelector('.timer-reset-btn');
     this.printTime();
+    attachEventListeners(this);
   }
 
   printTime() {
@@ -21,10 +24,13 @@ export default class Timer {
   }
 
   tick() {
-    this.timeElapsed++;
-    this.printTime();
-    if(this.remainingTime === 0)
-      this.pause();
+    if(this.remainingTime === 0) {
+      this.reset();
+      toggleStartPauseText(this.startPauseEl);
+    } else {
+      this.timeElapsed++;
+      this.printTime();
+    }
   }
 
   updateTime() {
@@ -54,12 +60,41 @@ export default class Timer {
 }
 
 function attachEventListeners(timer) {
+  addStartPauseEventListener(timer);
+  addResetEventListener(timer);
 }
 
-function StartPauseEventListener(timer) {
-
+function addStartPauseEventListener(timer) {
+  let startPauseEl = timer.startPauseEl;
+  startPauseEl.addEventListener('click', startPauseCallback(timer));
 }
 
-function ResetEventListener(timer) {
+function startPauseCallback(timer) {
+  return function (event) {
+    event.preventDefault();
+    toggleStartPause(timer, this);
+    toggleStartPauseText(this);
+  }
+}
 
+function toggleStartPause(timer, startPauseEl) {
+  if (startPauseEl.innerHTML === 'Start')
+    timer.start();
+  else
+    timer.pause();
+}
+
+function toggleStartPauseText(startPauseEl) {
+  if (startPauseEl.innerHTML === 'Start')
+    startPauseEl.innerHTML = 'Pause'
+  else
+    startPauseEl.innerHTML = 'Start'
+}
+
+function addResetEventListener(timer) {
+  let resetEl = timer.resetEl;
+  resetEl.addEventListener('click', function(event) {
+    console.log('Time has been reset');
+    timer.reset();
+  });
 }
