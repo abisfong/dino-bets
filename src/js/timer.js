@@ -52,3 +52,14 @@ export default class Timer {
     this.time = time;
   }
 }
+
+function attachEventListeners(timer) {
+}
+
+function StartPauseEventListener(timer) {
+
+}
+
+function ResetEventListener(timer) {
+
+}
