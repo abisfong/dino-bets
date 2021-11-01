@@ -1,10 +1,16 @@
 describe("Timer", function() {
   let timerEl = document.createElement('div');
   let timeEl = document.createElement('div');
+  let startPauseEl = document.createElement('button');
+  let resetEl = document.createElement('button');
   let timer;
   timerEl.classList.add('timer');
   timeEl.classList.add('time');
+  startPauseEl.classList.add('timer-start-pause-btn');
+  resetEl.classList.add('timer-reset-btn');
   timerEl.appendChild(timeEl);
+  timerEl.appendChild(startPauseEl);
+  timerEl.appendChild(resetEl);
   
   describe("#contructor", function() {
     it("should accept a timer HTML element and an optional time amount (in seconds)", function () {
