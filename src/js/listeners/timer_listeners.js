@@ -77,6 +77,7 @@ function resetCallback(timer) {
 
 function addTimeInputListeners(timer) {
   addTimeEditListener(timer);
+  addTimeEditTypingListeners(timer);
   addTimeEditToggleListeners(timer);
 }
 
@@ -117,6 +118,31 @@ function isValidTimeInput(value) {
 
 function blurFocus() {
   document.activeElement.blur();
+}
+
+function addTimeEditTypingListeners(timer) {
+  let timerEl = timer.timerEl;
+  timerEl.addEventListener('click', )
+  timerEl.addEventListener('keydown', timeEditTypingCallback(timer))
+}
+
+function timeEditTypingCallback(timer) {
+  let timeEl = timer.timeEl
+  let inputEls = Array.from(timeEl.children);
+  return function(event) {
+    event.preventDefault();
+    if (inputEls.includes(event.target)) {
+      let inputEl = event.target;
+      moveCursorToFrontOfInputLine(inputEl);
+
+    }
+  }
+}
+
+function moveCursorToFrontOfInputLine(event) {
+  let inputEls = Array.from(timeEl.children);
+  if (event)
+  inputEl.focus();
 }
 
 function addTimeEditToggleListeners(timer) {
