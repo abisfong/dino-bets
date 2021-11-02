@@ -25,8 +25,8 @@ export default class Timer {
 
   tick() {
     if(this.remainingTime === 0) {
-      startPauseCallback(this)();
       this.reset();
+      startPauseCallback(this)();
     } else {
       this.timeElapsed++;
       this.printTime();
@@ -148,11 +148,8 @@ function resetCallback(timer) {
   let startPauseEl = timer.startPauseEl;
   return function () {
     timer.reset();
-    if (startPauseEl.innerHTML.toLowerCase() === 'pause') {
-      toggleTimerInputReadOnly(timer);
-      toggleStartPauseText(startPauseEl);
-      toggleStartPauseClass(startPauseEl);
-    }
+    if (startPauseEl.innerHTML.toLowerCase() === 'pause')
+      startPauseCallback(timer)();
   }
 }
 
