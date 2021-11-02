@@ -25,6 +25,7 @@ export default class Timer {
     if(this.remainingTime === 0) {
       this.reset();
       toggleStartPauseText(this.startPauseEl);
+      toggleStartPauseClass(this.startPauseEl);
     } else {
       this.timeElapsed++;
       this.printTime();
@@ -101,8 +102,8 @@ function addResetEventListener(timer) {
   resetEl.addEventListener('click', function(event) {
     timer.reset();
     if (startPauseEl.innerHTML.toLowerCase() === 'pause') {
-      toggleStartPauseClass(startPauseEl);
       toggleStartPauseText(startPauseEl);
+      toggleStartPauseClass(startPauseEl);
     }
   });
 }
