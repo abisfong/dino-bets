@@ -1,46 +1,47 @@
 import { curry } from '../util';
+import { 
+  startPauseTimer,
+  resetTimer,
+  enableTimeInput, 
+  disableTimeInput, 
+} from '../events/timer_events';
 
 export default function attachTimerEventListeners(timer) {
-  addStartPauseEventListener(timer);
+  addStartPauseEventListeners(timer);
   addResetEventListener(timer);
   addTimeInputListeners(timer);
   addTimeListener(timer);
 }
 
-function addStartPauseEventListener(timer) {
+function addStartPauseEventListeners(timer) {
+  let timerEl = timer.timerEl;
   let startPauseEl = timer.startPauseEl;
-  startPauseEl.addEventListener('click', startPauseCallback(timer));
+
+  timerEl.addEventListener('startPauseTimer', startPauseCallback(timer));
+  startPauseEl.addEventListener('click', event => { 
+    startPauseEl.dispatchEvent(startPauseTimer) 
+  });
 }
 
 function startPauseCallback(timer) {
+  let timerEl = timer.timerEl;
   let startPauseEl = timer.startPauseEl;
   return function (event) {
     if (event)
       event.preventDefault();
-    toggleTimerInputReadOnly(timer);
+    timerEl.dispatchEvent(disableTimeInput);
     toggleStartPause(timer, startPauseEl);
     toggleStartPauseClass(startPauseEl);
     toggleStartPauseText(startPauseEl);
   }
 }
 
-function toggleTimerInputReadOnly(timer) {
-  let inputs = timer.timeEl.children;
-  let time = timer.time;
-  let remainingTime = timer.remainingTime;
-  if (time === remainingTime || time === 0)
-    for (let i = 0; i < inputs.length; i++) {
-      let isReadOnly = inputs[i].readOnly;
-      isReadOnly ? inputs[i].readOnly = false : inputs[i].readOnly = true;
-    }
+function toggleStartPause(timer, startPauseEl) {
+  if (startPauseEl.innerHTML.toLowerCase() === 'start')
+    timer.start();
+  else
+    timer.pause();
 }
-
-// function toggleStartPause(timer, startPauseEl) {
-//   if (startPauseEl.innerHTML.toLowerCase() === 'start')
-//     timer.start();
-//   else
-//     timer.pause();
-// }
 
 function toggleStartPauseClass(startPauseEl) {
   startPauseEl.classList.toggle('start');
@@ -55,22 +56,28 @@ function toggleStartPauseText(startPauseEl) {
 }
 
 function addResetEventListener(timer) {
+  let timerEl = timer.timerEl;
   let resetEl = timer.resetEl;
-  resetEl.addEventListener('click', resetCallback(timer));
+  timerEl.addEventListener('resetTimer', resetCallback(timer));
+  resetEl.addEventListener('click', event => {
+    resetEl.dispatchEvent(resetTimer);
+  });
 }
 
 function resetCallback(timer) {
   let startPauseEl = timer.startPauseEl;
+  let resetEl = timer.resetEl;
   return function () {
     timer.reset();
     if (startPauseEl.innerHTML.toLowerCase() === 'pause')
-      startPauseCallback(timer)();
+      resetEl.dispatchEvent(startPauseTimer);
+    resetEl.dispatchEvent(enableTimeInput);
   }
 }
 
 function addTimeInputListeners(timer) {
   addTimeEditListener(timer);
-  addTimeEditToggleListener(timer);
+  addTimeEditToggleListeners(timer);
 }
 
 function addTimeEditListener(timer) {
@@ -89,11 +96,11 @@ function timeInputCallback(timer) {
 }
 
 function addTimeFromInput(timer) {
-  let inputs = timer.timeEl.children;
-  let setTimeFromInput = curry(timer.setTimeFromInput, timer, inputs.length);
+  let inputEls = timer.timeEl.children;
+  let setTimeFromInput = curry(timer.setTimeFromInput, timer, inputEls.length);
 
-  for(let i = 0; i < inputs.length; i++) {
-    let input = inputs[i].value;
+  for(let i = 0; i < inputEls.length; i++) {
+    let input = inputEls[i].value;
     if (isValidTimeInput(input)) { 
       let timeAmount = parseInt(input);
       setTimeFromInput(timeAmount);
@@ -112,15 +119,23 @@ function blurFocus() {
   document.activeElement.blur();
 }
 
-function addTimeEditToggleListener(timer) {
-  
+function addTimeEditToggleListeners(timer) {
+  let timerEl = timer.timerEl;
+  timerEl.addEventListener('enableTimeInput', function () {
+    setTimerInputReadOnly(timer, false);
+  });
+  timerEl.addEventListener('disableTimeInput', function () {
+    setTimerInputReadOnly(timer, true);
+  });
 }
 
-function toggleStartPause(timer, startPauseEl) {
-  if (startPauseEl.innerHTML.toLowerCase() === 'start')
-    timer.start();
-  else
-    timer.pause();
+function setTimerInputReadOnly(timer, value) {
+  let inputEls = timer.timeEl.children;
+  let time = timer.time;
+  let remainingTime = timer.remainingTime;
+  if (time === remainingTime || time === 0)
+    for (let i = 0; i < inputEls.length; i++)
+      inputEls[i].readOnly = value;
 }
 
 function addTimeListener(timer) {
