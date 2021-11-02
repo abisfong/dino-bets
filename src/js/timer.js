@@ -1,3 +1,5 @@
+import { curry } from './util';
+
 export default class Timer {
   // 'time' is in seconds
   constructor(timerEl, time = 0) {
@@ -58,6 +60,14 @@ export default class Timer {
     this.time = time;
   }
 
+  setTimeFromInput() {
+    let input = Array.from(arguments);
+    let setTimeMethodNames = ['setHours', 'setMinutes', 'setSeconds'];
+
+    for (let i = 0; i < 3; i++)
+      this[setTimeMethodNames[i]](input[i]);
+  }
+
   setHours(amount) {
     let currentHoursInSecs = this.hours * 60 *  60;
     let hoursToAdd = amount * 60 * 60;
@@ -82,7 +92,7 @@ export default class Timer {
 function attachEventListeners(timer) {
   addStartPauseEventListener(timer);
   addResetEventListener(timer);
-  addTimeInputListeners(timer);
+  addTimeInputListener(timer);
 }
 
 function addStartPauseEventListener(timer) {
@@ -102,10 +112,11 @@ function startPauseCallback(timer) {
 
 function toggleTimerInputReadOnly(timer) {
   let inputs = timer.timeEl.children;
-  for (let i = 0; i < inputs.length; i++) {
-    let isReadOnly = inputs[i].readOnly;
-    isReadOnly ? inputs[i].readOnly = false : inputs[i].readOnly = true;
-  }
+  if (timer.time === timer.remainingTime || timer.time === 0)
+    for (let i = 0; i < inputs.length; i++) {
+      let isReadOnly = inputs[i].readOnly;
+      isReadOnly ? inputs[i].readOnly = false : inputs[i].readOnly = true;
+    }
 }
 
 function toggleStartPause(timer, startPauseEl) {
@@ -137,39 +148,40 @@ function resetCallback(timer) {
   return function () {
     timer.reset();
     if (startPauseEl.innerHTML.toLowerCase() === 'pause') {
+      toggleTimerInputReadOnly(timer);
       toggleStartPauseText(startPauseEl);
       toggleStartPauseClass(startPauseEl);
     }
   }
 }
 
-function addTimeInputListeners(timer) {
-  let inputs = timer.timeEl.children;
-  let setTimeMethodNames = ['setHours', 'setMinutes', 'setSeconds']
-  for (let i = 0; i < 3; i++) {
-    let setTimeMethod = timer[setTimeMethodNames[i]].bind(timer)
-    inputs[i].addEventListener(
-      'keydown',
-      timeInputCallback(timer, setTimeMethod)
-    );
-  }
+function addTimeInputListener(timer) {
+  let timeEl = timer.timeEl;
+  timeEl.addEventListener('keydown', timeInputCallback(timer));
 }
 
-function timeInputCallback(timer, setTimeMethod) {
+function timeInputCallback(timer) {
   return function (event) {
     if (event.key === 'Enter') {
-      let input = event.target.value;
-      addTimeFromInput(input, setTimeMethod);
+      addTimeFromInput(timer);
       blurFocus();
       resetCallback(timer)();
     }
   }
 }
 
-function addTimeFromInput(input, setTimeMethod) {
-  if (isValidTimeInput(input)) {
-    let timeAmount = parseInt(input);
-    setTimeMethod(timeAmount);
+function addTimeFromInput(timer) {
+  let inputs = timer.timeEl.children;
+  let setTimeFromInput = curry(timer.setTimeFromInput, timer, inputs.length);
+
+  for(let i = 0; i < inputs.length; i++) {
+    let input = inputs[i].value;
+    if (isValidTimeInput(input)) { 
+      let timeAmount = parseInt(input);
+      setTimeFromInput(timeAmount);
+    } else {
+      resetCallback(timer)();
+    }
   }
 }
 
