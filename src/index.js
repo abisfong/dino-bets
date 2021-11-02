@@ -1,8 +1,8 @@
-import Bet from './js/bet';
-import Dino from './js/dino';
-import Money from './js/Money';
-import Race from './js/race';
-import Timer from './js/timer';
+import Bet from './js/models/bet';
+import Dino from './js/models/dino';
+import Money from './js/models/Money';
+import Race from './js/models/race';
+import Timer from './js/models/timer';
 import * as Util from './js/util';
 
 if (document.title === "Jasmine Spec Runner") {
