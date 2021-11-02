@@ -4,13 +4,17 @@ describe("Timer", function() {
   let startPauseEl = document.createElement('button');
   let resetEl = document.createElement('button');
   let timer;
-  timerEl.classList.add('timer');
-  timeEl.classList.add('time');
-  startPauseEl.classList.add('timer-start-pause-btn');
-  resetEl.classList.add('timer-reset-btn');
+  timerEl.id = 'timer';
+  timeEl.id = 'time';
+  startPauseEl.id = 'start-pause-btn';
+  resetEl.id = 'reset-btn';
   timerEl.appendChild(timeEl);
   timerEl.appendChild(startPauseEl);
   timerEl.appendChild(resetEl);
+  for(i = 0; i < 4; i++) {
+    timeEl.appendChild(document.createElement('inpyt'));
+  }
+  console.log(timerEl, timeEl);
   
   describe("#contructor", function() {
     it("should accept a timer HTML element and an optional time amount (in seconds)", function () {

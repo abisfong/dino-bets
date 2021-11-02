@@ -4,18 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">  
   <link rel="stylesheet" href="./dist/main.css" />
   <script src="./dist/main.js"></script>
   <title>Dino Bets</title>
 </head>
 <body>
-  <div class="race-view">
-    <div class="timer">
-      <div class="time"></div>
-      <div class="timer-buttons">
-        <button class="timer-start-pause-btn">Start</button>
-        <button class="timer-reset-btn">Reset</button>
+  <div id="race-view">
+    <div id="timer">
+      <button id="start-pause-btn" class="start">START</button>
+      <div id="time">
+        <input type="text">
+        :
+        <input type="text">
+        :
+        <input type="text">
       </div>
+      <button id="reset-btn">RESET</button>
     </div>
   </div>
   <div class="bet-view">

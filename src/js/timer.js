@@ -4,23 +4,21 @@ export default class Timer {
     this.timerEl = timerEl;
     this.timeElapsed = 0;
     this.time = time;
-    this.timeEl = timerEl.querySelector(".time");
-    this.startPauseEl = timerEl.querySelector('.timer-start-pause-btn');
-    this.resetEl = timerEl.querySelector('.timer-reset-btn');
+    this.timeEl = timerEl.querySelector("#time");
+    this.startPauseEl = timerEl.querySelector('#start-pause-btn');
+    this.resetEl = timerEl.querySelector('#reset-btn');
     this.printTime();
     attachEventListeners(this);
   }
 
   printTime() {
-    // Format the time in HH:MM:SS
-    let timeString = '';
+    let hoursEl = this.timeEl.children[0];
+    let minutesEl = this.timeEl.children[1];
+    let secondsEl = this.timeEl.children[2];
     this.updateTime();
-    timeString += this.hours < 10 ? '0' + this.hours : this.hours;
-    timeString  += ':';
-    timeString += this.minutes < 10 ? '0' + this.minutes : this.minutes;
-    timeString += ':';
-    timeString += this.seconds < 10 ? '0' + this.seconds : this.seconds;
-    this.timeEl.innerHTML = timeString;
+    hoursEl.value = this.hours < 10 ? '0' + this.hours : this.hours;
+    minutesEl.value = this.minutes < 10 ? '0' + this.minutes : this.minutes;
+    secondsEl.value = this.seconds < 10 ? '0' + this.seconds : this.seconds;
   }
 
   tick() {
@@ -73,28 +71,38 @@ function startPauseCallback(timer) {
   return function (event) {
     event.preventDefault();
     toggleStartPause(timer, this);
+    toggleStartPauseClass(this);
     toggleStartPauseText(this);
   }
 }
 
 function toggleStartPause(timer, startPauseEl) {
-  if (startPauseEl.innerHTML === 'Start')
+  if (startPauseEl.innerHTML.toLowerCase() === 'start')
     timer.start();
   else
     timer.pause();
 }
 
+function toggleStartPauseClass(startPauseEl) {
+  startPauseEl.classList.toggle('start');
+  startPauseEl.classList.toggle('pause');
+}
+
 function toggleStartPauseText(startPauseEl) {
-  if (startPauseEl.innerHTML === 'Start')
-    startPauseEl.innerHTML = 'Pause'
+  if (startPauseEl.innerHTML.toLowerCase() === 'start')
+    startPauseEl.innerHTML = 'PAUSE'
   else
-    startPauseEl.innerHTML = 'Start'
+    startPauseEl.innerHTML = 'START'
 }
 
 function addResetEventListener(timer) {
   let resetEl = timer.resetEl;
+  let startPauseEl = timer.startPauseEl;
   resetEl.addEventListener('click', function(event) {
-    console.log('Time has been reset');
     timer.reset();
+    if (startPauseEl.innerHTML.toLowerCase() === 'pause') {
+      toggleStartPauseClass(startPauseEl);
+      toggleStartPauseText(startPauseEl);
+    }
   });
 }
