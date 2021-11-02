@@ -61,6 +61,7 @@ export default class Timer {
 function attachEventListeners(timer) {
   addStartPauseEventListener(timer);
   addResetEventListener(timer);
+  addTimeInputListeners(timer);
 }
 
 function addStartPauseEventListener(timer) {
@@ -106,4 +107,13 @@ function addResetEventListener(timer) {
       toggleStartPauseClass(startPauseEl);
     }
   });
+}
+
+function addTimeInputListeners(timer) {
+  let inputs = timer.timeEl.children;
+  for (let i = 1; i <= 3; i++) {
+    inputs[i - 1].addEventListener('keydown', function (event) {
+      
+    });
+  }
 }
