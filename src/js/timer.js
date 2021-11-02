@@ -25,10 +25,8 @@ export default class Timer {
 
   tick() {
     if(this.remainingTime === 0) {
+      startPauseCallback(this)();
       this.reset();
-      toggleTimerInputReadOnly(this);
-      toggleStartPauseText(this.startPauseEl);
-      toggleStartPauseClass(this.startPauseEl);
     } else {
       this.timeElapsed++;
       this.printTime();
@@ -51,7 +49,6 @@ export default class Timer {
   }
 
   reset() {
-    this.pause();
     this.timeElapsed = 0;
     this.printTime();
   }
@@ -101,18 +98,22 @@ function addStartPauseEventListener(timer) {
 }
 
 function startPauseCallback(timer) {
+  let startPauseEl = timer.startPauseEl;
   return function (event) {
-    event.preventDefault();
+    if (event)
+      event.preventDefault();
     toggleTimerInputReadOnly(timer);
-    toggleStartPause(timer, this);
-    toggleStartPauseClass(this);
-    toggleStartPauseText(this);
+    toggleStartPause(timer, startPauseEl);
+    toggleStartPauseClass(startPauseEl);
+    toggleStartPauseText(startPauseEl);
   }
 }
 
 function toggleTimerInputReadOnly(timer) {
   let inputs = timer.timeEl.children;
-  if (timer.time === timer.remainingTime || timer.time === 0)
+  let time = timer.time;
+  let remainingTime = timer.remainingTime;
+  if (time === remainingTime || time === 0)
     for (let i = 0; i < inputs.length; i++) {
       let isReadOnly = inputs[i].readOnly;
       isReadOnly ? inputs[i].readOnly = false : inputs[i].readOnly = true;
@@ -181,12 +182,13 @@ function addTimeFromInput(timer) {
       setTimeFromInput(timeAmount);
     } else {
       resetCallback(timer)();
+      return;
     }
   }
 }
 
 function isValidTimeInput(value) {
-  return /[0-9]+/.test(value);
+  return /^\d+$/.test(value) && value <= 99;
 }
 
 function blurFocus() {
