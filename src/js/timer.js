@@ -56,6 +56,10 @@ export default class Timer {
   setTime(time) {
     this.time = time;
   }
+
+  addTime(amount) {
+    this.time += amount;
+  }
 }
 
 function attachEventListeners(timer) {
@@ -112,8 +116,23 @@ function addResetEventListener(timer) {
 function addTimeInputListeners(timer) {
   let inputs = timer.timeEl.children;
   for (let i = 1; i <= 3; i++) {
-    inputs[i - 1].addEventListener('keydown', function (event) {
-      
-    });
+    inputs[i - 1].addEventListener('keydown', timeInputCallback(i));
   }
+}
+
+function timeInputCallback(multiplier) {
+  return function (event) {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+      let input = event.target.value;
+      if (isValidTimeInput(input)) {
+        let num = parseInt(input);
+        timer.time += num * (Math.pow(60, (3 - i)));
+      }
+    }
+  }
+}
+
+function isValidTimeInput(value) {
+  return /[0-9]+/.test(value);
 }
