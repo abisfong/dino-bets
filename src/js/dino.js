@@ -5,7 +5,7 @@ export default class Dino {
 
   static generateRandomDino() {
     let colorCount = Dino.COLORS.length;
-    let color = Dino.COLORS[Math.round(Math.random() * colorCount)];
+    let color = Dino.COLORS[Math.round(Math.random() * (colorCount - 1))];
     return new Dino(color);
   }
 }

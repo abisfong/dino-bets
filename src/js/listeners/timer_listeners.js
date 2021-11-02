@@ -27,8 +27,7 @@ function startPauseCallback(timer) {
   let timerEl = timer.timerEl;
   let startPauseEl = timer.startPauseEl;
   return function (event) {
-    if (event)
-      event.preventDefault();
+    event.preventDefault();
     timerEl.dispatchEvent(disableTimeInput);
     toggleStartPause(timer, startPauseEl);
     toggleStartPauseClass(startPauseEl);
@@ -77,7 +76,7 @@ function resetCallback(timer) {
 
 function addTimeInputListeners(timer) {
   addTimeEditListener(timer);
-  addTimeEditTypingListeners(timer);
+  // addTimeEditTypingListeners(timer);
   addTimeEditToggleListeners(timer);
 }
 
@@ -120,30 +119,34 @@ function blurFocus() {
   document.activeElement.blur();
 }
 
-function addTimeEditTypingListeners(timer) {
-  let timerEl = timer.timerEl;
-  timerEl.addEventListener('click', )
-  timerEl.addEventListener('keydown', timeEditTypingCallback(timer))
-}
+// function addTimeEditTypingListeners(timer) {
+//   let timerEl = timer.timerEl;
+//   let inputEls = Array.from(timer.inputEls);
+//   inputEls.forEach((inputEl) => {
+//     inputEl.addEventListener('focus', moveCursorToFrontOfInputLine)
+//   })
+//   timerEl.addEventListener('keydown', timeEditTypingCallback(timer))
+// }
 
-function timeEditTypingCallback(timer) {
-  let timeEl = timer.timeEl
-  let inputEls = Array.from(timeEl.children);
-  return function(event) {
-    event.preventDefault();
-    if (inputEls.includes(event.target)) {
-      let inputEl = event.target;
-      moveCursorToFrontOfInputLine(inputEl);
+// function timeEditTypingCallback(timer) {
+//   let timeEl = timer.timeEl
+//   let inputEls = Array.from(timeEl.children);
+//   return function(event) {
+//     event.preventDefault();
+//     if (inputEls.includes(event.target)) {
+//       let inputEl = event.target;
+//     }
+//   }
+// }
 
-    }
-  }
-}
-
-function moveCursorToFrontOfInputLine(event) {
-  let inputEls = Array.from(timeEl.children);
-  if (event)
-  inputEl.focus();
-}
+// function moveCursorToFrontOfInputLine(event) {
+//   event.preventDefault();
+//   let inputEl = event.target;
+//   let value = inputEl.value;
+//   inputEl.value = null;
+//   inputEl.value = value;
+//   console.log('focused', inputEl); 
+// }
 
 function addTimeEditToggleListeners(timer) {
   let timerEl = timer.timerEl;
@@ -167,6 +170,6 @@ function setTimerInputReadOnly(timer, value) {
 function addTimeListener(timer) {
   let timerEl = timer.timerEl;
   timerEl.addEventListener('timerEnd', function() {
-    startPauseCallback(timer)();
+    timerEl.dispatchEvent(resetTimer);
   });
 }

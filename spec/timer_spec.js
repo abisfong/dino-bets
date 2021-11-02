@@ -11,8 +11,8 @@ describe("Timer", function() {
   timerEl.appendChild(timeEl);
   timerEl.appendChild(startPauseEl);
   timerEl.appendChild(resetEl);
-  for(i = 0; i < 4; i++) {
-    timeEl.appendChild(document.createElement('inpyt'));
+  for(i = 1; i <= 3; i++) {
+    timeEl.appendChild(document.createElement('input'));
   }
   console.log(timerEl, timeEl);
   
@@ -25,16 +25,22 @@ describe("Timer", function() {
       expect(timer2.time).toBe(0);
     });
 
-    it("should initialize timer object at 00:00:00 when no time is passed in", function () {
+    it("should initialize time inputs at 00:00:00 when no time is passed in", function () {
       timer = new Timer(timerEl);
+      let inputEls = Array.from(timer.inputEls);
       expect(timer.time).toBe(0);
-      expect(timer.timeEl.innerText).toBe("00:00:00");
+      inputEls.forEach((inputEl) => {
+        expect(inputEl.value).toBe("00");
+      });
     });
     
     it("should initialize timer object at given time when time is passed in", function () {
       timer = new Timer(timerEl, 300);
+      let inputEls = Array.from(timer.inputEls);
       expect(timer.time).toBe(300);
-      expect(timer.timeEl.innerText).toBe("00:05:00");
+      expect(inputEls[0].value).toBe("00");
+      expect(inputEls[1].value).toBe("05");
+      expect(inputEls[2].value).toBe("00");
     });
   });
 
@@ -44,10 +50,13 @@ describe("Timer", function() {
     let seconds = 38;
     it("should update the time HTML element content with the correct time", function () {
       timer = new Timer(timerEl, hours + minutes + seconds);
+      let inputEls = Array.from(timer.inputEls);
       expect(timer.hours).toBe(7);
       expect(timer.minutes).toBe(16);
       expect(timer.seconds).toBe(38);
-      expect(timer.timeEl.innerHTML).toBe("07:16:38");
+      expect(inputEls[0].value).toBe("07");
+      expect(inputEls[1].value).toBe("16");
+      expect(inputEls[2].value).toBe("38");
     });
   });
 

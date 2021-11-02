@@ -10,7 +10,7 @@ export default class Timer {
     this.timeEl = timerEl.querySelector("#time");
     this.startPauseEl = timerEl.querySelector('#start-pause-btn');
     this.resetEl = timerEl.querySelector('#reset-btn');
-    this.inputEls = timeEl.children;
+    this.inputEls = this.timeEl.children;
     this.printTime();
     attachTimerEventListeners(this);
   }
