@@ -18,8 +18,5 @@ if (document.title === "Jasmine Spec Runner") {
 
 if (document.title !== "Jasmine Spec Runner")
   document.addEventListener("DOMContentLoaded", function () {
-    const timer = new Timer(document.querySelector('#timer'), 5);
-    const hours = 0;
-    const minutes = 0;
-    const seconds = 10;
+    const timer = new Timer(document.querySelector('#timer'));
   });
