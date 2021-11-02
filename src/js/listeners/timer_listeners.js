@@ -3,7 +3,7 @@ import { curry } from '../util';
 export default function attachTimerEventListeners(timer) {
   addStartPauseEventListener(timer);
   addResetEventListener(timer);
-  addTimeInputListener(timer);
+  addTimeInputListeners(timer);
   addTimeListener(timer);
 }
 
@@ -35,12 +35,12 @@ function toggleTimerInputReadOnly(timer) {
     }
 }
 
-function toggleStartPause(timer, startPauseEl) {
-  if (startPauseEl.innerHTML.toLowerCase() === 'start')
-    timer.start();
-  else
-    timer.pause();
-}
+// function toggleStartPause(timer, startPauseEl) {
+//   if (startPauseEl.innerHTML.toLowerCase() === 'start')
+//     timer.start();
+//   else
+//     timer.pause();
+// }
 
 function toggleStartPauseClass(startPauseEl) {
   startPauseEl.classList.toggle('start');
@@ -68,7 +68,12 @@ function resetCallback(timer) {
   }
 }
 
-function addTimeInputListener(timer) {
+function addTimeInputListeners(timer) {
+  addTimeEditListener(timer);
+  addTimeEditToggleListener(timer);
+}
+
+function addTimeEditListener(timer) {
   let timeEl = timer.timeEl;
   timeEl.addEventListener('keydown', timeInputCallback(timer));
 }
@@ -105,6 +110,17 @@ function isValidTimeInput(value) {
 
 function blurFocus() {
   document.activeElement.blur();
+}
+
+function addTimeEditToggleListener(timer) {
+  
+}
+
+function toggleStartPause(timer, startPauseEl) {
+  if (startPauseEl.innerHTML.toLowerCase() === 'start')
+    timer.start();
+  else
+    timer.pause();
 }
 
 function addTimeListener(timer) {
