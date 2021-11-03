@@ -21,7 +21,17 @@ if (document.title !== "Jasmine Spec Runner")
   document.addEventListener("DOMContentLoaded", function () {
     const timer = new Timer(document.querySelector('#timer'));
     const canvas = new Canvas();
-    const purpDino = new Dino({color: 'green', canvas});
+    const purpDino = new Dino({color: 'purp', canvas});
+    const redDino = new Dino({color: 'red', canvas, pos: [30, 30]});
+    const yellowDino = new Dino({color: 'yellow', canvas, pos: [60, 60]});
+    const greenDino = new Dino({color: 'green', canvas, pos: [90, 90]});
     canvas.addDrawable(purpDino);
-    canvas.animate();
+    canvas.addDrawable(redDino);
+    canvas.addDrawable(yellowDino);
+    canvas.addDrawable(greenDino);
+    // canvas.animate();
+    // purpDino.run();
+    // redDino.run();
+    // yellowDino.run();
+    // greenDino.run();
   });

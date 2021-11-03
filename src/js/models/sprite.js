@@ -13,8 +13,8 @@ export default class Sprite extends Drawable {
     let canvasHeightDefault = this.canvas.heightDefault;
     ctx.drawImage(
       this.sprite,
-      this.frameX,
-      this.frameY,
+      this.frameX * this.width,
+      this.frameY * this.height,
       this.width,
       this.height,
       this.posX, 
