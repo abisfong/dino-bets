@@ -9,7 +9,6 @@ function addResizingEventListener(canvas) {
 function resizeCanvasCallback(canvas) {
   resizeCanvas(canvas);
   return function(event) {
-    console.log('resize triggered')
     resizeCanvas(canvas);
   }
 }
@@ -17,6 +16,8 @@ function resizeCanvasCallback(canvas) {
 function resizeCanvas(canvas) {
   let canvasEl = canvas.canvasEl;
   let raceViewEl = document.getElementById('race-view');
+  canvasEl.width = raceViewEl.offsetWidth;
+  canvasEl.height = raceViewEl.offsetHeight;
   canvas.width = raceViewEl.offsetWidth;
   canvas.height = raceViewEl.offsetHeight;
 }

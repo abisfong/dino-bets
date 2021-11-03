@@ -1,15 +1,23 @@
-export default class Sprite {
+import Drawable from "./drawable";
+
+export default class Sprite extends Drawable {
   constructor(options) {
-    this.posX = options.pos[0];
-    this.posY = options.pos[1];
-    this.pos = pos;
-    this.width = options.width;
-    this.height = options.height;
-    this.frameX = options.frameX;
-    this.frameY = options.frameY;
-    this.speed = options.speed;
-    this.moving = options.moving || false;
+    super(options);
     this.sprite = new Image();
     this.sprite.src = options.src;
+  }
+
+  draw(ctx) {
+    ctx.drawImage(
+      this.sprite,
+      this.frameX,
+      this.frameY,
+      this.width,
+      this.height,
+      this.posX, 
+      this.posY,
+      this.width * (this.canvas.width / this.canvas.widthDefault),
+      this.height * (this.canvas.height / this.canvas.heightDefault),
+    );
   }
 }

@@ -1,9 +1,9 @@
 import Sprite from "./sprite";
 
 export default class Dino extends Sprite {
-  constructor(color, pos = [0, 0]) {
+  constructor(options) {
     super({
-      pos: pos,
+      pos: options.pos || [0, 0],
       width: 24,
       height: 24,
       frameX: 0,
@@ -11,10 +11,11 @@ export default class Dino extends Sprite {
       speed: 9,
       moving: false,
       sprite: new Image(),
-      src: `${color}-dino.png`,
+      src: `${Sprite.BASE_URL}${options.color}-dino.png`,
+      canvas: options.canvas
     })
 
-    this.color = color;
+    this.color = options.color;
   }
 
   static generateRandomDino() {
