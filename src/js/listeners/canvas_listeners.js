@@ -3,10 +3,10 @@ export default function addCanvasEventListeners(canvas) {
 }
 
 function addResizingEventListener(canvas) {
-  window.addEventListener('resize', resizeCanvasCallback(canvas));
+  window.addEventListener('resize', createResizeCanvasCallback(canvas));
 }
 
-function resizeCanvasCallback(canvas) {
+function createResizeCanvasCallback(canvas) {
   resizeCanvas(canvas);
   return function(event) {
     resizeCanvas(canvas);
