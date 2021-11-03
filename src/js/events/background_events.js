@@ -1,5 +1,7 @@
-const scrollBackground = new Event('scrollBackground');
+const startBackgroundScroll = new Event('startBackgroundScroll');
+const stopBackgroundScroll = new Event('stopBackgroundScroll');
 
 export {
-  scrollBackground
+  startBackgroundScroll,
+  stopBackgroundScroll
 }

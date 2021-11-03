@@ -1,6 +1,9 @@
 import Drawable from "./drawable";
 import addBackgroundEventListeners from "../../listeners/background_listeners";
-import { scrollBackground } from "../../events/background_events";
+import { 
+  startBackgroundScroll ,
+  stopBackgroundScroll
+} from "../../events/background_events";
 
 export default class Background extends Drawable {
   constructor(options) {
@@ -24,7 +27,7 @@ export default class Background extends Drawable {
 
   scroll() {
     const canvasEl = this.canvas.canvasEl;
-    canvasEl.dispatchEvent(scrollBackground);
+    canvasEl.dispatchEvent(startBackgroundScroll);
   }
 
   setPos(posX = 0, posY = 0) {

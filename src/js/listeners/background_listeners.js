@@ -4,14 +4,21 @@ export default function addBackgroundEventListeners(background) {
 
 function addBackgroundScrollListener(background) {
   const canvasEL = background.canvas.canvasEL;
-  canvasEL.addEventListener('scrollBackground', createBackgroundScrollCallback(background));
+  canvasEL.addEventListener('startBackgroundScroll', startBackgroundScroll(background));
+  canvasEL.addEventListener('stopBackgroundScroll', stopBackgroundScroll(background));
 }
 
-function createBackgroundScrollCallback(background) {
+function startBackgroundScroll(background) {
   let posX = background.posX;
   return function () {
     background.timeoutIDs.scroll = setInterval(function () {
       background.setPos(posX++)
     }, 100 / background.speed);
+  }
+}
+
+function stopBackgroundScroll(background) {
+  return function () {
+    clearInterval(background.timeoutIDs.scroll);
   }
 }
