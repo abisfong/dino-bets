@@ -17,13 +17,13 @@ function addStartPauseEventListeners(timer) {
   let timerEl = timer.timerEl;
   let startPauseEl = timer.startPauseEl;
 
-  timerEl.addEventListener('startPauseTimer', startPauseCallback(timer));
+  timerEl.addEventListener('startPauseTimer', createStartPauseCallback(timer));
   startPauseEl.addEventListener('click', event => { 
     startPauseEl.dispatchEvent(startPauseTimer) 
   });
 }
 
-function startPauseCallback(timer) {
+function createStartPauseCallback(timer) {
   let timerEl = timer.timerEl;
   let startPauseEl = timer.startPauseEl;
   return function (event) {
@@ -57,13 +57,13 @@ function toggleStartPauseText(startPauseEl) {
 function addResetEventListener(timer) {
   let timerEl = timer.timerEl;
   let resetEl = timer.resetEl;
-  timerEl.addEventListener('resetTimer', resetCallback(timer));
+  timerEl.addEventListener('resetTimer', createResetCallback(timer));
   resetEl.addEventListener('click', event => {
     resetEl.dispatchEvent(resetTimer);
   });
 }
 
-function resetCallback(timer) {
+function createResetCallback(timer) {
   let startPauseEl = timer.startPauseEl;
   let resetEl = timer.resetEl;
   return function () {
@@ -82,20 +82,22 @@ function addTimeInputListeners(timer) {
 
 function addTimeEditListener(timer) {
   let timeEl = timer.timeEl;
-  timeEl.addEventListener('keydown', timeInputCallback(timer));
+  timeEl.addEventListener('keydown', createTimeInputCallback(timer));
 }
 
-function timeInputCallback(timer) {
+function createTimeInputCallback(timer) {
+  let timerEl = timer.timerEl;
   return function (event) {
     if (event.key === 'Enter') {
       addTimeFromInput(timer);
       blurFocus();
-      resetCallback(timer)();
+      timerEl.dispatchEvent(resetTimer);
     }
   }
 }
 
 function addTimeFromInput(timer) {
+  let timerEl = timer.timerEl;
   let inputEls = timer.timeEl.children;
   let setTimeFromInput = curry(timer.setTimeFromInput, timer, inputEls.length);
 
@@ -105,7 +107,7 @@ function addTimeFromInput(timer) {
       let timeAmount = parseInt(input);
       setTimeFromInput(timeAmount);
     } else {
-      resetCallback(timer)();
+      timerEl.dispatchEvent(resetTimer);
       return;
     }
   }

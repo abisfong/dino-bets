@@ -4,20 +4,20 @@ export default function addDinoEventListeners(dino) {
 
 function addRunningEventListener(dino) {
   let canvasEl = dino.canvas.canvasEl;
-  canvasEl.addEventListener('runDino', animateDinoRun(dino));
-  canvasEl.addEventListener('stopDino', stopDinoRun(dino));
+  canvasEl.addEventListener('runDino', startDinoRunFrameCycle(dino));
+  canvasEl.addEventListener('stopDino', stopDinoRunFrameCycle(dino));
 }
 
-function animateDinoRun(dino) {
+function startDinoRunFrameCycle(dino) {
   let frameX = 0;
   return function () {
     dino.animationData.runInterval = setInterval(function () {
       dino.setRunningFrame(frameX++);
-    }, 50)
+    }, 50 * dino.speed)
   }
 }
 
-function stopDinoRun(dino) {
+function stopDinoRunFrameCycle(dino) {
   return function () {
     clearInterval(dino.animationData.runInterval);
   }
