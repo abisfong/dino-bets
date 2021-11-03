@@ -23,6 +23,15 @@ export default class Dino extends Sprite {
     let color = Dino.COLORS[Math.round(Math.random() * (colorCount - 1))];
     return new Dino(color);
   }
+
+  setFrames(frameX, frameY) {
+    this.frameX = frameX;
+    this.frameY = frameY;
+  }
+
+  setRunningFrame(frameX, frameY = 0) {
+    this.setFrames((frameX % 7) + 3, frameY);
+  }
 }
 
 Dino.COLORS = [
