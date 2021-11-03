@@ -4,10 +4,10 @@ export default function addBackgroundEventListeners(background) {
 
 function addBackgroundScrollListener(background) {
   const canvasEL = background.canvas.canvasEL;
-  canvasEL.addEventListener('scrollBackground', scrollBackground(background));
+  canvasEL.addEventListener('scrollBackground', createBackgroundScrollCallback(background));
 }
 
-function scrollBackground(background) {
+function createBackgroundScrollCallback(background) {
   let posX = background.posX;
   return function () {
     background.timeoutIDs.scroll = setInterval(function () {
