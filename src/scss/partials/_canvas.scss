@@ -2,7 +2,7 @@
 
 #canvas {
   @include box-shadow;
-  
+
   width: 100%;
   height: 100%;
   
@@ -12,6 +12,6 @@
   left: 0;
 
   // border: 4px solid black;
-  background-image: url('./assets/images/desert-bg.png');
+  background-image: url('./assets/images/pixel-track.jpg');
   background-size: cover;
 }

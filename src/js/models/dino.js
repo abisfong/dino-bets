@@ -33,7 +33,7 @@ export default class Dino extends Sprite {
   }
 
   setRunningFrame(frameX, frameY = 0) {
-    this.setFrames((frameX % 7) + 3, frameY);
+    this.setFrames((frameX % 6) + 4, frameY);
   }
 
   run() {
