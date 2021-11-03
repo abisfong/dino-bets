@@ -5,12 +5,12 @@ import { runDino } from '../../events/dino_events';
 export default class Dino extends Sprite {
   constructor(options) {
     super({
-      pos: options.pos || [0, 0],
+      pos: options.pos,
       width: 24,
       height: 24,
       frameX: 0,
       frameY: 0,
-      speed: options.speed || 1,
+      speed: options.speed || 3,
       moving: false,
       sprite: new Image(),
       src: `${Sprite.BASE_URL}/${options.color}-dino.png`,

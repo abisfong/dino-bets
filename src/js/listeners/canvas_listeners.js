@@ -22,5 +22,4 @@ function resizeCanvas(canvas) {
   let raceViewHeight = raceViewEl.offsetHeight;
   canvasEl.width = raceViewWidth > canvas.widthDefault ? canvas.widthDefault : raceViewWidth;
   canvasEl.height = raceViewHeight > canvas.heightDefault ? canvas.heightDefault : raceViewHeight;
-  canvasEl.dispatchEvent(resizeBackground);
 }

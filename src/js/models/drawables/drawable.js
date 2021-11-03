@@ -1,8 +1,8 @@
 export default class Drawable {
   constructor (options) {
-    this.posX = options.pos[0];
-    this.posY = options.pos[1];
-    this.pos = options.pos;
+    this.posX = options.pos ? options.pos[0] : 0;
+    this.posY = options.pos ? options.pos[1]: 0;
+    this.pos = options.pos ? options.pos: [0, 0];
     this.width = options.width;
     this.height = options.height;
     this.frameX = options.frameX;
@@ -13,7 +13,7 @@ export default class Drawable {
     this.vel = options.vel,
     this.moving = options.moving || false;
     this.canvas = options.canvas;
-    this.ctx = canvas.getContext('2d');
+    this.ctx = options.canvas.canvasEl.getContext('2d');
   }
 
   draw() {}
