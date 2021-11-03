@@ -8,11 +8,11 @@ export default class Sprite extends Drawable {
     this.timeoutIDs = {};
   }
 
-  draw(ctx) {
+  draw() {
     let canvasEl = this.canvas.canvasEl;
     let canvasWidthDefault = this.canvas.widthDefault;
     let canvasHeightDefault = this.canvas.heightDefault;
-    ctx.drawImage(
+    this.ctx.drawImage(
       this.sprite,
       this.frameX * this.width,
       this.frameY * this.height,

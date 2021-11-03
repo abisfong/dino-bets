@@ -1,3 +1,5 @@
+import { resizeBackground } from "../events/background_events";
+
 export default function addCanvasEventListeners(canvas) {
   addResizingEventListener(canvas);
 }
@@ -20,4 +22,5 @@ function resizeCanvas(canvas) {
   let raceViewHeight = raceViewEl.offsetHeight;
   canvasEl.width = raceViewWidth > canvas.widthDefault ? canvas.widthDefault : raceViewWidth;
   canvasEl.height = raceViewHeight > canvas.heightDefault ? canvas.heightDefault : raceViewHeight;
+  canvasEl.dispatchEvent(resizeBackground);
 }

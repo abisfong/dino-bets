@@ -13,7 +13,7 @@ export default class Dino extends Sprite {
       speed: options.speed || 1,
       moving: false,
       sprite: new Image(),
-      src: `${Sprite.BASE_URL}${options.color}-dino.png`,
+      src: `${Sprite.BASE_URL}/${options.color}-dino.png`,
       canvas: options.canvas
     })
 

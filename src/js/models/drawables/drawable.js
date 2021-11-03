@@ -13,9 +13,10 @@ export default class Drawable {
     this.vel = options.vel,
     this.moving = options.moving || false;
     this.canvas = options.canvas;
+    this.ctx = canvas.getContext('2d');
   }
 
   draw() {}
 }
 
-Drawable.BASE_URL = './dist/assets/images/';
+Drawable.BASE_URL = './dist/assets/images';

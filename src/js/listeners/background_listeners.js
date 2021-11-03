@@ -3,8 +3,9 @@ export default function addBackgroundEventListeners(background) {
 }
 
 function addResizingEventListener(background) {
-  window.addEventListener(
-    'resize', 
+  let canvasEl = background.canvas.canvasEl;
+  canvasEl.addEventListener(
+    'resizeBackground', 
     createResizeBackgroundCallback(background)
   );
 }
@@ -15,7 +16,7 @@ function createResizeBackgroundCallback(background) {
   }
 }
 
-resizeBackground(background) {
+function resizeBackground(background) {
   let canvasEl = background.canvas.canvasEl;
   background.width = canvasEl.width;
   background.height = canvasEl.height;

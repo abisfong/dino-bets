@@ -19,7 +19,7 @@ export default class Canvas {
   animate() {
     this.clearCanvas();
     for(let i = 0; i < this.drawables.length; i++)
-      this.drawables[i].draw(this.ctx);
+      this.drawables[i].draw();
     requestAnimationFrame(this.animate.bind(this));
   }
   
