@@ -30,7 +30,7 @@ export default class Canvas {
   scrollBackground() {
     let canvasEl = this.canvasEl;
     this.backgroundPositionInterval = setInterval(() => {
-      canvasEl.style.backgroundPosition = `${this.backgroundPositionX++}% 0%`
+      canvasEl.style.backgroundPositionX = `${this.backgroundPositionX++}%`
     }, 15);
   }
 

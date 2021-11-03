@@ -29,10 +29,10 @@ if (document.title !== "Jasmine Spec Runner")
     // canvas.addDrawable(redDino);
     // canvas.addDrawable(yellowDino);
     // canvas.addDrawable(greenDino);
-    // canvas.animate();
-    // purpDino.run();
+    canvas.animate();
+    purpDino.run();
     // redDino.run();
     // yellowDino.run();
     // greenDino.run();
-    // canvas.scrollBackground();
+    canvas.scrollBackground();
   });
