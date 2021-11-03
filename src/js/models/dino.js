@@ -1,15 +1,20 @@
-export default class Dino {
-  constructor(color, pos) {
+import Sprite from "./sprite";
+
+export default class Dino extends Sprite {
+  constructor(color, pos = [0, 0]) {
+    super({
+      pos: pos,
+      width: 24,
+      height: 24,
+      frameX: 0,
+      frameY: 0,
+      speed: 9,
+      moving: false,
+      sprite: new Image(),
+      src: `${color}-dino.png`,
+    })
+
     this.color = color;
-    this.pos = pos;
-    this.width = 24;
-    this.height = 24;
-    this.frameX = 0;
-    this.frameY = 0;
-    this.speed = 9;
-    this.moving = false;
-    this.dinoSprite = new Image();
-    this.dinoSprite.src = `${color}-dino.png`;
   }
 
   static generateRandomDino() {

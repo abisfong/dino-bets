@@ -4,7 +4,10 @@
   display: flex;
   height: auto;
   width: fit-content;
-  margin: 0 auto;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, 0);
 
   justify-content: space-between;
   
