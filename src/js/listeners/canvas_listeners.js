@@ -8,7 +8,7 @@ function addResizingEventListener(canvas) {
 
 function createResizeCanvasCallback(canvas) {
   resizeCanvas(canvas);
-  return function(event) {
+  return function() {
     resizeCanvas(canvas);
   }
 }
