@@ -1,6 +1,6 @@
 import Sprite from "./sprite";
-import addDinoEventListeners from "../listeners/dino_listeners";
-import { runDino } from '../events/dino_events';
+import addDinoEventListeners from "../../listeners/dino_listeners";
+import { runDino } from '../../events/dino_events';
 
 export default class Dino extends Sprite {
   constructor(options) {
@@ -32,7 +32,7 @@ export default class Dino extends Sprite {
     this.frameY = frameY;
   }
 
-  setRunningFrame(frameX, frameY = 0) {
+  setRunningFrame(frameX = 0, frameY = 0) {
     this.setFrames((frameX % 6) + 4, frameY);
   }
 

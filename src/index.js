@@ -1,5 +1,5 @@
 import Bet from './js/models/bet';
-import Dino from './js/models/dino';
+import Dino from './js/models/drawables/dino';
 import Money from './js/models/Money';
 import Race from './js/models/race';
 import Timer from './js/models/timer';
@@ -29,10 +29,10 @@ if (document.title !== "Jasmine Spec Runner")
     // canvas.addDrawable(redDino);
     // canvas.addDrawable(yellowDino);
     // canvas.addDrawable(greenDino);
-    canvas.animate();
-    purpDino.run();
+    // canvas.animate();
+    // purpDino.run();
     // redDino.run();
     // yellowDino.run();
     // greenDino.run();
-    canvas.scrollBackground();
+    // canvas.scrollBackground();
   });
