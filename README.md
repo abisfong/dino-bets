@@ -4,8 +4,8 @@
 Dino Bets is based on a tradition established by cohort 2021-08-30-SF in which
 people would guess on what dinosaur or in what sequence the dinosaurs would win 
 in a Dino Race. Dino Race is an online timer (https://www.online-stopwatch.com/dino-race/)
-that displays an animated race between 2 to 4 (or 2 to 100 if you pay for a 
-subscription) dinosaurs. A random dinosaur wins everytime.
+that displays an animated race between 2 to 4 dinosaurs (or 2 to 100 if you pay for a 
+subscription). A random dinosaur wins everytime.
 <br><br>
 Dino Bets will be an implementation of this tradition. Start a timer and place a
 bet or simply enjoy the race!
