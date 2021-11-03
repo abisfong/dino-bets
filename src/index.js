@@ -19,16 +19,16 @@ if (document.title === "Jasmine Spec Runner") {
 
 if (document.title !== "Jasmine Spec Runner")
   document.addEventListener("DOMContentLoaded", function () {
-    const timer = new Timer(document.querySelector('#timer'));
-    const canvas = new Canvas();
-    const purpDino = new Dino({color: 'purp', canvas, pos: [0, 90]});
-    const redDino = new Dino({color: 'red', canvas, pos: [30, 90]});
-    const yellowDino = new Dino({color: 'yellow', canvas, pos: [60, 90]});
-    const greenDino = new Dino({color: 'green', canvas, pos: [90, 90]});
-    canvas.addDrawable(purpDino);
-    canvas.addDrawable(redDino);
-    canvas.addDrawable(yellowDino);
-    canvas.addDrawable(greenDino);
+    // const timer = new Timer(document.querySelector('#timer'));
+    // const canvas = new Canvas();
+    // const purpDino = new Dino({color: 'purp', canvas, pos: [0, 90]});
+    // const redDino = new Dino({color: 'red', canvas, pos: [30, 90]});
+    // const yellowDino = new Dino({color: 'yellow', canvas, pos: [60, 90]});
+    // const greenDino = new Dino({color: 'green', canvas, pos: [90, 90]});
+    // canvas.addDrawable(purpDino);
+    // canvas.addDrawable(redDino);
+    // canvas.addDrawable(yellowDino);
+    // canvas.addDrawable(greenDino);
     // canvas.animate();
     // purpDino.run();
     // redDino.run();

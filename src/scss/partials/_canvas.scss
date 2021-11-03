@@ -1,4 +1,8 @@
+@import '../mixins/box-shadow';
+
 #canvas {
+  @include box-shadow;
+  
   width: 100%;
   height: 100%;
   
@@ -7,7 +11,7 @@
   top: 0;
   left: 0;
 
-  border: 4px solid black;
+  // border: 4px solid black;
   background-image: url('./assets/images/desert-bg.png');
   background-size: cover;
 }
