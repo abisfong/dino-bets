@@ -7,6 +7,8 @@ export default class Canvas {
     this.widthDefault = 300;
     this.heightDefault = 168.75;
     this.drawables = [];
+    this.backgroundPositionX = 0;
+    this.backgroundPositionInterval = null;
     addCanvasEventListeners(this);
   }
 
@@ -23,5 +25,16 @@ export default class Canvas {
   
   clearCanvas() {
     this.ctx.clearRect(0, 0, this.canvasEl.width, this.canvasEl.height);
+  }
+
+  scrollBackground() {
+    let canvasEl = this.canvasEl;
+    this.backgroundPositionInterval = setInterval(() => {
+      canvasEl.style.backgroundPosition = `${this.backgroundPositionX++}% 0%`
+    }, 15);
+  }
+
+  stopBackgroundScroll() {
+    clearInterval(this.backgroundPositionInterval);
   }
 }

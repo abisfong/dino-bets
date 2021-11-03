@@ -34,4 +34,5 @@ if (document.title !== "Jasmine Spec Runner")
     // redDino.run();
     // yellowDino.run();
     // greenDino.run();
+    // canvas.scrollBackground();
   });
