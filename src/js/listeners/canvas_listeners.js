@@ -16,8 +16,8 @@ function resizeCanvasCallback(canvas) {
 function resizeCanvas(canvas) {
   let canvasEl = canvas.canvasEl;
   let raceViewEl = document.getElementById('race-view');
-  canvasEl.width = raceViewEl.offsetWidth;
-  canvasEl.height = raceViewEl.offsetHeight;
-  canvas.width = raceViewEl.offsetWidth;
-  canvas.height = raceViewEl.offsetHeight;
+  let raceViewWidth = raceViewEl.offsetWidth;
+  let raceViewHeight = raceViewEl.offsetHeight;
+  canvasEl.width = raceViewWidth > canvas.widthDefault ? canvas.widthDefault : raceViewWidth;
+  canvasEl.height = raceViewHeight > canvas.heightDefault ? canvas.heightDefault : raceViewHeight;
 }

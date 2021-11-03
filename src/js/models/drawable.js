@@ -14,6 +14,8 @@ export default class Drawable {
     this.moving = options.moving || false;
     this.canvas = options.canvas;
   }
+
+  draw() {}
 }
 
 Drawable.BASE_URL = './dist/assets/images/';

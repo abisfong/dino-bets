@@ -1,4 +1,4 @@
-import addCanvasEventListeners from "../listeners/canvas_event";
+import addCanvasEventListeners from "../listeners/canvas_listeners";
 
 export default class Canvas {
   constructor() {

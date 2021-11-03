@@ -8,6 +8,9 @@ export default class Sprite extends Drawable {
   }
 
   draw(ctx) {
+    let canvasEl = this.canvas.canvasEl;
+    let canvasWidthDefault = this.canvas.widthDefault;
+    let canvasHeightDefault = this.canvas.heightDefault;
     ctx.drawImage(
       this.sprite,
       this.frameX,
@@ -16,8 +19,8 @@ export default class Sprite extends Drawable {
       this.height,
       this.posX, 
       this.posY,
-      this.width * (this.canvas.width / this.canvas.widthDefault),
-      this.height * (this.canvas.height / this.canvas.heightDefault),
+      this.width * (canvasEl.width / canvasWidthDefault),
+      this.height * (canvasEl.height / canvasHeightDefault),
     );
   }
 }
