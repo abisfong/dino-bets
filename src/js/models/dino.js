@@ -9,7 +9,7 @@ export default class Dino {
     this.speed = 9;
     this.moving = false;
     this.dinoSprite = new Image();
-    this.dinoSpriteSrc = `${color}-dino.png`;
+    this.dinoSprite.src = `${color}-dino.png`;
   }
 
   static generateRandomDino() {
