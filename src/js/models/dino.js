@@ -1,6 +1,15 @@
 export default class Dino {
-  constructor(color) {
+  constructor(color, pos) {
     this.color = color;
+    this.pos = pos;
+    this.width = 24;
+    this.height = 24;
+    this.frameX = 0;
+    this.frameY = 0;
+    this.speed = 9;
+    this.moving = false;
+    this.dinoSprite = new Image();
+    this.dinoSpriteSrc = `${color}-dino.png`;
   }
 
   static generateRandomDino() {
