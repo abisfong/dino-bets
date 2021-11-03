@@ -11,7 +11,7 @@ function addRunningEventListener(dino) {
 function startDinoRunFrameCycle(dino) {
   let frameX = 0;
   return function () {
-    dino.animationData.runInterval = setInterval(function () {
+    dino.timeoutIDs.run = setInterval(function () {
       dino.setRunningFrame(frameX++);
     }, 50 * dino.speed)
   }
@@ -19,6 +19,6 @@ function startDinoRunFrameCycle(dino) {
 
 function stopDinoRunFrameCycle(dino) {
   return function () {
-    clearInterval(dino.animationData.runInterval);
+    clearInterval(dino.timeoutIDs.run);
   }
 }

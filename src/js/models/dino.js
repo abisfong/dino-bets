@@ -18,7 +18,6 @@ export default class Dino extends Sprite {
     })
 
     this.color = options.color;
-    // this.animationData = {};
     addDinoEventListeners(this);
   }
 
