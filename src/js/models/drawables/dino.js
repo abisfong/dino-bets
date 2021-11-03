@@ -10,7 +10,7 @@ export default class Dino extends Sprite {
       height: 24,
       frameX: 0,
       frameY: 0,
-      speed: options.speed || 3,
+      speed: options.speed || 1,
       moving: false,
       sprite: new Image(),
       src: `${Sprite.BASE_URL}/${options.color}-dino.png`,

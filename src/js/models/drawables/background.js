@@ -1,9 +1,11 @@
 import Drawable from "./drawable";
 import addBackgroundEventListeners from "../../listeners/background_listeners";
+import { scrollBackground } from "../../events/background_events";
 
 export default class Background extends Drawable {
   constructor(options) {
     super(options);
+    this.speed = options.speed || 4
     this.image = new Image();
     this.image.src = options.src || `${Background.BASE_URL}/desert-bg.png`;
     addBackgroundEventListeners(this);
@@ -21,6 +23,12 @@ export default class Background extends Drawable {
   }
 
   scroll() {
+    const canvasEl = this.canvas.canvasEl;
+    canvasEl.dispatchEvent(scrollBackground);
+  }
 
+  setPos(posX = 0, posY = 0) {
+    this.posX = posX;
+    this.posY = posY;
   }
 }
