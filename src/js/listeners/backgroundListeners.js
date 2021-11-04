@@ -9,12 +9,40 @@ function addBackgroundScrollListener(background) {
 }
 
 function startBackgroundScroll(background) {
-  let posX = background.posX;
-  return function () {
+  return function (event) {
+    let directionDelta = getPosDelta(event.direction);
     background.timeoutIDs.scroll = setInterval(function () {
-      background.setPos(posX++)
+      scrollBackground(background, directionDelta);
     }, 100 / background.speed);
   }
+}
+
+function getPosDelta(direction) {
+  let directionDelta;
+  switch (direction) {
+    case 'left':
+      directionDelta = [-1, 0];
+      break;
+    case 'right':
+      directionDelta = [1, 0];
+      break;
+    case 'up':
+      directionDelta = [0, 1];
+      break;
+    case 'down':
+      directionDelta = [0, -1];
+      break;
+  }
+  return directionDelta;
+}
+
+function scrollBackground(background, directionDelta) {
+  let posDeltaX = background.posDeltaX;
+  let posDeltaY = background.posDeltaY;
+  background.setScrollPosDelta(
+    directionDelta[0] + posDeltaX, 
+    directionDelta[1] + posDeltaY,
+  );
 }
 
 function stopBackgroundScroll(background) {

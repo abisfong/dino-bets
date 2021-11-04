@@ -27,13 +27,13 @@ export default class Dino extends Sprite {
     return new Dino(color);
   }
 
-  setFrames(frameX, frameY) {
+  setFrame(frameX, frameY) {
     this.frameX = frameX;
     this.frameY = frameY;
   }
 
   setRunningFrame(frameX = 0, frameY = 0) {
-    this.setFrames((frameX % 6) + 4, frameY);
+    this.setFrame((frameX % 6) + 4, frameY);
   }
 
   run() {

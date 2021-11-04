@@ -11,6 +11,8 @@ export default class Background extends Drawable {
     this.speed = options.speed || 4
     this.image = new Image();
     this.image.src = options.src || `${Background.BASE_URL}/desert-bg.png`;
+    this.posXDelta = 0;
+    this.posYDelta = 0;
     addBackgroundEventListeners(this);
   }
 
@@ -18,20 +20,30 @@ export default class Background extends Drawable {
     let canvasEl = this.canvas.canvasEl;
     this.ctx.drawImage(
       this.image,
-      this.posX,
-      this.posY,
+      this.posX + this.posXDelta,
+      this.posY + this.posYDelta,
       canvasEl.width,
       canvasEl.height,
     );
   }
 
-  scroll() {
+  scroll(direction) {
     const canvasEl = this.canvas.canvasEl;
+    startBackgroundScroll.direction = direction;
     canvasEl.dispatchEvent(startBackgroundScroll);
   }
 
-  setPos(posX = 0, posY = 0) {
-    this.posX = posX;
-    this.posY = posY;
+  setScrollPosDelta(posXDelta = 0, posYDelta = 0) {
+    let canvasWidth = this.canvas.width;
+    let canvasHeight = this.canvas.height;
+    this.setPosDelta(
+      posXDelta % canvasWidth, 
+      posYDelta % canvasHeight
+    )
+  }
+
+  setPosDelta(posXDelta = 0, posYDelta = 0) {
+    this.posXDelta = posXDelta;
+    this.posYDelta = posYDelta;
   }
 }
