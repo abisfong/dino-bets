@@ -32,8 +32,13 @@ function addStartRaceEventListener(game) {
 }
 
 function createStartRaceCallback(game) {
+  startAnimations(game);
   startBackgroundScroll(game);
   // startRace(game);
+}
+
+function startAnimations(game) {
+  game.canvas.animate();
 }
 
 function startBackgroundScroll(game) {
