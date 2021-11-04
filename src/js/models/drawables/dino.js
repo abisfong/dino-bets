@@ -40,6 +40,12 @@ export default class Dino extends Sprite {
     const canvasEl = this.canvas.canvasEl;
     canvasEl.dispatchEvent(runDino);
   }
+
+  stop() {
+    const canvasEl = this.canvas.canvasEl;
+    canvasEl.dispatchEvent(stopDino);
+    this.frameX = 0;
+  }
 }
 
 Dino.COLORS = [
