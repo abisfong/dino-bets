@@ -23,7 +23,7 @@ function createStartPauseCallback(game) {
 function addStartRaceEventListener(game) {
   const startPauseEl = game.timer.startPauseEl;
   startPauseEl.addEventListener(
-    'startRace', 
+    'startRace',
     createStartRaceCallback(game)
   );
 }

@@ -1,19 +1,20 @@
 import Drawable from "./drawable";
 import addBackgroundEventListeners from "../../listeners/backgroundListeners";
 import { 
-  startBackgroundScroll ,
+  startBackgroundScroll,
   stopBackgroundScroll
 } from "../../events/backgroundEvents";
 
 export default class Background extends Drawable {
   constructor(options) {
     super(options);
-    this.speed = options.speed || 4
+    this.speed = options.speed || 4;
     this.image = new Image();
     this.image.src = options.src || `${Background.BASE_URL}/desert-bg.png`;
     this.posXDelta = 0;
     this.posYDelta = 0;
     addBackgroundEventListeners(this);
+    Background.LISTENERS_LOADED = true;
   }
 
   draw() {
@@ -27,19 +28,22 @@ export default class Background extends Drawable {
   }
 
   scroll(direction) {
+    console.log('starting scroll');
     const canvasEl = this.canvas.canvasEl;
     startBackgroundScroll.direction = direction;
+    startBackgroundScroll.background = this;
     canvasEl.dispatchEvent(startBackgroundScroll);
   }
 
   stopScroll() {
     const canvasEl = this.canvas.canvasEl;
+    stopBackgroundScroll.background = this;
     canvasEl.dispatchEvent(stopBackgroundScroll);
   }
 
   setScrollPosDelta(posXDelta = 0, posYDelta = 0) {
     this.setPosDelta(
-      posXDelta % this.canvas.width, 
+      posXDelta % this.canvas.width,
       posYDelta % this.canvas.height
     )
   }
@@ -49,3 +53,5 @@ export default class Background extends Drawable {
     this.posYDelta = posYDelta;
   }
 }
+
+Background.LISTENERS_LOADED = false;

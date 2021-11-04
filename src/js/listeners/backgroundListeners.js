@@ -1,20 +1,22 @@
+import Background from "../models/drawables/background";
+
 export default function addBackgroundEventListeners(background) {
-  addBackgroundScrollListener(background);
+  if (!Background.LISTENERS_LOADED)
+    addBackgroundScrollListener();
 }
 
-function addBackgroundScrollListener(background) {
-  const canvasEl = background.canvas.canvasEl;
-  canvasEl.addEventListener('startBackgroundScroll', startBackgroundScroll(background));
-  canvasEl.addEventListener('stopBackgroundScroll', stopBackgroundScroll(background));
+function addBackgroundScrollListener() {  
+  const canvasEl = document.getElementById('canvas');
+  canvasEl.addEventListener('startBackgroundScroll', startBackgroundScroll);
+  canvasEl.addEventListener('stopBackgroundScroll', stopBackgroundScroll);
 }
 
-function startBackgroundScroll(background) {
-  return function (event) {
-    let directionDelta = getPosDelta(event.direction);
-    background.timeoutIDs.scroll = setInterval(function () {
-      scrollBackground(background, directionDelta);
-    }, 100 / background.speed);
-  }
+function startBackgroundScroll(event) {
+  let directionDelta = getPosDelta(event.direction);
+  let background = event.background;
+  background.timeoutIDs.scroll = setInterval(function () {
+    scrollBackground(background, directionDelta);
+  }, 100 / background.speed);
 }
 
 function getPosDelta(direction) {
@@ -45,8 +47,7 @@ function scrollBackground(background, directionDelta) {
   );
 }
 
-function stopBackgroundScroll(background) {
-  return function () {
-    clearInterval(background.timeoutIDs.scroll);
-  }
+function stopBackgroundScroll(event) {
+  let background = event.background;
+  clearInterval(background.timeoutIDs.scroll);
 }
