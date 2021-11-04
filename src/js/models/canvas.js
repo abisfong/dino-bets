@@ -18,6 +18,12 @@ export default class Canvas {
     this.drawables.push(drawable);
   }
 
+  addDrawables(drawables) {
+    drawables.forEach(drawable => {
+      this.drawables.push(drawable);
+    });
+  }
+
   animate() {
     this.clearCanvas();
     for(let i = 0; i < this.drawables.length; i++)

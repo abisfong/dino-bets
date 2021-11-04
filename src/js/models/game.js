@@ -15,6 +15,7 @@ export default class Game {
       new Background({canvas: this.canvas}),
       new Background({canvas: this.canvas, pos: [this.canvas.width, 0]})
     ];
+    this.canvas.addDrawables([...this.backgrounds, ...dinos]);
     addGameEventListeners(this);
   }
 

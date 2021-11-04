@@ -1,3 +1,6 @@
+import { startBackgroundScroll } from "../events/backgroundEvents";
+import { startRace } from "../events/gameEvents";
+
 export default function addGameEventListeners(game) {
   addStartPauseEventListeners(game);
   addStartRaceEventListener(game);
@@ -28,6 +31,14 @@ function addStartRaceEventListener(game) {
   );
 }
 
-function createResetCallback(game) {
-  
+function createStartRaceCallback(game) {
+  startBackgroundScroll(game);
+  // startRace(game);
+}
+
+function startBackgroundScroll(game) {
+  let backgrounds = game.backgrounds;
+  backgrounds.forEach((background) => {
+    background.scroll('left');
+  });
 }
