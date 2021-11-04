@@ -27,10 +27,10 @@ function getPosDelta(direction) {
       directionDelta = [1, 0];
       break;
     case 'up':
-      directionDelta = [0, 1];
+      directionDelta = [0, -1];
       break;
     case 'down':
-      directionDelta = [0, -1];
+      directionDelta = [0, 1];
       break;
   }
   return directionDelta;

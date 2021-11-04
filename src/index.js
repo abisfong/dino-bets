@@ -32,7 +32,6 @@ if (document.title !== "Jasmine Spec Runner")
     // const yellowDino = new Dino({color: 'yellow', canvas, pos: [60, 90]});
     // const greenDino = new Dino({color: 'green', canvas, pos: [90, 90]});
     const background = new Background({canvas});
-    console.log(background);
     canvas.addDrawable(background);
     // canvas.addDrawable(purpDino);
     // canvas.addDrawable(redDino);
