@@ -1,6 +1,5 @@
 export default function addDinoEventListeners(dino) {
   addRunningEventListener();
-  addStartPauseEventListener();
 }
 
 function addRunningEventListener() {
@@ -11,6 +10,7 @@ function addRunningEventListener() {
 
 function startDinoRunFrameCycle(event) {
   let dino = event.dino;
+  console.log('starting running animation', dino);
   dino.timeoutIDs.run = setInterval(function () {
     dino.cycleRunningFrame();
   }, 100 / dino.speed)

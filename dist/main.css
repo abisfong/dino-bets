@@ -9,6 +9,7 @@
   min-height: 300px;
   margin: 5vh auto;
   background-color: antiquewhite;
+  border-radius: 5px;
 }
 
 #timer {
@@ -222,4 +223,5 @@ table {
   z-index: 0;
   top: 0;
   left: 0;
+  border-radius: 5px;
 }

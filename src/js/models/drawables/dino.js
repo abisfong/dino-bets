@@ -31,12 +31,13 @@ export default class Dino extends Sprite {
   }
 
   cycleRunningFrame() {
-    this.frameX = (this.frameX % 6) + 4
-    this.setFrame(this.frameX, 0);
+    this.frameXDelta = this.frameXDelta % 10 || 4;
+    this.setFrame(this.frameXDelta++, 0);
   }
 
   startRunAnimation() {
     const canvasEl = this.canvas.canvasEl;
+    runDino.dino = this;
     canvasEl.dispatchEvent(runDino);
   }
 

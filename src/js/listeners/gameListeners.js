@@ -42,9 +42,16 @@ function startBackgroundScroll(game) {
   });
 }
 
-// function startRace(game) {
+function startRace(game) {
+  startDinoRunAnimations(game);
+}
 
-// }
+function startDinoRunAnimations(game) {
+  let dinos = game.dinos;
+  dinos.forEach(dino => {
+    dino.startRunAnimation();
+  });
+}
 
 function addPauseRaceEventListener(game) {
   const startPauseEl = game.timer.startPauseEl;
@@ -57,6 +64,7 @@ function addPauseRaceEventListener(game) {
 function createPauseRaceCallback(game) {
   return function () {
     stopBackgroundScroll(game);
+    stopDinoRunAnimations(game);
   }
 }
 
@@ -64,5 +72,12 @@ function stopBackgroundScroll(game) {
   let backgrounds = game.backgrounds;
   backgrounds.forEach((background) => {
     background.stopScroll();
+  });
+}
+
+function stopDinoRunAnimations(game) {
+  let dinos = game.dinos;
+  dinos.forEach(dino => {
+    dino.stopRunAnimation();
   });
 }

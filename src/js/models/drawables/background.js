@@ -11,17 +11,19 @@ export default class Background extends Drawable {
     this.speed = options.speed || 4;
     this.image = new Image();
     this.image.src = options.src || `${Background.BASE_URL}/desert-bg.png`;
-    this.posXDelta = 0;
-    this.posYDelta = 0;
     addBackgroundEventListeners(this);
     Background.LISTENERS_LOADED = true;
+    this.canvasInitialWidth = this.canvas.width;
+    this.canvasInitialHeight = this.canvas.height;
   }
 
   draw() {
+    let xRatio = (this.canvas.width / this.canvasInitialWidth);
+    let yRatio = (this.canvas.height / this.canvasInitialHeight);
     this.ctx.drawImage(
       this.image,
-      this.posX + this.posXDelta,
-      this.posY + this.posYDelta,
+      (this.posX + this.posXDelta) * xRatio,
+      (this.posY + this.posYDelta) * yRatio,
       canvas.width + 10,
       canvas.height,
     );
@@ -41,6 +43,8 @@ export default class Background extends Drawable {
   }
 
   setScrollPosDelta(posXDelta = 0, posYDelta = 0) {
+    console.log("canvas dimensions", this.canvas.width, this.canvas.width);
+    console.log('deltas', posXDelta, posYDelta);
     this.setPosDelta(
       posXDelta % this.canvas.width,
       posYDelta % this.canvas.height

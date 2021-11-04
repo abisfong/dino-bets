@@ -3,10 +3,14 @@ export default class Drawable {
     this.posX = options.pos ? options.pos[0] : 0;
     this.posY = options.pos ? options.pos[1]: 0;
     this.pos = options.pos ? options.pos: [0, 0];
+    this.posXDelta = 0;
+    this.posYDelta = 0;
     this.width = options.width;
     this.height = options.height;
     this.frameX = options.frameX;
     this.frameY = options.frameY;
+    this.frameXDelta = 0;
+    this.frameYDelta = 0;
     this.speed = options.speed || 1;
     this.velX = options.vel? options.vel[0] : undefined,
     this.velY = options.vel? options.vel[1] : undefined,

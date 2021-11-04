@@ -31,17 +31,21 @@ export default class Game {
   }
 
   init(data) {
+    this.addAllEventListeners();
     this.createBackgrounds();
     this.createDinos(data.dinoColors);
     this.canvas.addDrawables([...this.backgrounds, ...this.dinos]);
     this.canvas.animate();
-    this.addAllEventListeners();
   }
 
   createBackgrounds() {
     this.backgrounds = [
-      new Background({canvas: this.canvas}),
-      new Background({canvas: this.canvas, pos: [this.canvas.width, 0]})
+      new Background({canvas: this.canvas, speed: 8}),
+      new Background({
+        canvas: this.canvas, 
+        pos: [this.canvas.width, 0],
+        speed: 8
+      })
     ];
   }
 
@@ -50,7 +54,7 @@ export default class Game {
       this.dinos.push(new Dino({
         color: dinoColors[i], 
         canvas: this.canvas, 
-        pos: [i * 40, 400]
+        pos: [(i + 50) * (i + 1), 120]
       }));
     }
   }
