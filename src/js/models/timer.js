@@ -27,7 +27,6 @@ export default class Timer {
 
   tick() {
     if(this.remainingTime === 0) {
-      this.reset();
       this.resetEl.click();
     } else {
       this.timeElapsed++;

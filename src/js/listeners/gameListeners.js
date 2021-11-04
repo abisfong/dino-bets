@@ -1,5 +1,3 @@
-import { startRace } from "../events/gameEvents";
-
 export default function addGameEventListeners(game) {
   addStartPauseEventListeners(game);
   addStartRaceEventListener(game);
@@ -9,7 +7,7 @@ export default function addGameEventListeners(game) {
 function addStartPauseEventListeners(game) {
   const startPauseEl = game.timer.startPauseEl;
   startPauseEl.addEventListener(
-    'startPauseTimer', 
+    'click',
     createStartPauseCallback(game)
   );
 }
@@ -31,8 +29,10 @@ function addStartRaceEventListener(game) {
 }
 
 function createStartRaceCallback(game) {
-  startBackgroundScroll(game);
-  // startRace(game);
+  return function() {
+    startBackgroundScroll(game);
+    // startRace(game);
+  }
 }
 
 function startBackgroundScroll(game) {

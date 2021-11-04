@@ -53,14 +53,18 @@ function addResetEventListener(timer) {
 }
 
 function createResetCallback(timer) {
-  let startPauseEl = timer.startPauseEl;
   let timeEl = timer.timeEl;
   return function () {
     timer.reset();
-    if (startPauseEl.innerHTML.toLowerCase() === 'pause')
-      startPauseEl.click();
+    pauseTimer(timer);
     timeEl.dispatchEvent(enableTimeInput);
   }
+}
+
+function pauseTimer(timer) {
+  let startPauseEl = timer.startPauseEl;
+  if (startPauseEl.innerHTML.toLowerCase() === 'pause')
+      startPauseEl.click();
 }
 
 function addTimeInputListeners(timer) {

@@ -1,6 +1,6 @@
 let timerEnd = new Event('timerEnd');
-let enableTimeInput = new Event('enableTimeInput', {bubbles: true});
-let disableTimeInput = new Event('disableTimeInput', {bubbles: true});
+let enableTimeInput = new Event('enableTimeInput');
+let disableTimeInput = new Event('disableTimeInput');
 
 export {
   timerEnd,

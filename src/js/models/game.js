@@ -17,7 +17,7 @@ export default class Game {
     ];
     this.canvas.addDrawables([...this.backgrounds, ...dinos]);
     this.canvas.animate();
-    // addGameEventListeners(this);
+    addGameEventListeners(this);
   }
 
   start() {
