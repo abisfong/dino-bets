@@ -14,7 +14,6 @@ describe("Timer", function() {
   for(i = 1; i <= 3; i++) {
     timeEl.appendChild(document.createElement('input'));
   }
-  console.log(timerEl, timeEl);
   
   describe("#contructor", function() {
     it("should accept a timer HTML element and an optional time amount (in seconds)", function () {

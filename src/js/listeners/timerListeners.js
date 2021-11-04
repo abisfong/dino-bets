@@ -4,7 +4,7 @@ import {
   resetTimer,
   enableTimeInput, 
   disableTimeInput, 
-} from '../events/timer_events';
+} from '../events/timerEvents';
 
 export default function attachTimerEventListeners(timer) {
   addStartPauseEventListeners(timer);

@@ -1,9 +1,9 @@
 import Drawable from "./drawable";
-import addBackgroundEventListeners from "../../listeners/background_listeners";
+import addBackgroundEventListeners from "../../listeners/backgroundListeners";
 import { 
   startBackgroundScroll ,
   stopBackgroundScroll
-} from "../../events/background_events";
+} from "../../events/backgroundEvents";
 
 export default class Background extends Drawable {
   constructor(options) {

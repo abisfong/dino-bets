@@ -1,19 +1,19 @@
 import Sprite from "./sprite";
-import addDinoEventListeners from "../../listeners/dino_listeners";
-import { runDino } from '../../events/dino_events';
+import addDinoEventListeners from "../../listeners/dinoListeners";
+import { runDino } from '../../events/dinoEvents';
 
 export default class Dino extends Sprite {
   constructor(options) {
     super({
       pos: options.pos,
-      width: 24,
-      height: 24,
+      width: Dino.SIZES[options.size] || 24,
+      height: Dino.SIZES[options.size] || 24,
       frameX: 0,
       frameY: 0,
       speed: options.speed || 1,
       moving: false,
       sprite: new Image(),
-      src: `${Sprite.BASE_URL}/${options.color}-dino.png`,
+      src: `${Sprite.BASE_URL}/${options.color}-dino-${options.size}.png`,
       canvas: options.canvas
     })
 
@@ -54,3 +54,8 @@ Dino.COLORS = [
   "yellow",
   "purp"
 ];
+
+Dino.SIZES = {
+  small: 24,
+  large: 94,
+}

@@ -1,5 +1,5 @@
-import attachTimerEventListeners from '../listeners/timer_listeners';
-import * as timerEvents from '../events/timer_events'
+import attachTimerEventListeners from '../listeners/timerListeners';
+import * as timerEvents from '../events/timerEvents'
 
 export default class Timer {
   // 'time' is in seconds

@@ -3,9 +3,9 @@ export default function addBackgroundEventListeners(background) {
 }
 
 function addBackgroundScrollListener(background) {
-  const canvasEL = background.canvas.canvasEL;
-  canvasEL.addEventListener('startBackgroundScroll', startBackgroundScroll(background));
-  canvasEL.addEventListener('stopBackgroundScroll', stopBackgroundScroll(background));
+  const canvasEl = background.canvas.canvasEl;
+  canvasEl.addEventListener('startBackgroundScroll', startBackgroundScroll(background));
+  canvasEl.addEventListener('stopBackgroundScroll', stopBackgroundScroll(background));
 }
 
 function startBackgroundScroll(background) {
