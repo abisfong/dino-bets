@@ -21,7 +21,7 @@ export default class Background extends Drawable {
       this.image,
       this.posX + this.posXDelta,
       this.posY + this.posYDelta,
-      canvas.width,
+      canvas.width + 10,
       canvas.height,
     );
   }

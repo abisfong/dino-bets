@@ -31,14 +31,23 @@ if (document.title !== "Jasmine Spec Runner")
     // const redDino = new Dino({color: 'red', canvas, pos: [30, 90]});
     // const yellowDino = new Dino({color: 'yellow', canvas, pos: [60, 90]});
     // const greenDino = new Dino({color: 'green', canvas, pos: [90, 90]});
-    const background = new Background({canvas});
-    canvas.addDrawable(background);
+    const background1 = new Background({canvas});
+    const background2 = new Background({canvas, pos: [canvas.width, 0]});
+    canvas.addDrawable(background1);
+    canvas.addDrawable(background2);
     // canvas.addDrawable(purpDino);
     // canvas.addDrawable(redDino);
     // canvas.addDrawable(yellowDino);
     // canvas.addDrawable(greenDino);
     window.canvas = canvas;
-    window.background = background;
+    window.scrollBackground = function () {
+      background1.scroll('left');
+      background2.scroll('left');
+    };
+    window.stopScroll = function () {
+      background1.stopScroll();
+      background2.stopScroll();
+    }
     // purpDino.run();
     // redDino.run();
     // yellowDino.run();
