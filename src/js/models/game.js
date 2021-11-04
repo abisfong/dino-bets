@@ -7,18 +7,20 @@ import Background from './drawables/background';
 
 export default class Game {
   constructor(dinos) {
-    this.timer = new Timer(document.querySelector('#timer'));
+    this.dinos = dinos;
     this.canvas = new Canvas();
     this.canvasEl = canvas.canvasEl;
+    this.timer = new Timer(document.querySelector('#timer'));
     this.backgrounds = [
       new Background({canvas: this.canvas}),
-      new Background({canvas: this.canvas, pos: [canvas.width, 0]})
+      new Background({canvas: this.canvas, pos: [this.canvas.width, 0]})
     ];
     addGameEventListeners(this);
   }
 
   start() {
-    this.canvasEl.dispatchEvent(startRace);
+    const startPauseEl = game.timer.startPauseEl;
+    startPauseEl.dispatchEvent(startRace);
   }
 
   pause() {
