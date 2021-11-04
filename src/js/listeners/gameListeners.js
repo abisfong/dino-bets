@@ -31,7 +31,7 @@ function addStartRaceEventListener(game) {
 function createStartRaceCallback(game) {
   return function() {
     startBackgroundScroll(game);
-    // startRace(game);
+    startRace(game);
   }
 }
 
@@ -41,6 +41,10 @@ function startBackgroundScroll(game) {
     background.scroll('left');
   });
 }
+
+// function startRace(game) {
+
+// }
 
 function addPauseRaceEventListener(game) {
   const startPauseEl = game.timer.startPauseEl;

@@ -1,37 +1,64 @@
+import Dino from './drawables/dino';
 import Timer from './timer';
 import Canvas from './canvas';
-import addGameEventListeners from '../listeners/gameListeners';
-// import * as TimerEvents from '../events/timer_events';
 import { startRace, pauseRace } from '../events/gameEvents';
 import Background from './drawables/background';
+import addBackgroundEventListeners from '../listeners/backgroundListeners';
+import addCanvasEventListeners from '../listeners/canvasListeners';
+import addDinoEventListeners from '../listeners/dinoListeners';
+import addGameEventListeners from '../listeners/gameListeners';
 
 export default class Game {
-  constructor(dinos) {
-    this.dinos = dinos;
+  constructor(dinoColors = []) {
+    this.dinos = [];
     this.canvas = new Canvas();
-    this.canvasEl = canvas.canvasEl;
+    this.canvasEl = this.canvas.canvasEl;
     this.timer = new Timer(document.querySelector('#timer'));
-    this.backgrounds = [
-      new Background({canvas: this.canvas}),
-      new Background({canvas: this.canvas, pos: [this.canvas.width, 0]})
-    ];
-    this.canvas.addDrawables([...this.backgrounds, ...dinos]);
-    this.canvas.animate();
-    addGameEventListeners(this);
+    this.init({dinoColors});
   }
 
   start() {
-    console.log("game started");
     const startPauseEl = this.timer.startPauseEl;
     startPauseEl.dispatchEvent(startRace);
   }
   
   pause() {
-    console.log("game paused");
     const startPauseEl = this.timer.startPauseEl;
     startPauseEl.dispatchEvent(pauseRace);
   }
 
   reset() {
+  }
+
+  init(data) {
+    this.createBackgrounds();
+    this.createDinos(data.dinoColors);
+    this.canvas.addDrawables([...this.backgrounds, ...this.dinos]);
+    this.canvas.animate();
+    this.addAllEventListeners();
+  }
+
+  createBackgrounds() {
+    this.backgrounds = [
+      new Background({canvas: this.canvas}),
+      new Background({canvas: this.canvas, pos: [this.canvas.width, 0]})
+    ];
+  }
+
+  createDinos(dinoColors) {
+    for (let i = 0; i < dinoColors.length; i++) {
+      this.dinos.push(new Dino({
+        color: dinoColors[i], 
+        canvas: this.canvas, 
+        pos: [i * 40, 400]
+      }));
+    }
+  }
+
+  addAllEventListeners() {
+    addBackgroundEventListeners();
+    addCanvasEventListeners(this.canvas);
+    addDinoEventListeners();
+    addGameEventListeners(this);
   }
 }

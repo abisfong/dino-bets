@@ -1,8 +1,5 @@
-import Background from "../models/drawables/background";
-
 export default function addBackgroundEventListeners(background) {
-  if (!Background.LISTENERS_LOADED)
-    addBackgroundScrollListener();
+  addBackgroundScrollListener();
 }
 
 function addBackgroundScrollListener() {  

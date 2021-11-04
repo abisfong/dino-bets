@@ -1,5 +1,7 @@
-let runDino = new Event('runDino', { bubbles: true });
+let runDino = new Event('runDino');
+let stopDino = new Event('stopDino');
 
 export {
   runDino,
+  stopDino
 }

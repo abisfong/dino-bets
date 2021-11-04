@@ -28,7 +28,6 @@ export default class Background extends Drawable {
   }
 
   scroll(direction) {
-    console.log('starting scroll');
     const canvasEl = this.canvas.canvasEl;
     startBackgroundScroll.direction = direction;
     startBackgroundScroll.background = this;

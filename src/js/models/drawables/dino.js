@@ -1,6 +1,6 @@
 import Sprite from "./sprite";
 import addDinoEventListeners from "../../listeners/dinoListeners";
-import { runDino } from '../../events/dinoEvents';
+import { runDino, stopDino } from '../../events/dinoEvents';
 
 export default class Dino extends Sprite {
   constructor(options) {
@@ -13,18 +13,16 @@ export default class Dino extends Sprite {
       speed: options.speed || 1,
       moving: false,
       sprite: new Image(),
-      src: `${Sprite.BASE_URL}/${options.color}-dino-${options.size}.png`,
+      src: `${Sprite.BASE_URL}/${options.color}-dino-${options.size || 'small'}.png`,
       canvas: options.canvas
     })
-
     this.color = options.color;
-    addDinoEventListeners(this);
   }
 
-  static generateRandomDino() {
+  static generateRandom(options) {
     let colorCount = Dino.COLORS.length;
     let color = Dino.COLORS[Math.round(Math.random() * (colorCount - 1))];
-    return new Dino(color);
+    return new Dino({color, canvas: options.canvas});
   }
 
   setFrame(frameX, frameY) {
@@ -32,8 +30,9 @@ export default class Dino extends Sprite {
     this.frameY = frameY;
   }
 
-  setRunningFrame(frameX = 0, frameY = 0) {
-    this.setFrame((frameX % 6) + 4, frameY);
+  cycleRunningFrame() {
+    this.frameX = (this.frameX % 6) + 4
+    this.setFrame(this.frameX, 0);
   }
 
   startRunAnimation() {
@@ -43,6 +42,7 @@ export default class Dino extends Sprite {
 
   stopRunAnimation() {
     const canvasEl = this.canvas.canvasEl;
+    stopDino.dino = this;
     canvasEl.dispatchEvent(stopDino);
     this.frameX = 0;
   }
