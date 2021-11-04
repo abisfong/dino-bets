@@ -34,15 +34,4 @@ export default class Canvas {
   clearCanvas() {
     this.ctx.clearRect(0, 0, this.canvasEl.width, this.canvasEl.height);
   }
-
-  scrollBackground() {
-    let canvasEl = this.canvasEl;
-    this.backgroundPositionInterval = setInterval(() => {
-      canvasEl.style.backgroundPositionX = `${this.backgroundPositionX++}%`
-    }, 15);
-  }
-
-  stopBackgroundScroll() {
-    clearInterval(this.backgroundPositionInterval);
-  }
 }

@@ -1,7 +1,7 @@
-import Timer from './js/models/timer';
-import Canvas from './js/models/canvas';
-import addGameEventListeners from '../listeners/game_listeners';
-import * as TimerEvents from '../events/timer_events';
+import Timer from './timer';
+import Canvas from './canvas';
+import addGameEventListeners from '../listeners/gameListeners';
+// import * as TimerEvents from '../events/timer_events';
 import { startRace, pauseRace } from '../events/gameEvents';
 import Background from './drawables/background';
 
@@ -17,16 +17,18 @@ export default class Game {
     ];
     this.canvas.addDrawables([...this.backgrounds, ...dinos]);
     this.canvas.animate();
-    addGameEventListeners(this);
+    // addGameEventListeners(this);
   }
 
   start() {
-    const startPauseEl = game.timer.startPauseEl;
+    console.log("game started");
+    const startPauseEl = this.timer.startPauseEl;
     startPauseEl.dispatchEvent(startRace);
   }
-
+  
   pause() {
-    const startPauseEl = game.timer.startPauseEl;
+    console.log("game paused");
+    const startPauseEl = this.timer.startPauseEl;
     startPauseEl.dispatchEvent(pauseRace);
   }
 

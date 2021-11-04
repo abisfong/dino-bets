@@ -1,7 +1,5 @@
 import { curry } from '../util';
 import { 
-  startPauseTimer,
-  resetTimer,
   enableTimeInput, 
   disableTimeInput, 
 } from '../events/timerEvents';
@@ -10,24 +8,20 @@ export default function attachTimerEventListeners(timer) {
   addStartPauseEventListeners(timer);
   addResetEventListener(timer);
   addTimeInputListeners(timer);
-  addTimeListener(timer);
 }
 
 function addStartPauseEventListeners(timer) {
   let startPauseEl = timer.startPauseEl;
 
-  startPauseEl.addEventListener('startPauseTimer', createStartPauseCallback(timer));
-  startPauseEl.addEventListener('click', event => { 
-    startPauseEl.dispatchEvent(startPauseTimer) 
-  });
+  startPauseEl.addEventListener('click', createStartPauseCallback(timer));
 }
 
 function createStartPauseCallback(timer) {
-  let timerEl = timer.timerEl;
+  let timeEl = timer.timeEl;
   let startPauseEl = timer.startPauseEl;
   return function (event) {
     event.preventDefault();
-    timerEl.dispatchEvent(disableTimeInput);
+    timeEl.dispatchEvent(disableTimeInput);
     toggleStartPause(timer, startPauseEl);
     toggleStartPauseClass(startPauseEl);
     toggleStartPauseText(startPauseEl);
@@ -54,22 +48,18 @@ function toggleStartPauseText(startPauseEl) {
 }
 
 function addResetEventListener(timer) {
-  let timerEl = timer.timerEl;
   let resetEl = timer.resetEl;
-  timerEl.addEventListener('resetTimer', createResetCallback(timer));
-  resetEl.addEventListener('click', event => {
-    resetEl.dispatchEvent(resetTimer);
-  });
+  resetEl.addEventListener('click', createResetCallback(timer));
 }
 
 function createResetCallback(timer) {
   let startPauseEl = timer.startPauseEl;
-  let resetEl = timer.resetEl;
+  let timeEl = timer.timeEl;
   return function () {
     timer.reset();
     if (startPauseEl.innerHTML.toLowerCase() === 'pause')
-      resetEl.dispatchEvent(startPauseTimer);
-    resetEl.dispatchEvent(enableTimeInput);
+      startPauseEl.click();
+    timeEl.dispatchEvent(enableTimeInput);
   }
 }
 
@@ -84,18 +74,18 @@ function addTimeEditListener(timer) {
 }
 
 function createTimeInputCallback(timer) {
-  let timerEl = timer.timerEl;
+  let resetEl = timer.resetEl;
   return function (event) {
     if (event.key === 'Enter') {
       addTimeFromInput(timer);
       blurFocus();
-      timerEl.dispatchEvent(resetTimer);
+      resetEl.click();
     }
   }
 }
 
 function addTimeFromInput(timer) {
-  let timerEl = timer.timerEl;
+  let resetEl = timer.resetEl;
   let inputEls = timer.timeEl.children;
   let setTimeFromInput = curry(timer.setTimeFromInput, timer, inputEls.length);
 
@@ -105,7 +95,7 @@ function addTimeFromInput(timer) {
       let timeAmount = parseInt(input);
       setTimeFromInput(timeAmount);
     } else {
-      timerEl.dispatchEvent(resetTimer);
+      resetEl.click();
       return;
     }
   }
@@ -120,11 +110,11 @@ function blurFocus() {
 }
 
 function addTimeEditToggleListeners(timer) {
-  let timerEl = timer.timerEl;
-  timerEl.addEventListener('enableTimeInput', function () {
+  let timeEl = timer.timeEl;
+  timeEl.addEventListener('enableTimeInput', function () {
     setTimerInputReadOnly(timer, false);
   });
-  timerEl.addEventListener('disableTimeInput', function () {
+  timeEl.addEventListener('disableTimeInput', function () {
     setTimerInputReadOnly(timer, true);
   });
 }
@@ -136,11 +126,4 @@ function setTimerInputReadOnly(timer, value) {
   if (time === remainingTime || time === 0)
     for (let i = 0; i < inputEls.length; i++)
       inputEls[i].readOnly = value;
-}
-
-function addTimeListener(timer) {
-  let timerEl = timer.timerEl;
-  timerEl.addEventListener('timerEnd', function() {
-    timerEl.dispatchEvent(resetTimer);
-  });
 }
