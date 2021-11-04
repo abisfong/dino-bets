@@ -14,9 +14,13 @@ export default function attachTimerEventListeners(timer) {
 }
 
 function addStartPauseEventListeners(timer) {
+  let timerEl = timer.timerEl;
   let startPauseEl = timer.startPauseEl;
 
-  startPauseEl.addEventListener('startPauseTimer', createStartPauseCallback(timer));
+  timerEl.addEventListener('startPauseTimer', createStartPauseCallback(timer));
+  startPauseEl.addEventListener('click', event => { 
+    startPauseEl.dispatchEvent(startPauseTimer) 
+  });
 }
 
 function createStartPauseCallback(timer) {
