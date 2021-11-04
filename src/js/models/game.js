@@ -40,11 +40,11 @@ export default class Game {
 
   createBackgrounds() {
     this.backgrounds = [
-      new Background({canvas: this.canvas, speed: 8}),
+      new Background({canvas: this.canvas, speed: 10}),
       new Background({
         canvas: this.canvas, 
         pos: [this.canvas.width, 0],
-        speed: 8
+        speed: 10
       })
     ];
   }
