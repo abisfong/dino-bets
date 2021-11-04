@@ -9,6 +9,8 @@ export default class Canvas {
     this.drawables = [];
     this.backgroundPositionX = 0;
     this.backgroundPositionInterval = null;
+    this.width = this.canvasEl.width;
+    this.height = this.canvasEl.height;
     addCanvasEventListeners(this);
   }
 

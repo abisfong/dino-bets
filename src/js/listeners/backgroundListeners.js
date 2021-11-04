@@ -37,11 +37,12 @@ function getPosDelta(direction) {
 }
 
 function scrollBackground(background, directionDelta) {
-  let posDeltaX = background.posDeltaX;
-  let posDeltaY = background.posDeltaY;
+  let posXDelta = background.posXDelta;
+  let posYDelta = background.posYDelta;
+  console.log(posXDelta, posYDelta, directionDelta);
   background.setScrollPosDelta(
-    directionDelta[0] + posDeltaX, 
-    directionDelta[1] + posDeltaY,
+    posXDelta + directionDelta[0], 
+    posYDelta + directionDelta[1],
   );
 }
 

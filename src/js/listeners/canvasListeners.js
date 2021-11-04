@@ -22,6 +22,6 @@ function resizeCanvas(canvas) {
   let raceViewHeight = raceViewEl.offsetHeight;
   // canvasEl.width = raceViewWidth > canvas.widthDefault ? canvas.widthDefault : raceViewWidth;
   // canvasEl.height = raceViewHeight > canvas.heightDefault ? canvas.heightDefault : raceViewHeight;
-  canvasEl.width = raceViewWidth;
-  canvasEl.height = raceViewHeight;
+  canvasEl.width = canvas.width = raceViewWidth;
+  canvasEl.height = canvas.height = raceViewHeight;
 }

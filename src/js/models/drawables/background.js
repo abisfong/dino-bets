@@ -17,13 +17,12 @@ export default class Background extends Drawable {
   }
 
   draw() {
-    let canvasEl = this.canvas.canvasEl;
     this.ctx.drawImage(
       this.image,
       this.posX + this.posXDelta,
       this.posY + this.posYDelta,
-      canvasEl.width,
-      canvasEl.height,
+      canvas.width,
+      canvas.height,
     );
   }
 
@@ -33,16 +32,21 @@ export default class Background extends Drawable {
     canvasEl.dispatchEvent(startBackgroundScroll);
   }
 
+  stopScroll() {
+    const canvasEl = this.canvas.canvasEl;
+    canvasEl.dispatchEvent(stopBackgroundScroll);
+  }
+
   setScrollPosDelta(posXDelta = 0, posYDelta = 0) {
-    let canvasWidth = this.canvas.width;
-    let canvasHeight = this.canvas.height;
+    console.log('setScrollPosDelta:', posXDelta, posYDelta);
     this.setPosDelta(
-      posXDelta % canvasWidth, 
-      posYDelta % canvasHeight
+      posXDelta % this.canvas.width, 
+      posYDelta % this.canvas.height
     )
   }
 
   setPosDelta(posXDelta = 0, posYDelta = 0) {
+    console.log(posXDelta, posYDelta);
     this.posXDelta = posXDelta;
     this.posYDelta = posYDelta;
   }

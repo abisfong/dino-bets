@@ -36,12 +36,12 @@ export default class Dino extends Sprite {
     this.setFrame((frameX % 6) + 4, frameY);
   }
 
-  run() {
+  startRunAnimation() {
     const canvasEl = this.canvas.canvasEl;
     canvasEl.dispatchEvent(runDino);
   }
 
-  stop() {
+  stopRunAnimation() {
     const canvasEl = this.canvas.canvasEl;
     canvasEl.dispatchEvent(stopDino);
     this.frameX = 0;
