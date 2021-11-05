@@ -1,6 +1,7 @@
 @import '../mixins/box-shadow';
 
 #social-links {
+  @include box-shadow;
   display: flex;
 
   position: absolute;
@@ -8,11 +9,10 @@
   bottom: 0;
   z-index: 4;
 
-  i {
-    @include box-shadow;
-    
-    font-size: 48px;
+  border-radius: 5px;
 
+  i {
+    font-size: 48px;
     padding: 5px;
   }
 }
