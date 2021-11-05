@@ -21,6 +21,7 @@ function createStartPauseCallback(timer) {
   let startPauseEl = timer.startPauseEl;
   return function (event) {
     event.preventDefault();
+    if(timer.time <= 0) return;
     timeEl.dispatchEvent(disableTimeInputEvent);
     toggleStartPause(timer, startPauseEl);
     toggleStartPauseClass(startPauseEl);

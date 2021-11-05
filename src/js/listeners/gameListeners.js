@@ -15,6 +15,7 @@ function addStartPauseEventListeners(game) {
 function createStartPauseCallback(game) {
   let gameIsRunning = false;
   return function toggleStartPause() {
+    if (game.timer.time <= 0) return;
     gameIsRunning ? game.pause() : game.start();
     gameIsRunning = !gameIsRunning;
   }
