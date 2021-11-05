@@ -8,8 +8,8 @@ export default class Drawable {
     this.width = options.width;
     this.height = options.height;
     this.scaleFactor = options.scaleFactor || 1;
-    this.frameX = options.frameX;
-    this.frameY = options.frameY;
+    this.frameX = options.frameX || 0;
+    this.frameY = options.frameY || 0;
     this.frameXDelta = 0;
     this.frameYDelta = 0;
     this.speed = options.speed || 1;

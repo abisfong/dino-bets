@@ -4,18 +4,10 @@ import { runDino, stopDino } from '../../events/dinoEvents';
 
 export default class Dino extends Sprite {
   constructor(options) {
-    super({
-      pos: options.pos,
-      width: Dino.SIZES[options.size] || 24,
-      height: Dino.SIZES[options.size] || 24,
-      frameX: 0,
-      frameY: 0,
-      speed: options.speed || 1,
-      moving: false,
-      sprite: new Image(),
-      src: `${Sprite.BASE_URL}/${options.color}-dino-${options.size || 'small'}.png`,
-      canvas: options.canvas
-    })
+    super(options);
+    this.width = Dino.SIZES[options.size] || 24;
+    this.height = Dino.SIZES[options.size] || 24;
+    this.sprite.src = `${Sprite.BASE_URL}/${options.color}-dino-${options.size || 'small'}.png`;
     this.color = options.color;
   }
 
