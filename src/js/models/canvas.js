@@ -23,11 +23,26 @@ export default class Canvas {
     });
   }
 
-  animate() {
-    this.clearCanvas();
-    for(let i = 0; i < this.drawables.length; i++)
-      this.drawables[i].draw();
-    requestAnimationFrame(this.animate.bind(this));
+  animate(fps) {
+    let fpsInterval, startTime, now, then, elapsed;
+    const startAnimation = (fps) => {
+      fpsInterval = 1000/fps;
+      then = Date.now();
+      startTime = then;
+      _animate();
+    }
+    const _animate = () => {
+      requestAnimationFrame(_animate);
+      now = Date.now();
+      elapsed = now - then;
+      if (elapsed > fpsInterval) {
+        then = now - (elapsed % fpsInterval);
+        this.clearCanvas();
+        for(let i = 0; i < this.drawables.length; i++)
+          this.drawables[i].draw();
+      }
+    }
+    startAnimation(fps);
   }
   
   clearCanvas() {

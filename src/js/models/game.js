@@ -35,7 +35,7 @@ export default class Game {
     this.createBackgrounds();
     this.createDinos(data.dinoColors);
     this.canvas.addDrawables([...this.backgrounds, ...this.dinos]);
-    this.canvas.animate();
+    this.canvas.animate(20);
   }
 
   createBackgrounds() {
