@@ -1,7 +1,7 @@
 import { curry } from '../util';
 import { 
-  enableTimeInput, 
-  disableTimeInput, 
+  enableTimeInputEvent, 
+  disableTimeInputEvent, 
 } from '../events/timerEvents';
 
 export default function attachTimerEventListeners(timer) {
@@ -21,7 +21,7 @@ function createStartPauseCallback(timer) {
   let startPauseEl = timer.startPauseEl;
   return function (event) {
     event.preventDefault();
-    timeEl.dispatchEvent(disableTimeInput);
+    timeEl.dispatchEvent(disableTimeInputEvent);
     toggleStartPause(timer, startPauseEl);
     toggleStartPauseClass(startPauseEl);
     toggleStartPauseText(startPauseEl);
@@ -57,7 +57,7 @@ function createResetCallback(timer) {
   return function () {
     timer.reset();
     pauseTimer(timer);
-    timeEl.dispatchEvent(enableTimeInput);
+    timeEl.dispatchEvent(enableTimeInputEvent);
   }
 }
 

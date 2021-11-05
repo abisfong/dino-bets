@@ -1,9 +1,9 @@
-let timerEnd = new Event('timerEnd');
-let enableTimeInput = new Event('enableTimeInput');
-let disableTimeInput = new Event('disableTimeInput');
+let timerEndEvent = new Event('timerEnd');
+let enableTimeInputEvent = new Event('enableTimeInput');
+let disableTimeInputEvent = new Event('disableTimeInput');
 
 export {
-  timerEnd,
-  enableTimeInput,
-  disableTimeInput
+  timerEndEvent,
+  enableTimeInputEvent,
+  disableTimeInputEvent
 };

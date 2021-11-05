@@ -1,7 +1,7 @@
-let runDino = new Event('runDino');
-let stopDino = new Event('stopDino');
+let runDinoEvent = new Event('runDino');
+let stopDinoEvent = new Event('stopDino');
 
 export {
-  runDino,
-  stopDino
+  runDinoEvent,
+  stopDinoEvent
 }

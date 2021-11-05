@@ -1,6 +1,8 @@
 import Sprite from "./sprite";
-import addDinoEventListeners from "../../listeners/dinoListeners";
-import { runDino, stopDino } from '../../events/dinoEvents';
+import { 
+  runDinoEvent, 
+  stopDinoEvent 
+} from '../../events/dinoEvents';
 
 export default class Dino extends Sprite {
   constructor(options) {
@@ -29,14 +31,14 @@ export default class Dino extends Sprite {
 
   startRunAnimation() {
     const canvasEl = this.canvas.canvasEl;
-    runDino.dino = this;
-    canvasEl.dispatchEvent(runDino);
+    runDinoEvent.dino = this;
+    canvasEl.dispatchEvent(runDinoEvent);
   }
 
   stopRunAnimation() {
     const canvasEl = this.canvas.canvasEl;
-    stopDino.dino = this;
-    canvasEl.dispatchEvent(stopDino);
+    stopDinoEvent.dino = this;
+    canvasEl.dispatchEvent(stopDinoEvent);
     this.frameX = 0;
   }
 }

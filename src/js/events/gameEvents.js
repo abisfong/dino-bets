@@ -1,7 +1,7 @@
-const startRace = new Event('startRace');
-const pauseRace = new Event('pauseRace');
+const startRaceEvent = new Event('startRace');
+const pauseRaceEvent = new Event('pauseRace');
 
 export {
-  startRace,
-  pauseRace
+  startRaceEvent,
+  pauseRaceEvent
 }

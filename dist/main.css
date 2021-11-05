@@ -239,3 +239,7 @@ table {
   font-size: 48px;
   padding: 5px;
 }
+
+body {
+  background-color: #ffedc9;
+}

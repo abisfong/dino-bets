@@ -1,7 +1,7 @@
 import Dino from './drawables/dino';
 import Timer from './timer';
 import Canvas from './canvas';
-import { startRace, pauseRace } from '../events/gameEvents';
+import { startRaceEvent, pauseRaceEvent } from '../events/gameEvents';
 import Background from './drawables/background';
 import addBackgroundEventListeners from '../listeners/backgroundListeners';
 import addCanvasEventListeners from '../listeners/canvasListeners';
@@ -19,12 +19,12 @@ export default class Game {
 
   start() {
     const startPauseEl = this.timer.startPauseEl;
-    startPauseEl.dispatchEvent(startRace);
+    startPauseEl.dispatchEvent(startRaceEvent);
   }
   
   pause() {
     const startPauseEl = this.timer.startPauseEl;
-    startPauseEl.dispatchEvent(pauseRace);
+    startPauseEl.dispatchEvent(pauseRaceEvent);
   }
 
   reset() {

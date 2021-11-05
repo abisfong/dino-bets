@@ -1,8 +1,7 @@
 import Drawable from "./drawable";
-import addBackgroundEventListeners from "../../listeners/backgroundListeners";
 import { 
-  startBackgroundScroll,
-  stopBackgroundScroll
+  startBackgroundScrollEvent,
+  stopBackgroundScrollEvent
 } from "../../events/backgroundEvents";
 
 export default class Background extends Drawable {
@@ -25,15 +24,15 @@ export default class Background extends Drawable {
 
   scroll(direction) {
     const canvasEl = this.canvas.canvasEl;
-    startBackgroundScroll.direction = direction;
-    startBackgroundScroll.background = this;
-    canvasEl.dispatchEvent(startBackgroundScroll);
+    startBackgroundScrollEvent.direction = direction;
+    startBackgroundScrollEvent.background = this;
+    canvasEl.dispatchEvent(startBackgroundScrollEvent);
   }
 
   stopScroll() {
     const canvasEl = this.canvas.canvasEl;
-    stopBackgroundScroll.background = this;
-    canvasEl.dispatchEvent(stopBackgroundScroll);
+    stopBackgroundScrollEvent.background = this;
+    canvasEl.dispatchEvent(stopBackgroundScrollEvent);
   }
 
   setScrollPosDelta(posXDelta = 0, posYDelta = 0) {
