@@ -1,0 +1,18 @@
+@import '../mixins/box-shadow';
+
+#social-links {
+  display: flex;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+
+  i {
+    @include box-shadow;
+    
+    font-size: 48px;
+
+    padding: 5px;
+  }
+}

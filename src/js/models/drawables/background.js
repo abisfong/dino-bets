@@ -43,8 +43,6 @@ export default class Background extends Drawable {
   }
 
   setScrollPosDelta(posXDelta = 0, posYDelta = 0) {
-    // console.log("canvas dimensions", this.canvas.width, this.canvas.width);
-    // console.log('deltas', posXDelta, posYDelta);
     this.setPosDelta(
       posXDelta % this.canvasInitialWidth,
       posYDelta % this.canvasInitialHeight

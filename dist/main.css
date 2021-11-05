@@ -225,3 +225,16 @@ table {
   left: 0;
   border-radius: 5px;
 }
+
+#social-links {
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+}
+#social-links i {
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
+  font-size: 48px;
+  padding: 5px;
+}

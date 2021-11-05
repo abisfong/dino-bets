@@ -5,7 +5,6 @@ export default class Sprite extends Drawable {
     super(options);
     this.sprite = new Image();
     this.sprite.src = options.src;
-    console.log(this.ctx);
   }
 
   draw() {
