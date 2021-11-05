@@ -40,11 +40,16 @@ export default class Game {
 
   createBackgrounds() {
     this.backgrounds = [
-      new Background({canvas: this.canvas, speed: 10}),
+      new Background({
+        canvas: this.canvas, 
+        speed: 10,
+        src: `${Dino.BASE_URL}/pixel-desert.jpeg`
+      }),
       new Background({
         canvas: this.canvas, 
         pos: [this.canvas.width, 0],
-        speed: 10
+        speed: 10,
+        src: `${Dino.BASE_URL}/pixel-desert.jpeg`
       })
     ];
   }
@@ -56,8 +61,8 @@ export default class Game {
         canvas: this.canvas, 
         width: 100,
         height: 100,
-        scaleFactor: 4,
-        pos: [(i + 50) * (i + 1), 120]
+        scaleFactor: 3,
+        pos: [(i + 50) * (i + 1), 460]
       }));
     }
   }
