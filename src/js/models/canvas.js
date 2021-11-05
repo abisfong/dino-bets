@@ -24,28 +24,31 @@ export default class Canvas {
   }
 
   animate(fps) {
-    let fpsInterval, startTime, now, then, elapsed;
-    const startAnimation = (fps) => {
-      fpsInterval = 1000/fps;
-      then = Date.now();
-      startTime = then;
-      _animate();
-    }
-    const _animate = () => {
-      requestAnimationFrame(_animate);
-      now = Date.now();
-      elapsed = now - then;
-      if (elapsed > fpsInterval) {
-        then = now - (elapsed % fpsInterval);
-        this.clearCanvas();
-        for(let i = 0; i < this.drawables.length; i++)
-          this.drawables[i].draw();
-      }
-    }
-    startAnimation(fps);
+    throttleAnimation(fps, () => {
+      this.clearCanvas();
+      for(let i = 0; i < this.drawables.length; i++)
+        this.drawables[i].draw();
+    });
   }
   
   clearCanvas() {
     this.ctx.clearRect(0, 0, this.canvasEl.width, this.canvasEl.height);
   }
+}
+
+function throttleAnimation(fps, animationCallback) {
+  let fpsInterval, startTime, now, then, elapsed;
+  fpsInterval = 1000/fps;
+  then = Date.now();
+  startTime = then;
+  
+  (function animateNextFrame() {
+    requestAnimationFrame(animateNextFrame);
+    now = Date.now();
+    elapsed = now - then;
+    if (elapsed > fpsInterval) {
+      then = now - (elapsed % fpsInterval);
+      animationCallback();
+    }
+  })()
 }

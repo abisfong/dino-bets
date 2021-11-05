@@ -31,46 +31,47 @@ export default class Game {
   }
 
   init(data) {
-    this.addAllEventListeners();
-    this.createBackgrounds();
-    this.createDinos(data.dinoColors);
+    const { dinoColors } = data;
+    addAllEventListeners.call(this);
+    createBackgrounds.call(this);
+    createDinos.call(this, dinoColors);
     this.canvas.addDrawables([...this.backgrounds, ...this.dinos]);
     this.canvas.animate(20);
   }
+}
 
-  createBackgrounds() {
-    this.backgrounds = [
-      new Background({
-        canvas: this.canvas, 
-        speed: 10,
-        src: `${Dino.BASE_URL}/pixel-desert.jpeg`
-      }),
-      new Background({
-        canvas: this.canvas, 
-        pos: [this.canvas.width, 0],
-        speed: 10,
-        src: `${Dino.BASE_URL}/pixel-desert.jpeg`
-      })
-    ];
-  }
+function createBackgrounds() {
+  this.backgrounds = [
+    new Background({
+      canvas: this.canvas, 
+      speed: 10,
+      src: `${Dino.BASE_URL}/pixel-desert.jpeg`
+    }),
+    new Background({
+      canvas: this.canvas, 
+      pos: [this.canvas.width, 0],
+      speed: 10,
+      src: `${Dino.BASE_URL}/pixel-desert.jpeg`
+    })
+  ];
+}
 
-  createDinos(dinoColors) {
-    for (let i = 0; i < dinoColors.length; i++) {
-      this.dinos.push(new Dino({
-        color: dinoColors[i], 
-        canvas: this.canvas, 
-        width: 100,
-        height: 100,
-        scaleFactor: 3,
-        pos: [(i + 50) * (i + 1), 460]
-      }));
-    }
+function createDinos(dinoColors) {
+  for (let i = 0; i < dinoColors.length; i++) {
+    this.dinos.push(new Dino({
+      color: dinoColors[i], 
+      canvas: this.canvas, 
+      width: 100,
+      height: 100,
+      scaleFactor: 3,
+      pos: [(i + 50) * (i + 1), 460]
+    }));
   }
+}
 
-  addAllEventListeners() {
-    addBackgroundEventListeners();
-    addCanvasEventListeners(this.canvas);
-    addDinoEventListeners();
-    addGameEventListeners(this);
-  }
+function addAllEventListeners() {
+  addBackgroundEventListeners();
+  addCanvasEventListeners(this.canvas);
+  addDinoEventListeners();
+  addGameEventListeners(this);
 }
