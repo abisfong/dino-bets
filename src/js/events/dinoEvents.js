@@ -1,7 +1,9 @@
-let runDinoEvent = new Event('runDino');
-let stopDinoEvent = new Event('stopDino');
+const startDinoRunAnimationEvent = new Event('startDinoRunAnimation');
+const stopDinoRunAnimationEvent = new Event('stopDinoRunAnimation');
+const startDinoRunMovementEvent = new Event('startDinoRunMovement');
+const stopDinoRunMovementEvent = new Event('stopDinoRunMovement');
 
 export {
-  runDinoEvent,
-  stopDinoEvent
+  startDinoRunAnimationEvent,
+  stopDinoRunAnimationEvent
 }
