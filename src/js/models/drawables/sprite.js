@@ -13,8 +13,8 @@ export default class Sprite extends Drawable {
       this.frameY * this.height,
       this.width,
       this.height,
-      this.posX, 
-      this.posY,
+      this.posX + this.posXDelta, 
+      this.posY + this.posYDelta,
       this.width * this.scaleFactor,
       this.height * this.scaleFactor
     );

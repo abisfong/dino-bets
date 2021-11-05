@@ -13,6 +13,7 @@ export default class Dino extends Sprite {
     this.height = Dino.SIZES[options.size] || 24;
     this.sprite.src = `${Sprite.BASE_URL}/${options.color}-dino-${options.size || 'small'}.png`;
     this.color = options.color;
+    this.posXDeviationPercentage = .05;
   }
 
   static generateRandom(options) {
@@ -20,15 +21,15 @@ export default class Dino extends Sprite {
     let color = Dino.COLORS[Math.round(Math.random() * (colorCount - 1))];
     return new Dino({color, canvas: options.canvas});
   }
-
-  setFrame(frameX, frameY) {
-    this.frameX = frameX;
-    this.frameY = frameY;
-  }
-
+  
   cycleRunningFrame() {
     this.frameXDelta = this.frameXDelta % 10 || 4;
     this.setFrame(this.frameXDelta++, 0);
+  
+  }
+  setFrame(frameX, frameY) {
+    this.frameX = frameX;
+    this.frameY = frameY;
   }
 
   startRunAnimation() {
@@ -42,6 +43,10 @@ export default class Dino extends Sprite {
     stopDinoRunAnimationEvent.dino = this;
     canvasEl.dispatchEvent(stopDinoRunAnimationEvent);
     this.frameX = 0;
+  }
+
+  randomXMovement() {
+    this.posXDelta++;
   }
 
   startRunMovement() {

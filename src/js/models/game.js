@@ -9,12 +9,12 @@ import addDinoEventListeners from '../listeners/dinoListeners';
 import addGameEventListeners from '../listeners/gameListeners';
 
 export default class Game {
-  constructor(dinoColors = []) {
+  constructor(options) {
     this.dinos = [];
     this.canvas = new Canvas();
     this.canvasEl = this.canvas.canvasEl;
     this.timer = new Timer(document.querySelector('#timer'));
-    this.init({dinoColors});
+    this.init(options);
   }
 
   start() {

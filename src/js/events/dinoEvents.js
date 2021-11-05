@@ -5,5 +5,7 @@ const stopDinoRunMovementEvent = new Event('stopDinoRunMovement');
 
 export {
   startDinoRunAnimationEvent,
-  stopDinoRunAnimationEvent
+  stopDinoRunAnimationEvent,
+  startDinoRunMovementEvent,
+  stopDinoRunMovementEvent
 }
