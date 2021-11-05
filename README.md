@@ -1,4 +1,5 @@
 # **Dino Bets**
+https://abisfong.github.io/dino-bets/
 ## Background
 <p>
 Dino Bets is based on a tradition established by cohort 2021-08-30-SF in which
