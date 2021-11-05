@@ -7,6 +7,7 @@ export default class Drawable {
     this.posYDelta = 0;
     this.width = options.width;
     this.height = options.height;
+    this.scaleFactor = options.scaleFactor || 1;
     this.frameX = options.frameX;
     this.frameY = options.frameY;
     this.frameXDelta = 0;

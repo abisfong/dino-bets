@@ -54,6 +54,9 @@ export default class Game {
       this.dinos.push(new Dino({
         color: dinoColors[i], 
         canvas: this.canvas, 
+        width: 100,
+        height: 100,
+        scaleFactor: 4,
         pos: [(i + 50) * (i + 1), 120]
       }));
     }

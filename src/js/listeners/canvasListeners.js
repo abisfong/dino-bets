@@ -1,7 +1,7 @@
 import { resizeBackground } from "../events/backgroundEvents";
 
 export default function addCanvasEventListeners(canvas) {
-  addResizingEventListener(canvas);
+  // addResizingEventListener(canvas);
 }
 
 function addResizingEventListener(canvas) {
