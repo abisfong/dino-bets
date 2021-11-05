@@ -64,6 +64,7 @@ function createDinos(dinoColors) {
       width: 100,
       height: 100,
       scaleFactor: 3,
+      speed: i % 2 == 0 ? 1 : 10,
       pos: [(i + 50) * (i + 1), 460]
     }));
   }

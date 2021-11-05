@@ -13,7 +13,7 @@ export default class Dino extends Sprite {
     this.height = Dino.SIZES[options.size] || 24;
     this.sprite.src = `${Sprite.BASE_URL}/${options.color}-dino-${options.size || 'small'}.png`;
     this.color = options.color;
-    this.posXDeviationPercentage = .05;
+    this.posXDeviation = this.canvas.width * .2;
   }
 
   static generateRandom(options) {
@@ -46,7 +46,11 @@ export default class Dino extends Sprite {
   }
 
   randomXMovement() {
-    this.posXDelta++;
+    this.moveOnX(1);
+  }
+
+  moveOnX(direction) {
+    this.posXDelta = this.posXDelta + direction + this.speed;
   }
 
   startRunMovement() {

@@ -13,7 +13,7 @@ function startDinoRunFrameCycle(event) {
   const dino = event.dino;
   dino.timeoutIDs.runAnimation = setInterval(function () {
     dino.cycleRunningFrame();
-  }, 100 / dino.speed)
+  }, 100 - (4 * (dino.speed - 1)))
 }
 
 function stopDinoRunFrameCycle(event) {
