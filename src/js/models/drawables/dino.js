@@ -33,15 +33,13 @@ export default class Dino extends Sprite {
   }
 
   startRunAnimation() {
-    const canvasEl = this.canvas.canvasEl;
-    startDinoRunAnimationEvent.dino = this;
-    canvasEl.dispatchEvent(startDinoRunAnimationEvent);
+    this.timeoutIDs.runAnimation = setInterval(() => {
+      this.cycleRunningFrame();
+    }, 100 - (4 * (this.speed - 1)))
   }
 
   stopRunAnimation() {
-    const canvasEl = this.canvas.canvasEl;
-    stopDinoRunAnimationEvent.dino = this;
-    canvasEl.dispatchEvent(stopDinoRunAnimationEvent);
+    clearInterval(this.timeoutIDs.runAnimation);
     this.frameX = 0;
   }
 
@@ -55,15 +53,13 @@ export default class Dino extends Sprite {
   }
 
   startRunMovement() {
-    const canvasEl = this.canvas.canvasEl;
-    startDinoRunMovementEvent.dino = this;
-    canvasEl.dispatchEvent(startDinoRunMovementEvent);
+    this.timeoutIDs.runMovement = setInterval(() => {
+      this.randomXMovement();
+    }, 50);
   }
 
   stopRunMovement() {
-    const canvasEl = this.canvas.canvasEl;
-    stopDinoRunMovementEvent.dino = this;
-    canvasEl.dispatchEvent(stopDinoRunMovementEvent);
+    clearInterval(this.timeoutIDs.runMovement);
   }
 }
 
