@@ -26,7 +26,7 @@ export default class Timer {
 
   tick() {
     if(this.remainingTime === 0) {
-      this.resetEl.click();
+      this.reset();
     } else {
       this.timeElapsed++;
       this.printTime();
@@ -34,6 +34,7 @@ export default class Timer {
   }
 
   updateTime() {
+    addTimeFromInput(this);
     this.remainingTime = this.time - this.timeElapsed;
     this.hours = Math.floor(this.remainingTime / (60 * 60));
     this.minutes = Math.floor((this.remainingTime % (3600)) / 60);
@@ -41,28 +42,27 @@ export default class Timer {
   }
 
   start() {
-    this.intervalId = setInterval(this.tick.bind(this), 1000);
+    this.startPauseEl.classList.remove('start');
+    this.startPauseEl.classList.add('pause');
+    this.startPauseEl.innerHTML = 'PAUSE'
+    this.timeIntervalId = setInterval(this.tick.bind(this), 1000);
   }
 
   pause() {
-    clearInterval(this.intervalId);
+    this.startPauseEl.classList.add('start');
+    this.startPauseEl.classList.remove('pause');
+    this.startPauseEl.innerHTML = 'START'
+    clearInterval(this.timeIntervalId);
   }
 
   reset() {
     this.timeElapsed = 0;
+    this.pause();
     this.printTime();
   }
 
   setTime(time) {
     this.time = time;
-  }
-
-  setTimeFromInput() {
-    let input = Array.from(arguments);
-    let setTimeMethodNames = ['setHours', 'setMinutes', 'setSeconds'];
-
-    for (let i = 0; i < 3; i++)
-      this[setTimeMethodNames[i]](input[i]);
   }
 
   setHours(amount) {
@@ -84,4 +84,36 @@ export default class Timer {
     this.time -= currentSeconds;
     this.time += amount;
   }
+}
+
+function addTimeFromInput(timer) {
+  const inputEls = timer.inputEls;
+  const setTimeFromInputCurry = curry(setTimeFromInput, timer, inputEls.length);
+
+  for(let i = 0; i < inputEls.length; i++) {
+    let input = inputEls[i].value;
+    if (isValidTimeInput(input)) { 
+      let timeAmount = parseInt(input);
+      setTimeFromInputCurry(timeAmount);
+    } else {
+      timer.reset();
+      return;
+    }
+  }
+}
+
+function setTimeFromInput(timer) {
+  const input = Array.from(arguments);
+  const setTimeMethodNames = ['setHours', 'setMinutes', 'setSeconds'];
+
+  for (let i = 0; i < 3; i++)
+    this[setTimeMethodNames[i]](input[i]);
+}
+
+function isValidTimeInput(value) {
+  return /^\d+$/.test(value) && value <= 99;
+}
+
+function blurFocus() {
+  document.activeElement.blur();
 }

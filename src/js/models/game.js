@@ -3,9 +3,7 @@ import Timer from './timer';
 import Canvas from './canvas';
 import { startRaceEvent, pauseRaceEvent } from '../events/gameEvents';
 import Background from './drawables/background';
-import addBackgroundEventListeners from '../listeners/backgroundListeners';
 import addCanvasEventListeners from '../listeners/canvasListeners';
-import addDinoEventListeners from '../listeners/dinoListeners';
 import addGameEventListeners from '../listeners/gameListeners';
 
 export default class Game {
@@ -64,15 +62,13 @@ function createDinos(dinoColors) {
       width: 100,
       height: 100,
       scaleFactor: 3,
-      speed: 0,
-      pos: [this.canvas.width - (50 * (i + 1)), 460]
+      speed: (i + 1) * 2,
+      pos: [(50 * (i + 1)), 460]
     }));
   }
 }
 
 function addAllEventListeners() {
-  addBackgroundEventListeners();
   addCanvasEventListeners(this.canvas);
-  addDinoEventListeners();
   addGameEventListeners(this);
 }

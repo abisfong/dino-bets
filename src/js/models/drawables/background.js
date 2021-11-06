@@ -1,8 +1,4 @@
 import Drawable from "./drawable";
-import { 
-  startBackgroundScrollEvent,
-  stopBackgroundScrollEvent
-} from "../../events/backgroundEvents";
 
 export default class Background extends Drawable {
   constructor(options) {
@@ -23,16 +19,14 @@ export default class Background extends Drawable {
   }
 
   scroll(direction) {
-    const canvasEl = this.canvas.canvasEl;
-    startBackgroundScrollEvent.direction = direction;
-    startBackgroundScrollEvent.background = this;
-    canvasEl.dispatchEvent(startBackgroundScrollEvent);
+    let directionDelta = getPosDelta(direction);
+    this.timeoutIDs.scroll = setInterval(() => {
+      scrollBackground(this, directionDelta);
+    }, 100 / this.speed);
   }
 
   stopScroll() {
-    const canvasEl = this.canvas.canvasEl;
-    stopBackgroundScrollEvent.background = this;
-    canvasEl.dispatchEvent(stopBackgroundScrollEvent);
+    clearInterval(this.timeoutIDs.scroll);
   }
 
   setScrollPosDelta(posXDelta = 0, posYDelta = 0) {
@@ -49,3 +43,31 @@ export default class Background extends Drawable {
 }
 
 Background.LISTENERS_LOADED = false;
+
+function getPosDelta(direction) {
+  let directionDelta;
+  switch (direction) {
+    case 'left':
+      directionDelta = [-1, 0];
+      break;
+    case 'right':
+      directionDelta = [1, 0];
+      break;
+    case 'up':
+      directionDelta = [0, -1];
+      break;
+    case 'down':
+      directionDelta = [0, 1];
+      break;
+  }
+  return directionDelta;
+}
+
+function scrollBackground(background, directionDelta) {
+  let posXDelta = background.posXDelta;
+  let posYDelta = background.posYDelta;
+  background.setScrollPosDelta(
+    posXDelta + directionDelta[0], 
+    posYDelta + directionDelta[1],
+  );
+}

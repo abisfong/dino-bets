@@ -1,10 +1,4 @@
 import Sprite from "./sprite";
-import { 
-  startDinoRunAnimationEvent, 
-  stopDinoRunAnimationEvent,
-  startDinoRunMovementEvent,
-  stopDinoRunMovementEvent
-} from '../../events/dinoEvents';
 
 export default class Dino extends Sprite {
   constructor(options) {
@@ -44,7 +38,7 @@ export default class Dino extends Sprite {
   }
 
   randomXMovement() {
-    this.moveOnX(-1);
+    this.moveOnX(1);
   }
 
   moveOnX(direction) {
