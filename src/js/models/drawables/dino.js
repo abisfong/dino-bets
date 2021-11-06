@@ -46,11 +46,12 @@ export default class Dino extends Sprite {
   }
 
   randomXMovement() {
-    this.moveOnX(1);
+    this.moveOnX(-1);
   }
 
   moveOnX(direction) {
-    this.posXDelta = this.posXDelta + direction + this.speed;
+    if (this.speed != 0)
+      this.posXDelta = this.posXDelta + (direction * this.speed);
   }
 
   startRunMovement() {
