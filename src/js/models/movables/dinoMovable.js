@@ -23,7 +23,7 @@ export default class DinoMovable extends Movable {
     const vertical = this.height();
     const drawable = this.drawable;
     timeoutIDs.jumpMovement = setInterval(() => {
-      // this.moveOnY(1)
+      this.moveOnY()
     }, 240);
   }
 }
