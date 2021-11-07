@@ -4,7 +4,7 @@ import Canvas from './canvas';
 import Background from './drawables/background';
 import addGameEventListeners from '../listeners/gameListeners';
 import addTimerEventListeners from '../listeners/timerListeners';
-import DinoMoveable from './movables/dinoMovable';
+import DinoMovable from './movables/dinoMovable';
 
 export default class Game {
   constructor(options) {
@@ -127,6 +127,6 @@ function createDinoSprites(dinoColors) {
 
 function createDinoMovables(dinoSprites) {
   return dinoSprites.map(dinoSprite => {
-    return new DinoMoveable({ drawable: dinoSprite });
+    return new DinoMovable({ drawable: dinoSprite });
   });
 }

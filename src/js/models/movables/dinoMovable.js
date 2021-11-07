@@ -1,6 +1,6 @@
 import Movable from "./movable";
 
-export default class DinoMoveable extends Movable {
+export default class DinoMovable extends Movable {
   constructor(options) {
     super(options);
   }
