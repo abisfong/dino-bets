@@ -36,29 +36,6 @@ export default class DinoSprite extends Sprite {
     clearInterval(this.timeoutIDs.runAnimation);
     this.frameX = 0;
   }
-
-  randomXMovement() {
-    this.moveOnX(-1);
-  }
-
-  moveOnX(direction) {
-    if (this.speed != 0)
-      this.posXDelta = this.posXDelta + (direction * this.speed);
-  }
-
-  moveOnY(direction) {
-    this.posYDelta += direction;
-  }
-
-  startRunMovement() {
-    this.timeoutIDs.runMovement = setInterval(() => {
-      this.randomXMovement();
-    }, 240);
-  }
-
-  stopRunMovement() {
-    clearInterval(this.timeoutIDs.runMovement);
-  }
 }
 
 DinoSprite.COLORS = [

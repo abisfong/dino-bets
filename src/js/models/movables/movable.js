@@ -1,31 +1,17 @@
+import addPropsFrom from "../../util/addPropsFrom";
+
 export default class Movable {
   constructor(options) {
     this.drawable = options.drawable;
+    addPropsFrom(this.drawable);
   }
 
   moveOnX(direction) {
-    const drawable = this.drawable;
-    if (drawable.speed != 0)
-      drawable.posXDelta = drawable.posXDelta + (direction * drawable.speed);
+    if (this.speed() != 0)
+      this.posXDelta() = this.posXDelta() + (direction * this.speed());
   }
 
   moveOnY(direction) {
-    const drawable = this.drawable;
-    drawable.posYDelta += direction;
+    this.drawable.posYDelta += direction;
   }
 }
-
-  // randomXMovement() {
-    
-  //   this.moveOnX(-1);
-  // }
-
-  // startRunMovement() {
-  //   this.timeoutIDs.runMovement = setInterval(() => {
-  //     this.randomXMovement();
-  //   }, 240);
-  // }
-
-  // stopRunMovement() {
-  //   clearInterval(this.timeoutIDs.runMovement);
-  // }
