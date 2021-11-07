@@ -18,4 +18,10 @@ export default class DinoMoveable extends Movable {
   }
 
   // vel = initialSpeed + acceleration * time
+  jump() {
+    const timeoutIDs = this.timeoutIDs();
+    timeoutIDs.jumpMovement = setInterval(() => {
+
+    }, 240);
+  }
 }
