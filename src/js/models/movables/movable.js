@@ -6,12 +6,12 @@ export default class Movable {
     addLivePropsFrom.call(this, this.drawable);
   }
 
-  moveOnX(direction) {
+  moveOnX(delta) {
     if (this.speed() != 0)
-      this.drawable.posXDelta = this.posXDelta() + (direction * this.speed());
+      this.drawable.posXDelta = this.posXDelta() + (delta * this.speed());
   }
 
-  moveOnY(direction) {
-    this.drawable.posYDelta += direction;
+  moveOnY(delta) {
+    this.drawable.posYDelta += delta;
   }
 }
