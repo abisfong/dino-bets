@@ -58,7 +58,7 @@ function startDinoRace(game) {
 function startDinoRunAnimations(game) {
   let dinoSprites = game.dinoSprites;
   dinoSprites.forEach(dinoSprite => {
-    dinoSprite.startRunAnimation();
+    dinoSprite.startRun();
   });
 }
 
@@ -84,7 +84,7 @@ function stopDinoRace(game) {
 function stopDinoRunAnimations(game) {
   let dinoSprites = game.dinoSprites;
   dinoSprites.forEach(dinoSprite => {
-    dinoSprite.stopRunAnimation();
+    dinoSprite.stopRun();
   });
 }
 

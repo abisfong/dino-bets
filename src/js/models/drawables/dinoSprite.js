@@ -26,13 +26,13 @@ export default class DinoSprite extends Sprite {
     this.frameY = frameY;
   }
 
-  startRunAnimation() {
+  startRun() {
     this.timeoutIDs.runAnimation = setInterval(() => {
       this.cycleRunningFrame();
     }, 100 - (4 * (this.speed - 1)))
   }
 
-  stopRunAnimation() {
+  stopRun() {
     clearInterval(this.timeoutIDs.runAnimation);
     this.frameX = 0;
   }
