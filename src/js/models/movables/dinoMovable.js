@@ -5,14 +5,10 @@ export default class DinoMoveable extends Movable {
     super(options);
   }
 
-  randomXMovement() {  
-    this.moveOnX(-1);
-  }
-
   startRunMovement() {
     const timeoutIDs = this.timeoutIDs();
     timeoutIDs.runMovement = setInterval(() => {
-      this.randomXMovement();
+      this.moveOnX(-1);
     }, 240);
   }
 
@@ -20,4 +16,6 @@ export default class DinoMoveable extends Movable {
     const timeoutIDs = this.timeoutIDs();
     clearInterval(timeoutIDs.runMovement);
   }
+
+  // vel = initialSpeed + acceleration * time
 }
