@@ -1,16 +1,16 @@
-describe("Dino", function () {
+describe("DinoSprite", function () {
   describe("#constructor", function () {
     it("should accept a color", function () {
-      let dino = new Dino("red");
-      expect(dino.color).toBe("red");
+      let dinoSprite = new DinoSprite({color: "red"});
+      expect(dinoSprite.color).toBe("red");
     });
   });
 
   describe("::generateRandomDino", function () {
     it("should generate a random colored Dino", function () {
-      let dino = Dino.generateRandomDino();
-      expect(dino instanceof Dino).toBe(true);
-      expect(Dino.COLORS.includes(dino.color)).toBe(true);
+      let dinoSprite = DinoSprite.generateRandomDino();
+      expect(dinoSprite instanceof Dino).toBe(true);
+      expect(DinoSprite.COLORS.includes(dinoSprite.color)).toBe(true);
     });
   });
 });

@@ -1,5 +1,5 @@
 import Bet from './js/models/bet';
-import Dino from './js/models/drawables/dino';
+import DinoSprite from './js/models/drawables/dinoSprite';
 import Money from './js/models/Money';
 import Race from './js/models/race';
 import Timer from './js/models/timer';
@@ -8,7 +8,7 @@ import Game from './js/models/game';
 
 if (document.title === "Jasmine Spec Runner") {
   window['Bet'] = Bet;
-  window['Dino'] = Dino;
+  window['DinoSprite'] = DinoSprite;
   window['Money'] = Money;
   window['Race'] = Race;
   window['Timer'] = Timer;

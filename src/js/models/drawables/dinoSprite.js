@@ -1,19 +1,19 @@
 import Sprite from "./sprite";
 
-export default class Dino extends Sprite {
+export default class DinoSprite extends Sprite {
   constructor(options) {
     super(options);
-    this.width = Dino.SIZES[options.size] || 24;
-    this.height = Dino.SIZES[options.size] || 24;
+    this.width = DinoSprite.SIZES[options.size] || 24;
+    this.height = DinoSprite.SIZES[options.size] || 24;
     this.sprite.src = `${Sprite.BASE_URL}/${options.color}-dino-${options.size || 'small'}.png`;
     this.color = options.color;
     this.posXDeviation = this.canvasEl.width * .2;
   }
 
   static generateRandom(options) {
-    let colorCount = Dino.COLORS.length;
-    let color = Dino.COLORS[Math.round(Math.random() * (colorCount - 1))];
-    return new Dino({color});
+    let colorCount = DinoSprite.COLORS.length;
+    let color = DinoSprite.COLORS[Math.round(Math.random() * (colorCount - 1))];
+    return new DinoSprite({color});
   }
   
   cycleRunningFrame() {
@@ -61,14 +61,14 @@ export default class Dino extends Sprite {
   }
 }
 
-Dino.COLORS = [
+DinoSprite.COLORS = [
   "red",
   "green",
   "yellow",
   "purp"
 ];
 
-Dino.SIZES = {
+DinoSprite.SIZES = {
   small: 24,
   large: 94,
 }
