@@ -1,5 +1,3 @@
-import addCanvasEventListeners from "../listeners/canvasListeners";
-
 export default class Canvas {
   constructor() {
     this.canvasEl = document.getElementById('canvas');

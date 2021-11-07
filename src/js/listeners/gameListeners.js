@@ -1,104 +1,27 @@
 export default function addGameEventListeners(game) {
-  addStartPauseEventListener(game);
-  addStartRaceEventListener(game);
-  addPauseRaceEventListener(game);
+  addStartPauseButtonEventListener(game);
+  addResetButtonEventListener(game);
 }
 
-function addStartPauseEventListener(game) {
+function addStartPauseButtonEventListener(game) {
   const startPauseEl = game.timer.startPauseEl;
   startPauseEl.addEventListener(
     'click',
-    createStartPauseCallback(game)
+    createStartPauseButtonCallback(game)
   );
 }
 
-function createStartPauseCallback(game) {
-  let gameIsRunning = false;
+function createStartPauseButtonCallback(game) {
   return function toggleStartPause() {
     if (game.timer.time <= 0) return;
-    gameIsRunning ? game.pause() : game.start();
-    gameIsRunning = !gameIsRunning;
+    game.state.running ? game.pause() : game.start();
   }
 }
 
-function addStartRaceEventListener(game) {
-  const startPauseEl = game.timer.startPauseEl;
-  startPauseEl.addEventListener(
-    'startRace',
-    createStartRaceCallback(game)
+function addResetButtonEventListener(game) {
+  const resetEl = game.timer.resetEl;
+  resetEl.addEventListener(
+    'click',
+    game.reset.bind(game)
   );
-}
-
-function createStartRaceCallback(game) {
-  return function() {
-    startBackgroundScroll(game);
-    startRace(game);
-  }
-}
-
-function startBackgroundScroll(game) {
-  let backgrounds = game.backgrounds;
-  backgrounds.forEach((background) => {
-    background.scroll('left');
-  });
-}
-
-function startRace(game) {
-  startDinoRunAnimations(game);
-  startDinoRunMovement(game);
-}
-
-function startDinoRunAnimations(game) {
-  let dinos = game.dinos;
-  dinos.forEach(dino => {
-    dino.startRunAnimation();
-  });
-}
-
-function startDinoRunMovement(game) {
-  let dinos = game.dinos;
-  dinos.forEach(dino => {
-    dino.startRunMovement();
-  })
-}
-
-function addPauseRaceEventListener(game) {
-  const startPauseEl = game.timer.startPauseEl;
-  startPauseEl.addEventListener(
-    'pauseRace', 
-    createPauseRaceCallback(game)
-  );
-}
-
-function createPauseRaceCallback(game) {
-  return function () {
-    stopBackgroundScroll(game);
-    stopRace(game);
-  }
-}
-
-function stopBackgroundScroll(game) {
-  let backgrounds = game.backgrounds;
-  backgrounds.forEach((background) => {
-    background.stopScroll();
-  });
-}
-
-function stopRace(game) {
-  stopDinoRunAnimations(game);
-  stopDinoRunMovement(game);
-}
-
-function stopDinoRunAnimations(game) {
-  let dinos = game.dinos;
-  dinos.forEach(dino => {
-    dino.stopRunAnimation();
-  });
-}
-
-function stopDinoRunMovement(game) {
-  let dinos = game.dinos;
-  dinos.forEach(dino => {
-    dino.stopRunMovement();
-  });
 }

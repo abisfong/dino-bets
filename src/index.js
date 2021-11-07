@@ -19,5 +19,5 @@ if (document.title === "Jasmine Spec Runner") {
 
 if (document.title !== "Jasmine Spec Runner")
   document.addEventListener("DOMContentLoaded", function () {
-    new Game({ dinoColors: ['purp', 'red', 'yellow', 'green'] });
+    new Game({});
   });

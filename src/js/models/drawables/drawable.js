@@ -17,8 +17,8 @@ export default class Drawable {
     this.velY = options.vel? options.vel[1] : undefined,
     this.vel = options.vel,
     this.moving = options.moving || false;
-    this.canvas = options.canvas;
-    this.ctx = options.canvas.canvasEl.getContext('2d');
+    this.canvasEl = document.getElementById('canvas');
+    this.ctx = this.canvasEl.getContext('2d');
     this.timeoutIDs = {};
   }
 

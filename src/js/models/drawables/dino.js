@@ -7,13 +7,13 @@ export default class Dino extends Sprite {
     this.height = Dino.SIZES[options.size] || 24;
     this.sprite.src = `${Sprite.BASE_URL}/${options.color}-dino-${options.size || 'small'}.png`;
     this.color = options.color;
-    this.posXDeviation = this.canvas.width * .2;
+    this.posXDeviation = this.canvasEl.width * .2;
   }
 
   static generateRandom(options) {
     let colorCount = Dino.COLORS.length;
     let color = Dino.COLORS[Math.round(Math.random() * (colorCount - 1))];
-    return new Dino({color, canvas: options.canvas});
+    return new Dino({color});
   }
   
   cycleRunningFrame() {

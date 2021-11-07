@@ -13,8 +13,8 @@ export default class Background extends Drawable {
       this.image,
       this.posX + this.posXDelta,
       this.posY + this.posYDelta,
-      this.canvas.width + 1,
-      this.canvas.height + 1,
+      this.canvasEl.width + 1,
+      this.canvasEl.height + 1,
     );
   }
 
@@ -31,8 +31,8 @@ export default class Background extends Drawable {
 
   setScrollPosDelta(posXDelta = 0, posYDelta = 0) {
     this.setPosDelta(
-      posXDelta % this.canvas.width,
-      posYDelta % this.canvas.height
+      posXDelta % this.canvasEl.width,
+      posYDelta % this.canvasEl.height
     )
   }
 

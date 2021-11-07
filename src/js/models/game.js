@@ -1,52 +1,54 @@
 import Dino from './drawables/dino';
 import Timer from './timer';
 import Canvas from './canvas';
-import { startRaceEvent, pauseRaceEvent } from '../events/gameEvents';
 import Background from './drawables/background';
 import addGameEventListeners from '../listeners/gameListeners';
+import addTimerEventListeners from '../listeners/timerListeners';
 
 export default class Game {
   constructor(options) {
-    this.dinos = [];
     this.canvas = new Canvas();
-    this.canvasEl = this.canvas.canvasEl;
     this.timer = new Timer(document.querySelector('#timer'));
+    this.state = { running: false };
     this.init(options);
   }
 
   start() {
-    const startPauseEl = this.timer.startPauseEl;
-    startPauseEl.dispatchEvent(startRaceEvent);
+    this.timer.start();
+    startBackgroundScroll(this);
+    startDinoRace(this);
+    this.state.running = true;
   }
   
   pause() {
-    const startPauseEl = this.timer.startPauseEl;
-    startPauseEl.dispatchEvent(pauseRaceEvent);
+    this.timer.pause();
+    stopBackgroundScroll(this);
+    stopDinoRace(this);
+    this.state.running = false;
   }
 
   reset() {
+    this.timer.reset();
+    this.pause();
   }
 
   init(data) {
-    const { dinoColors } = data;
-    addAllEventListeners.call(this);
-    createDinos.call(this, dinoColors);
-    this.backgrounds = createBackgrounds();
+    addAllEventListeners(this);
+    this.dinos = createDinos(data.dinoColors || Dino.COLORS);
+    this.backgrounds = createBackgrounds(this);
     this.canvas.addDrawables([...this.backgrounds, ...this.dinos]);
     this.canvas.animate(20);
   }
 }
 
-function createBackgrounds() {
+function createBackgrounds(game) {
   return [
     new Background({
-      canvas: this.canvas, 
       speed: 10,
       src: `${Dino.BASE_URL}/pixel-desert.jpeg`
     }),
     new Background({
-      canvas: this.canvas, 
-      pos: [this.canvas.width, 0],
+      pos: [game.canvas.width, 0],
       speed: 10,
       src: `${Dino.BASE_URL}/pixel-desert.jpeg`
     })
@@ -54,19 +56,69 @@ function createBackgrounds() {
 }
 
 function createDinos(dinoColors) {
-  for (let i = 0; i < dinoColors.length; i++) {
-    this.dinos.push(new Dino({
-      color: dinoColors[i], 
-      canvas: this.canvas, 
-      width: 100,
-      height: 100,
-      scaleFactor: 3,
-      speed: (i + 1) * 2,
-      pos: [(50 * (i + 1)), 460]
-    }));
-  }
+  return dinoColors.map((dinoColor, i) => new Dino({
+    color: dinoColor, 
+    width: 100,
+    height: 100,
+    scaleFactor: 3,
+    speed: 1,
+    pos: [(50 * (i + 1)), 460]
+  }));
 }
 
-function addAllEventListeners() {
-  addGameEventListeners(this);
+function addAllEventListeners(game) {
+  addGameEventListeners(game);
+  addTimerEventListeners(game.timer);
+}
+
+function startBackgroundScroll(game) {
+  let backgrounds = game.backgrounds;
+  backgrounds.forEach((background) => {
+    background.scroll('left');
+  });
+}
+
+function startDinoRace(game) {
+  startDinoRunAnimations(game);
+  startDinoRunMovement(game);
+}
+
+function startDinoRunAnimations(game) {
+  let dinos = game.dinos;
+  dinos.forEach(dino => {
+    dino.startRunAnimation();
+  });
+}
+
+function startDinoRunMovement(game) {
+  let dinos = game.dinos;
+  dinos.forEach(dino => {
+    dino.startRunMovement();
+  })
+}
+
+function stopBackgroundScroll(game) {
+  let backgrounds = game.backgrounds;
+  backgrounds.forEach((background) => {
+    background.stopScroll();
+  });
+}
+
+function stopDinoRace(game) {
+  stopDinoRunAnimations(game);
+  stopDinoRunMovement(game);
+}
+
+function stopDinoRunAnimations(game) {
+  let dinos = game.dinos;
+  dinos.forEach(dino => {
+    dino.stopRunAnimation();
+  });
+}
+
+function stopDinoRunMovement(game) {
+  let dinos = game.dinos;
+  dinos.forEach(dino => {
+    dino.stopRunMovement();
+  });
 }
