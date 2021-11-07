@@ -3,7 +3,6 @@ import Timer from './timer';
 import Canvas from './canvas';
 import { startRaceEvent, pauseRaceEvent } from '../events/gameEvents';
 import Background from './drawables/background';
-import addCanvasEventListeners from '../listeners/canvasListeners';
 import addGameEventListeners from '../listeners/gameListeners';
 
 export default class Game {
@@ -69,6 +68,5 @@ function createDinos(dinoColors) {
 }
 
 function addAllEventListeners() {
-  addCanvasEventListeners(this.canvas);
   addGameEventListeners(this);
 }
