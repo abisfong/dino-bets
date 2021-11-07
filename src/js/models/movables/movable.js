@@ -14,4 +14,12 @@ export default class Movable {
   moveOnY(delta) {
     this.drawable.posYDelta += delta;
   }
+
+  setPosXDelta(posXDelta) {
+    this.drawable.posXDelta = posXDelta;
+  }
+
+  setPosYDelta(posYDelta) {
+    this.drawable.posYDelta = posYDelta;
+  }
 }

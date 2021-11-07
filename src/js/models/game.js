@@ -64,9 +64,12 @@ function startDinoRunAnimations(game) {
 
 function startDinoRunMovements(game) {
   let dinoMovables = game.dinoMovables;
-  dinoMovables.forEach(dinoMovable => {
+  dinoMovables.forEach((dinoMovable, i) => {
     dinoMovable.startRun();
-  })
+    setTimeout(() => {
+      dinoMovable.jump();
+    }, i * 250);
+  });
 }
 
 function stopBackgroundScroll(game) {

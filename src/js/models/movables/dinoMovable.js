@@ -1,4 +1,5 @@
 import Movable from "./movable";
+import { displacementEquation } from "../../util";
 
 export default class DinoMovable extends Movable {
   constructor(options) {
@@ -17,13 +18,23 @@ export default class DinoMovable extends Movable {
     clearInterval(timeoutIDs.runMovement);
   }
 
-  // vel = initialSpeed + acceleration * time
-  jump() {
+  jump(hangTime = 1, repositioningInterval = 100, vertical = this.height()) {
     const timeoutIDs = this.timeoutIDs();
-    const vertical = this.height();
-    const drawable = this.drawable;
+    const acceleration = (2 * vertical) / Math.pow(hangTime / 2, 2);
+    let displacementTime = repositioningInterval;
+    let elapsedTime = repositioningInterval;
+    let displacement = 0;
     timeoutIDs.jumpMovement = setInterval(() => {
-      this.moveOnY()
-    }, 240);
+      if(displacementTime == 0)
+        clearInterval(timeoutIDs.jumpMovement);
+      displacement = displacementEquation(0, acceleration, displacementTime / 1000);
+      displacementTime = calculateDisplacementTime(displacementTime, elapsedTime, hangTime);
+      elapsedTime += repositioningInterval;
+      this.setPosYDelta(-displacement);
+    }, repositioningInterval);
   }
+}
+
+function calculateDisplacementTime(displacementTime, elapsedTime, hangTime) {
+  return displacementTime + (elapsedTime < hangTime / 2 * 1000 ? 100 : -100);
 }
