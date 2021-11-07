@@ -41,36 +41,6 @@ export default class Game {
   }
 }
 
-function createBackgrounds(game) {
-  return [
-    new Background({
-      speed: 10,
-      src: `${Dino.BASE_URL}/pixel-desert.jpeg`
-    }),
-    new Background({
-      pos: [game.canvas.width, 0],
-      speed: 10,
-      src: `${Dino.BASE_URL}/pixel-desert.jpeg`
-    })
-  ];
-}
-
-function createDinos(dinoColors) {
-  return dinoColors.map((dinoColor, i) => new Dino({
-    color: dinoColor, 
-    width: 100,
-    height: 100,
-    scaleFactor: 3,
-    speed: 1,
-    pos: [(50 * (i + 1)), 460]
-  }));
-}
-
-function addAllEventListeners(game) {
-  addGameEventListeners(game);
-  addTimerEventListeners(game.timer);
-}
-
 function startBackgroundScroll(game) {
   let backgrounds = game.backgrounds;
   backgrounds.forEach((background) => {
@@ -121,4 +91,34 @@ function stopDinoRunMovement(game) {
   dinos.forEach(dino => {
     dino.stopRunMovement();
   });
+}
+
+function addAllEventListeners(game) {
+  addTimerEventListeners(game.timer);
+  addGameEventListeners(game);
+}
+
+function createBackgrounds(game) {
+  return [
+    new Background({
+      speed: 10,
+      src: `${Dino.BASE_URL}/pixel-desert.jpeg`
+    }),
+    new Background({
+      pos: [game.canvas.width, 0],
+      speed: 10,
+      src: `${Dino.BASE_URL}/pixel-desert.jpeg`
+    })
+  ];
+}
+
+function createDinos(dinoColors) {
+  return dinoColors.map((dinoColor, i) => new Dino({
+    color: dinoColor, 
+    width: 100,
+    height: 100,
+    scaleFactor: 3,
+    speed: 1,
+    pos: [(50 * (i + 1)), 460]
+  }));
 }

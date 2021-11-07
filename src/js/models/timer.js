@@ -10,7 +10,7 @@ export default class Timer {
     this.startPauseEl = timerEl.querySelector('#start-pause-btn');
     this.resetEl = timerEl.querySelector('#reset-btn');
     this.inputEls = this.timeEl.children;
-    this.inputIsReadOnly = false;
+    this.state = { inputIsReadOnly: false };
     this.remainingTime = this.time;
     this.hours = 0;
     this.minutes = 0;
@@ -58,10 +58,8 @@ export default class Timer {
   }
 
   start() {
-    if (!this.inputIsReadOnly) {
-      this.addTimeFromInput();
+    if (!this.state.inputIsReadOnly)
       setTimerInputReadOnly(this, true);
-    }
     this.startPauseEl.classList.remove('start');
     this.startPauseEl.classList.add('pause');
     this.startPauseEl.innerHTML = 'PAUSE'
@@ -128,7 +126,7 @@ function blurTimerInputFocus(timer) {
 
 function setTimerInputReadOnly(timer, value) {
   const inputEls = timer.inputEls;
-  timer.inputIsReadOnly = value;
+  timer.state.inputIsReadOnly = value;
   for (let i = 0; i < inputEls.length; i++)
     inputEls[i].readOnly = value;
 }
