@@ -38,7 +38,7 @@ export default class Dino extends Sprite {
   }
 
   randomXMovement() {
-    this.moveOnX(1);
+    this.moveOnX(-1);
   }
 
   moveOnX(direction) {
@@ -46,10 +46,14 @@ export default class Dino extends Sprite {
       this.posXDelta = this.posXDelta + (direction * this.speed);
   }
 
+  moveOnY(direction) {
+    this.posYDelta += direction;
+  }
+
   startRunMovement() {
     this.timeoutIDs.runMovement = setInterval(() => {
       this.randomXMovement();
-    }, 50);
+    }, 240);
   }
 
   stopRunMovement() {

@@ -29,7 +29,7 @@ export default class Timer {
 
   tick() {
     if(this.remainingTime === 0) {
-      this.reset();
+      this.resetEl.click();
     } else {
       this.timeElapsed++;
       this.updateTime();
@@ -75,7 +75,6 @@ export default class Timer {
 
   reset() {
     this.timeElapsed = 0;
-    this.pause();
     this.updateTime();
     this.printTime();
     setTimerInputReadOnly(this, false);
