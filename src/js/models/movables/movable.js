@@ -1,14 +1,14 @@
-import addPropsFrom from "../../util/addPropsFrom";
+import { addLivePropsFrom } from "../../util";
 
 export default class Movable {
   constructor(options) {
     this.drawable = options.drawable;
-    addPropsFrom(this.drawable);
+    addLivePropsFrom.call(this, this.drawable);
   }
 
   moveOnX(direction) {
     if (this.speed() != 0)
-      this.posXDelta() = this.posXDelta() + (direction * this.speed());
+      this.drawable.posXDelta = this.posXDelta() + (direction * this.speed());
   }
 
   moveOnY(direction) {

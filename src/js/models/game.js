@@ -4,6 +4,7 @@ import Canvas from './canvas';
 import Background from './drawables/background';
 import addGameEventListeners from '../listeners/gameListeners';
 import addTimerEventListeners from '../listeners/timerListeners';
+import DinoMoveable from './movables/dinoMovable';
 
 export default class Game {
   constructor(options) {
@@ -34,7 +35,8 @@ export default class Game {
 
   init(data) {
     addAllEventListeners(this);
-    this.dinoSprites = createDinos(data.dinoColors || DinoSprite.COLORS);
+    this.dinoSprites = createDinoSprites(data.dinoColors || DinoSprite.COLORS);
+    this.dinoMovables = createDinoMovables(this.dinoSprites);
     this.backgrounds = createBackgrounds(this);
     this.canvas.addDrawables([...this.backgrounds, ...this.dinoSprites]);
     this.canvas.animate(20);
@@ -50,7 +52,7 @@ function startBackgroundScroll(game) {
 
 function startDinoRace(game) {
   startDinoRunAnimations(game);
-  startDinoRunMovement(game);
+  startDinoRunMovements(game);
 }
 
 function startDinoRunAnimations(game) {
@@ -60,10 +62,10 @@ function startDinoRunAnimations(game) {
   });
 }
 
-function startDinoRunMovement(game) {
-  let dinoSprites = game.dinoSprites;
-  dinoSprites.forEach(dinoSprite => {
-    dinoSprite.startRunMovement();
+function startDinoRunMovements(game) {
+  let dinoMovables = game.dinoMovables;
+  dinoMovables.forEach(dinoMovable => {
+    dinoMovable.startRunMovement();
   })
 }
 
@@ -76,7 +78,7 @@ function stopBackgroundScroll(game) {
 
 function stopDinoRace(game) {
   stopDinoRunAnimations(game);
-  stopDinoRunMovement(game);
+  stopDinoRunMovements(game);
 }
 
 function stopDinoRunAnimations(game) {
@@ -86,10 +88,10 @@ function stopDinoRunAnimations(game) {
   });
 }
 
-function stopDinoRunMovement(game) {
-  const dinoSprites = game.dinoSprites;
-  dinoSprites.forEach(dinoSprite => {
-    dinoSprite.stopRunMovement();
+function stopDinoRunMovements(game) {
+  const dinoMovables = game.dinoMovables;
+  dinoMovables.forEach(dinoMovable => {
+    dinoMovable.stopRunMovement();
   });
 }
 
@@ -112,7 +114,7 @@ function createBackgrounds(game) {
   ];
 }
 
-function createDinos(dinoColors) {
+function createDinoSprites(dinoColors) {
   return dinoColors.map((dinoColor, i) => new DinoSprite({
     color: dinoColor, 
     width: 100,
@@ -121,4 +123,10 @@ function createDinos(dinoColors) {
     speed: 1,
     pos: [600 - (50 * (i + 1)), 460]
   }));
+}
+
+function createDinoMovables(dinoSprites) {
+  return dinoSprites.map(dinoSprite => {
+    return new DinoMoveable({ drawable: dinoSprite });
+  });
 }
