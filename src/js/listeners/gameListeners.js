@@ -1,10 +1,10 @@
 export default function addGameEventListeners(game) {
-  addStartPauseEventListeners(game);
+  addStartPauseEventListener(game);
   addStartRaceEventListener(game);
   addPauseRaceEventListener(game);
 }
 
-function addStartPauseEventListeners(game) {
+function addStartPauseEventListener(game) {
   const startPauseEl = game.timer.startPauseEl;
   startPauseEl.addEventListener(
     'click',
