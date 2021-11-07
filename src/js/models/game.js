@@ -30,15 +30,15 @@ export default class Game {
   init(data) {
     const { dinoColors } = data;
     addAllEventListeners.call(this);
-    createBackgrounds.call(this);
     createDinos.call(this, dinoColors);
+    this.backgrounds = createBackgrounds();
     this.canvas.addDrawables([...this.backgrounds, ...this.dinos]);
     this.canvas.animate(20);
   }
 }
 
 function createBackgrounds() {
-  this.backgrounds = [
+  return [
     new Background({
       canvas: this.canvas, 
       speed: 10,
