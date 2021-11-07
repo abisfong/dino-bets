@@ -65,7 +65,7 @@ function startDinoRunAnimations(game) {
 function startDinoRunMovements(game) {
   let dinoMovables = game.dinoMovables;
   dinoMovables.forEach(dinoMovable => {
-    dinoMovable.startRunMovement();
+    dinoMovable.startRun();
   })
 }
 
@@ -91,7 +91,7 @@ function stopDinoRunAnimations(game) {
 function stopDinoRunMovements(game) {
   const dinoMovables = game.dinoMovables;
   dinoMovables.forEach(dinoMovable => {
-    dinoMovable.stopRunMovement();
+    dinoMovable.stopRun();
   });
 }
 

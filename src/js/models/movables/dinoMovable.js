@@ -5,14 +5,14 @@ export default class DinoMovable extends Movable {
     super(options);
   }
 
-  startRunMovement() {
+  startRun() {
     const timeoutIDs = this.timeoutIDs();
     timeoutIDs.runMovement = setInterval(() => {
       this.moveOnX(-1);
     }, 240);
   }
 
-  stopRunMovement() {
+  stopRun() {
     const timeoutIDs = this.timeoutIDs();
     clearInterval(timeoutIDs.runMovement);
   }
