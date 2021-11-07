@@ -75,6 +75,7 @@ export default class Timer {
 
   reset() {
     this.timeElapsed = 0;
+    this.pause();
     this.updateTime();
     this.printTime();
     setTimerInputReadOnly(this, false);
