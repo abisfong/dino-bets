@@ -18,12 +18,15 @@ export default class DinoMovable extends Movable {
     clearInterval(timeoutIDs.runMovement);
   }
 
-  jump(hangTime = 1, repositioningInterval = 100, vertical = this.height()) {
+  jump(hangTime = .75, repositioningInterval = 100) {
+    const averageRunningJumpHeightRatio = .55;
+    const vertical = this.height() * this.scaleFactor() * averageRunningJumpHeightRatio;
+    // acceleration is based on displacement formula
+    const acceleration = (2 * vertical) / Math.pow(hangTime / 2, 2); 
     const timeoutIDs = this.timeoutIDs();
-    const acceleration = (2 * vertical) / Math.pow(hangTime / 2, 2);
     let displacementTime = repositioningInterval;
-    let elapsedTime = repositioningInterval;
     let displacement = 0;
+    let elapsedTime = repositioningInterval;
     timeoutIDs.jumpMovement = setInterval(() => {
       if(displacementTime == 0)
         clearInterval(timeoutIDs.jumpMovement);
@@ -35,6 +38,7 @@ export default class DinoMovable extends Movable {
   }
 }
 
+// helps loop through the displacement of jump
 function calculateDisplacementTime(displacementTime, elapsedTime, hangTime) {
   return displacementTime + (elapsedTime < hangTime / 2 * 1000 ? 100 : -100);
 }
