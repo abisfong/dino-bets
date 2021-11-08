@@ -19,7 +19,7 @@ export default class DinoMovable extends Movable {
   }
 
   jump(hangTime = .75, repositioningInterval = 100) {
-    const averageRunningJumpHeightRatio = .55;
+    const averageRunningJumpHeightRatio = .36 + (.019 * this.speed());
     const vertical = this.height() * this.scaleFactor() * averageRunningJumpHeightRatio;
     // acceleration is based on displacement formula
     const acceleration = (2 * vertical) / Math.pow(hangTime / 2, 2); 
