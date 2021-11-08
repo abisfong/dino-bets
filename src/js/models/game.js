@@ -65,7 +65,7 @@ function startDinoRunAnimations(game) {
 function startDinoRunMovements(game) {
   let dinoMovables = game.dinoMovables;
   dinoMovables.forEach((dinoMovable, i) => {
-    dinoMovable.startRun();
+    // dinoMovable.startRun();
     setTimeout(() => {
       dinoMovable.jump();
     }, i * 250);
