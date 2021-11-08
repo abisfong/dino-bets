@@ -1,13 +1,13 @@
 import addLivePropsFrom from "./addLivePropsFrom";
 import curry from "./curry";
-import displacementEquation from "./displacementEquation";
+import calculateDisplacement from "./calculateDisplacement";
 import factorial from "./factorial";
 import isNumber from "./isNumber";
 
 export {
   addLivePropsFrom,
   curry,
-  displacementEquation,
+  calculateDisplacement,
   factorial,
   isNumber,
 }
