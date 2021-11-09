@@ -51,21 +51,13 @@ function startBackgroundScroll(game) {
 }
 
 function startDinoRace(game) {
-  startDinoRunAnimations(game);
-  startDinoRunMovements(game);
+  startDinoRuns(game);
 }
 
-function startDinoRunAnimations(game) {
-  let dinoSprites = game.dinoSprites;
-  dinoSprites.forEach(dinoSprite => {
-    dinoSprite.startRun();
-  });
-}
-
-function startDinoRunMovements(game) {
+function startDinoRuns(game) {
   let dinoMovables = game.dinoMovables;
   dinoMovables.forEach((dinoMovable, i) => {
-    // dinoMovable.startRun();
+    dinoMovable.startRun();
     setTimeout(() => {
       dinoMovable.jump();
     }, i * 250);
@@ -80,18 +72,10 @@ function stopBackgroundScroll(game) {
 }
 
 function stopDinoRace(game) {
-  stopDinoRunAnimations(game);
-  stopDinoRunMovements(game);
+  stopDinoRuns(game);
 }
 
-function stopDinoRunAnimations(game) {
-  let dinoSprites = game.dinoSprites;
-  dinoSprites.forEach(dinoSprite => {
-    dinoSprite.stopRun();
-  });
-}
-
-function stopDinoRunMovements(game) {
+function stopDinoRuns(game) {
   const dinoMovables = game.dinoMovables;
   dinoMovables.forEach(dinoMovable => {
     dinoMovable.stopRun();
@@ -123,7 +107,7 @@ function createDinoSprites(dinoColors) {
     width: 100,
     height: 100,
     scaleFactor: 3,
-    speed: 3,
+    speed: 1,
     pos: [600 - (50 * (i + 1)), 460]
   }));
 }

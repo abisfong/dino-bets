@@ -4,6 +4,7 @@ import { calculateDisplacement } from "../../util";
 export default class DinoMovable extends Movable {
   constructor(options) {
     super(options);
+    this.dinoSprite = this.drawable;
   }
 
   startRun() {
@@ -11,14 +12,16 @@ export default class DinoMovable extends Movable {
     timeoutIDs.runMovement = setInterval(() => {
       this.moveOnX(-1);
     }, 240);
+    this.dinoSprite.startRun();
   }
 
   stopRun() {
     const timeoutIDs = this.timeoutIDs();
     clearInterval(timeoutIDs.runMovement);
+    this.dinoSprite.stopRun();
   }
 
-  poop() {
+  layEgg() {
 
   }
 
