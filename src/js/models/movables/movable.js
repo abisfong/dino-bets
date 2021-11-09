@@ -7,8 +7,9 @@ export default class Movable {
   }
 
   moveOnX(delta) {
+    const speed = Math.abs(this.speed());
     if (this.speed() != 0)
-      this.drawable.posXDelta = this.posXDelta() + (delta * this.speed());
+      this.drawable.posXDelta = this.posXDelta() + (delta * speed);
   }
 
   moveOnY(delta) {

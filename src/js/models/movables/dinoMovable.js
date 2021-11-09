@@ -5,10 +5,30 @@ export default class DinoMovable extends Movable {
   constructor(options) {
     super(options);
     this.dinoSprite = this.drawable;
+    this.timeoutIDs = this.timeoutIDs();
+  }
+
+  startRandomRun() {
+    const dirs = [-1, 0, 1];
+    const maxSpeed = 5;
+    this.startRun();
+    this.timeoutIDs.randomRunMovement = setInterval(() => {
+      console.log(`Moving ${this.color()} Dino`);
+      this.stopRun();
+      const dir = dirs[Math.floor(Math.random() * 3)];
+      this.dinoSprite.speed = Math.floor(Math.random() * (maxSpeed + 1)) * dir;
+      this.startRun(dir);
+    }, 5000);
+  }
+
+  stopRandomRun() {
+    const timeoutIDs = this.timeoutIDs;
+    clearInterval(timeoutIDs.randomRunMovement);
+    this.stopRun();
   }
 
   startRun(direction=0) {
-    const timeoutIDs = this.timeoutIDs();
+    const timeoutIDs = this.timeoutIDs;
     timeoutIDs.runMovement = setInterval(() => {
       this.moveOnX(direction);
     }, 240);
@@ -16,7 +36,7 @@ export default class DinoMovable extends Movable {
   }
 
   stopRun() {
-    const timeoutIDs = this.timeoutIDs();
+    const timeoutIDs = this.timeoutIDs;
     clearInterval(timeoutIDs.runMovement);
     this.dinoSprite.stopRun();
   }
@@ -36,7 +56,7 @@ export default class DinoMovable extends Movable {
 
   jump(hangTime = .75, repositioningInterval = 100) {
     const acceleration = calculateAcceleration.call(this, hangTime);
-    const timeoutIDs = this.timeoutIDs();
+    const timeoutIDs = this.timeoutIDs;
     let displacementTime = repositioningInterval;
     let elapsedTime = repositioningInterval;
     timeoutIDs.jumpMovement = setInterval(() => {
@@ -49,6 +69,8 @@ export default class DinoMovable extends Movable {
     }, repositioningInterval);
   }
 }
+
+DinoMovable.DIRS_X = [1,-1]
 
 // acceleration varies to help jump at different heights depending on speed
 // and sprite size

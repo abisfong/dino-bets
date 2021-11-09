@@ -57,7 +57,7 @@ function startDinoRace(game) {
 function startDinoRuns(game) {
   let dinoMovables = game.dinoMovables;
   dinoMovables.forEach((dinoMovable, i) => {
-    dinoMovable.startRun();
+    dinoMovable.startRandomRun();
     setTimeout(() => {
       dinoMovable.jump();
     }, i * 250);
@@ -78,7 +78,7 @@ function stopDinoRace(game) {
 function stopDinoRuns(game) {
   const dinoMovables = game.dinoMovables;
   dinoMovables.forEach(dinoMovable => {
-    dinoMovable.stopRun();
+    dinoMovable.stopRandomRun();
   });
 }
 
