@@ -18,8 +18,21 @@ export default class DinoMovable extends Movable {
     clearInterval(timeoutIDs.runMovement);
   }
 
+  poop() {
+
+  }
+
+  dash(posXDelta) {
+    // return if posXDelta dashes backwards
+    // clear sprite animations
+    // set interval to start dash
+      // start dash animation
+      // move from current pos using moveOnX up to given posXDelta
+      // restart cleared sprtie animations
+  }
+
   jump(hangTime = .75, repositioningInterval = 100) {
-    const acceleration = calculateAcceleration(hangTime);
+    const acceleration = calculateAcceleration.call(this, hangTime);
     const timeoutIDs = this.timeoutIDs();
     let displacementTime = repositioningInterval;
     let elapsedTime = repositioningInterval;

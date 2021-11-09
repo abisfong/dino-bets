@@ -123,7 +123,7 @@ function createDinoSprites(dinoColors) {
     width: 100,
     height: 100,
     scaleFactor: 3,
-    speed: 1,
+    speed: 3,
     pos: [600 - (50 * (i + 1)), 460]
   }));
 }
