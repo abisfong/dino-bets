@@ -7,10 +7,10 @@ export default class DinoMovable extends Movable {
     this.dinoSprite = this.drawable;
   }
 
-  startRun() {
+  startRun(direction=0) {
     const timeoutIDs = this.timeoutIDs();
     timeoutIDs.runMovement = setInterval(() => {
-      this.moveOnX(-1);
+      this.moveOnX(direction);
     }, 240);
     this.dinoSprite.startRun();
   }
