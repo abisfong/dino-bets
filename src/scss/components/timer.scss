@@ -55,6 +55,16 @@
   border-bottom-left-radius: 5px;
 }
 
+#start-pause-btn.pause:hover {
+  background-color: $matte-dark-orange;
+  border-color: $matte-extra-dark-orange;
+}
+
+#start-pause-btn.start:hover {
+  background-color: $matte-dark-green;
+  border-color: $matte-extra-dark-green;
+}
+
 .pause {
   background-color: $matte-orange;
   border-top: 2px solid $matte-dark-orange;
@@ -76,4 +86,15 @@
   border-top: 1px solid $dark-grey;
   border-right: 1px solid $dark-grey;
   border-bottom: 1px solid $dark-grey;
+}
+
+#reset-btn:hover {
+  background-color: $dark-grey;
+  border-color: $extra-dark-grey;
+}
+
+#start-pause-btn, #reset-btn {
+  cursor: pointer;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }

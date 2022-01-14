@@ -219,6 +219,16 @@ table {
   border-bottom-left-radius: 5px;
 }
 
+#start-pause-btn.pause:hover {
+  background-color: #cc6c00;
+  border-color: #995100;
+}
+
+#start-pause-btn.start:hover {
+  background-color: #508160;
+  border-color: #3c6148;
+}
+
 .pause {
   background-color: #ff8700;
   border-top: 2px solid #cc6c00;
@@ -240,6 +250,16 @@ table {
   border-top: 1px solid #7f7f7f;
   border-right: 1px solid #7f7f7f;
   border-bottom: 1px solid #7f7f7f;
+}
+
+#reset-btn:hover {
+  background-color: #7f7f7f;
+  border-color: #5f5f5f;
+}
+
+#start-pause-btn, #reset-btn {
+  cursor: pointer;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
 #canvas {
