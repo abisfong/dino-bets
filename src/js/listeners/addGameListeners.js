@@ -1,9 +1,9 @@
-export default function addGameEventListeners(game) {
-  addStartPauseButtonEventListener(game);
-  addResetButtonEventListener(game);
+export default function addGameListeners(game) {
+  addStartPauseButtonListener(game);
+  addResetButtonListener(game);
 }
 
-function addStartPauseButtonEventListener(game) {
+function addStartPauseButtonListener(game) {
   const startPauseEl = game.timer.startPauseEl;
   startPauseEl.addEventListener(
     'click',
@@ -18,7 +18,7 @@ function createStartPauseButtonCallback(game) {
   }
 }
 
-function addResetButtonEventListener(game) {
+function addResetButtonListener(game) {
   const resetEl = game.timer.resetEl;
   resetEl.addEventListener('click', game.reset.bind(game));
 }

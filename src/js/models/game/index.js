@@ -1,7 +1,7 @@
 import DinoSprite from '../drawables/dinoSprite';
 import Timer from '../timer';
 import Canvas from '../canvas';
-import addAllEventListeners from '../../listeners/addAllEventListeners';
+import addAllListeners from '../../listeners/addAllListeners';
 import createBackgrounds from './createBackgrounds';
 import createDinoMovables from './createDinoMovables';
 import createDinoSprites from './createDinoSprites';
@@ -38,7 +38,7 @@ export default class Game {
   }
 
   init(data) {
-    addAllEventListeners(this);
+    addAllListeners(this);
     this.dinoSprites = createDinoSprites(data.dinoColors || DinoSprite.COLORS);
     this.dinoMovables = createDinoMovables(this.dinoSprites);
     this.backgrounds = createBackgrounds(this);

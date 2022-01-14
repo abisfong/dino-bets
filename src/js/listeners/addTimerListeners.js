@@ -1,4 +1,4 @@
-export default function addTimerEventListeners(timer) {
+export default function addTimerListeners(timer) {
   addTimeInputListeners(timer);
 }
 

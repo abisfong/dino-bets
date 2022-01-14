@@ -65,6 +65,10 @@
   border-color: $matte-extra-dark-green;
 }
 
+#start-pause-btn:active {
+  color: white;
+}
+
 .pause {
   background-color: $matte-orange;
   border-top: 2px solid $matte-dark-orange;
@@ -91,6 +95,10 @@
 #reset-btn:hover {
   background-color: $dark-grey;
   border-color: $extra-dark-grey;
+}
+
+#reset-btn:active {
+  color: white;
 }
 
 #start-pause-btn, #reset-btn {

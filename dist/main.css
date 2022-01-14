@@ -227,6 +227,10 @@ table {
   border-color: #3c6148;
 }
 
+#start-pause-btn:active {
+  color: white;
+}
+
 .pause {
   background-color: #ff8700;
   border-top: 2px solid #cc6c00;
@@ -253,6 +257,10 @@ table {
 #reset-btn:hover {
   background-color: #7f7f7f;
   border-color: #5f5f5f;
+}
+
+#reset-btn:active {
+  color: white;
 }
 
 #start-pause-btn, #reset-btn {
