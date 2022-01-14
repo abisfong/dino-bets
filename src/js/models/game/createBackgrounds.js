@@ -1,4 +1,5 @@
 import Background from "../drawables/background";
+import DinoSprite from "../drawables/dinoSprite";
 
 export default function createBackgrounds(game) {
   return [

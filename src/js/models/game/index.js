@@ -1,10 +1,14 @@
 import DinoSprite from '../drawables/dinoSprite';
 import Timer from '../timer';
 import Canvas from '../canvas';
-import Background from '../drawables/background';
-import addGameEventListeners from '../../listeners/gameListeners';
-import addTimerEventListeners from '../../listeners/timerListeners';
-import DinoMovable from '../movables/dinoMovable';
+import addAllEventListeners from '../../listeners/addAllEventListeners';
+import createBackgrounds from './createBackgrounds';
+import createDinoMovables from './createDinoMovables';
+import createDinoSprites from './createDinoSprites';
+import startBackgroundScroll from './startBackgroundScroll';
+import startDinoRace from './startDinoRace';
+import stopBackgroundScroll from './stopBackgroundScroll';
+import stopDinoRace from './stopDinoRace';
 
 export default class Game {
   constructor(options) {
@@ -42,79 +46,4 @@ export default class Game {
     this.canvas.addDrawables([...this.backgrounds, ...this.dinoSprites]);
     this.canvas.animate(20);
   }
-}
-
-function startBackgroundScroll(game) {
-  let backgrounds = game.backgrounds;
-  backgrounds.forEach((background) => {
-    background.scroll('left');
-  });
-}
-
-function startDinoRace(game) {
-  startDinoRuns(game);
-}
-
-function startDinoRuns(game) {
-  let dinoMovables = game.dinoMovables;
-  dinoMovables.forEach((dinoMovable, i) => {
-    dinoMovable.startRandomRun();
-    setTimeout(() => {
-      dinoMovable.jump();
-    }, i * 250);
-  });
-}
-
-function stopBackgroundScroll(game) {
-  let backgrounds = game.backgrounds;
-  backgrounds.forEach((background) => {
-    background.stopScroll();
-  });
-}
-
-function stopDinoRace(game) {
-  stopDinoRuns(game);
-}
-
-function stopDinoRuns(game) {
-  const dinoMovables = game.dinoMovables;
-  dinoMovables.forEach(dinoMovable => {
-    dinoMovable.stopRandomRun();
-  });
-}
-
-function addAllEventListeners(game) {
-  addTimerEventListeners(game.timer);
-  addGameEventListeners(game);
-}
-
-function createBackgrounds(game) {
-  return [
-    new Background({
-      speed: 10,
-      src: `${DinoSprite.BASE_URL}/pixel-desert.jpeg`
-    }),
-    new Background({
-      pos: [game.canvas.width, 0],
-      speed: 10,
-      src: `${DinoSprite.BASE_URL}/pixel-desert.jpeg`
-    })
-  ];
-}
-
-function createDinoSprites(dinoColors) {
-  return dinoColors.map((dinoColor, i) => new DinoSprite({
-    color: dinoColor, 
-    width: 100,
-    height: 100,
-    scaleFactor: 3,
-    speed: 1,
-    pos: [600 - (50 * (i + 1)), 460]
-  }));
-}
-
-function createDinoMovables(dinoSprites) {
-  return dinoSprites.map(dinoSprite => {
-    return new DinoMovable({ drawable: dinoSprite });
-  });
 }
