@@ -10,8 +10,6 @@ export default class Drawable {
     this.scaleFactor = options.scaleFactor || 1;
     this.frameX = options.frameX || 0;
     this.frameY = options.frameY || 0;
-    this.frameXDelta = 0;
-    this.frameYDelta = 0;
     this.speed = options.speed || 1;
     this.velX = options.vel? options.vel[0] : undefined,
     this.velY = options.vel? options.vel[1] : undefined,
@@ -19,6 +17,7 @@ export default class Drawable {
     this.moving = options.moving || false;
     this.canvasEl = document.getElementById('canvas');
     this.ctx = this.canvasEl.getContext('2d');
+    this.baseFrameCylceRate = 100;
     this.timeoutIDs = {};
   }
 

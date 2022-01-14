@@ -23,7 +23,7 @@ export default class Background extends Drawable {
     let delta = getDirectionDelta(direction);
     this.timeoutIDs.scroll = setInterval(() => {
       this.updatePosition(delta);
-    }, 100 / this.speed);
+    }, this.baseFrameCylceRate / this.speed);
   }
 
   stopScroll() {
