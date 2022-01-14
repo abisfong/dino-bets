@@ -138,9 +138,7 @@ table {
 }
 
 .bet-controller {
-  box-shadow: 2px 2px 15px 5px black;
   border-radius: 8px;
-  background-color: #4b3f72;
   margin: 32px;
   height: 200px;
 }
