@@ -1,10 +1,24 @@
 @import '../colors';
+@import '../mixins/box_shadow.scss';
 
 .bet-controller {
+  @include box_shadow($color: $midnight-purple-dark);
+  
   border-radius: 8px;
   background-color: $purple;
 
   margin: 32px;
   
   height: 200px;
+
+  .title {
+    color: $silver;
+    display: flex;
+    font-size: 18px;
+    font-weight: 500;
+
+    padding: 4px;
+
+    justify-content: center;
+  }
 }
