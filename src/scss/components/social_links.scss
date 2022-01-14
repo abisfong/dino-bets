@@ -3,16 +3,16 @@
 #social-links {
   @include box-shadow;
   display: flex;
+  border-radius: 5px;
 
   position: absolute;
   right: 0;
   bottom: 0;
   z-index: 4;
 
-  border-radius: 5px;
-
   i {
     font-size: 48px;
+    
     padding: 5px;
   }
 }
