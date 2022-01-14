@@ -1,8 +1,8 @@
-@use './scss/partials/race-view';
-@use './scss/partials/timer';
-@use './scss/partials/reset';
-@use './scss/partials/canvas';
-@use './scss/partials/social-links';
+@import './scss/reset';
+@import './scss/components/race_view';
+@import './scss/components/timer';
+@import './scss/components/canvas';
+@import './scss/components/social_links';
 
 body {
   background-color: #ffedc9;

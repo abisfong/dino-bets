@@ -1,10 +1,10 @@
-import DinoSprite from './drawables/dinoSprite';
-import Timer from './timer';
-import Canvas from './canvas';
-import Background from './drawables/background';
-import addGameEventListeners from '../listeners/gameListeners';
-import addTimerEventListeners from '../listeners/timerListeners';
-import DinoMovable from './movables/dinoMovable';
+import DinoSprite from '../drawables/dinoSprite';
+import Timer from '../timer';
+import Canvas from '../canvas';
+import Background from '../drawables/background';
+import addGameEventListeners from '../../listeners/gameListeners';
+import addTimerEventListeners from '../../listeners/timerListeners';
+import DinoMovable from '../movables/dinoMovable';
 
 export default class Game {
   constructor(options) {

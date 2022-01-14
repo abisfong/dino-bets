@@ -13,7 +13,6 @@ export default class DinoMovable extends Movable {
     const maxSpeed = 5;
     this.startRun();
     this.timeoutIDs.randomRunMovement = setInterval(() => {
-      console.log(`Moving ${this.color()} Dino`);
       this.stopRun();
       const dir = dirs[Math.floor(Math.random() * 3)];
       this.dinoSprite.speed = Math.floor(Math.random() * (maxSpeed + 1)) * dir;
@@ -55,18 +54,16 @@ export default class DinoMovable extends Movable {
   }
 
   jump(hangTime = .75, repositioningInterval = 100) {
-    const acceleration = calculateAcceleration.call(this, hangTime);
+    const acceleration = calculateJumpAcceleration.call(this, hangTime);
     const timeoutIDs = this.timeoutIDs;
     let displacementTime = repositioningInterval;
     let elapsedTime = repositioningInterval;
-    timeoutIDs.jumpMovement = setInterval(() => {
-      if(displacementTime == 0)
-        clearInterval(timeoutIDs.jumpMovement);
-      let displacement = calculateDisplacement(0, acceleration, displacementTime / 1000);
-      displacementTime = calculateDisplacementTime(displacementTime, elapsedTime, hangTime);
-      elapsedTime += repositioningInterval;
-      this.setPosYDelta(-displacement);
-    }, repositioningInterval);
+    startJumpDisplacement({
+      acceleration,
+      displacementTime,
+      elapsedTime,
+      timeoutIDs
+    });
   }
 }
 
@@ -74,12 +71,27 @@ DinoMovable.DIRS_X = [1,-1]
 
 // acceleration varies to help jump at different heights depending on speed
 // and sprite size
-function calculateAcceleration(hangTime) {
+function calculateJumpAcceleration(hangTime) {
   const averageRunningJumpHeightRatio = .36 + (.019 * this.speed());
   const vertical = this.height() * this.scaleFactor() * averageRunningJumpHeightRatio;
   // acceleration is based on displacement formula
   const acceleration = (2 * vertical) / Math.pow(hangTime / 2, 2);
   return acceleration;
+}
+
+function startJumpDisplacement({ acceleration, displacementTime, elapsedTime, timeoutIDs }) {
+  timeoutIDs.jumpMovement = setInterval(() => {
+    stopJumpDisplacement(displacementTime, timeoutIDs);
+    let displacement = calculateDisplacement(0, acceleration, displacementTime / 1000);
+    displacementTime = calculateDisplacementTime(displacementTime, elapsedTime, hangTime);
+    elapsedTime += repositioningInterval;
+    this.setPosYDelta(-displacement);
+  }, repositioningInterval);
+}
+
+function stopJumpDisplacement(displacementTime, timeoutIDs) {
+  if(displacementTime == 0)
+    clearInterval(timeoutIDs.jumpMovement);
 }
 
 // helps loop through the displacement of a jump

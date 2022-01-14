@@ -1,4 +1,5 @@
 import Drawable from "./drawable";
+import getDirectionDelta from "../../util/getDirectionDelta";
 
 export default class Background extends Drawable {
   constructor(options) {
@@ -19,9 +20,9 @@ export default class Background extends Drawable {
   }
 
   scroll(direction) {
-    let directionDelta = getPosDelta(direction);
+    let delta = getDirectionDelta(direction);
     this.timeoutIDs.scroll = setInterval(() => {
-      scrollBackground(this, directionDelta);
+      this.updatePosition(delta);
     }, 100 / this.speed);
   }
 
@@ -29,45 +30,14 @@ export default class Background extends Drawable {
     clearInterval(this.timeoutIDs.scroll);
   }
 
-  setScrollPosDelta(posXDelta = 0, posYDelta = 0) {
-    this.setPosDelta(
-      posXDelta % this.canvasEl.width,
-      posYDelta % this.canvasEl.height
-    )
-  }
+  updatePosition(delta) {
+    const canvasEl = this.canvasEl;
+    const posXDelta = this.posXDelta + delta[0];
+    const posYDelta = this.posYDelta + delta[1];
 
-  setPosDelta(posXDelta = 0, posYDelta = 0) {
-    this.posXDelta = posXDelta;
-    this.posYDelta = posYDelta;
+    this.posXDelta = posXDelta % canvasEl.width;
+    this.posYDelta = posYDelta % canvasEl.height;
   }
 }
 
 Background.LISTENERS_LOADED = false;
-
-function getPosDelta(direction) {
-  let directionDelta;
-  switch (direction) {
-    case 'left':
-      directionDelta = [-1, 0];
-      break;
-    case 'right':
-      directionDelta = [1, 0];
-      break;
-    case 'up':
-      directionDelta = [0, -1];
-      break;
-    case 'down':
-      directionDelta = [0, 1];
-      break;
-  }
-  return directionDelta;
-}
-
-function scrollBackground(background, directionDelta) {
-  let posXDelta = background.posXDelta;
-  let posYDelta = background.posYDelta;
-  background.setScrollPosDelta(
-    posXDelta + directionDelta[0], 
-    posYDelta + directionDelta[1],
-  );
-}

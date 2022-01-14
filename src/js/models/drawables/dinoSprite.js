@@ -21,6 +21,7 @@ export default class DinoSprite extends Sprite {
     this.setFrame(this.frameXDelta++, 0);
   
   }
+  
   setFrame(frameX, frameY) {
     this.frameX = frameX;
     this.frameY = frameY;
