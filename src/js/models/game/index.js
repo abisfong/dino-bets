@@ -16,7 +16,6 @@ export default class Game {
     this.timer = new Timer(document.querySelector('#timer'));
     this.state = { running: false };
     this.init(options);
-    this.reset = this.reset.bind(this);
   }
 
   start() {
