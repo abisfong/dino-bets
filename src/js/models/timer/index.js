@@ -78,6 +78,8 @@ export default class Timer {
   }
 
   reset() {
+    if (!this.state.inputIsReadOnly)
+      this.time = 0;
     this.timeElapsed = 0;
     this.pause();
     this.updateTime();
