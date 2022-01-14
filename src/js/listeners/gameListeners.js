@@ -20,8 +20,5 @@ function createStartPauseButtonCallback(game) {
 
 function addResetButtonEventListener(game) {
   const resetEl = game.timer.resetEl;
-  resetEl.addEventListener(
-    'click',
-    game.reset.bind(game)
-  );
+  resetEl.addEventListener('click', game.reset);
 }

@@ -20,6 +20,7 @@ export default class Timer {
     this.minutes = 0;
     this.seconds = 0;
     this.printTime();
+    this.tick = this.tick.bind(this);
   }
 
   printTime() {
@@ -67,7 +68,7 @@ export default class Timer {
     this.startPauseEl.classList.remove('start');
     this.startPauseEl.classList.add('pause');
     this.startPauseEl.innerHTML = 'PAUSE'
-    this.timeIntervalId = setInterval(this.tick.bind(this), 1000);
+    this.timeIntervalId = setInterval(this.tick, 1000);
   }
 
   pause() {

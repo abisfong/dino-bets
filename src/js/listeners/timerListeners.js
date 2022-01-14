@@ -17,8 +17,8 @@ function createTimeInputCallback(timer) {
   const startPauseEl = timer.startPauseEl;
   return function (event) {
     if (
-      (event.key === 'Enter' || event.target === startPauseEl) && 
-      !timer.state.inputIsReadOnly
+      (event.key === 'Enter' || event.target === startPauseEl) 
+      && !timer.state.inputIsReadOnly
     ) {
       timer.addTimeFromInput();
       timer.updateTime();
