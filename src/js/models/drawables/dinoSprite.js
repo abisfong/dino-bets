@@ -7,7 +7,6 @@ export default class DinoSprite extends Sprite {
     this.height = DinoSprite.SIZES[options.size] || 24;
     this.sprite.src = `${Sprite.BASE_URL}/${options.color}-dino-${options.size || 'small'}.png`;
     this.color = options.color;
-    this.posXDeviation = this.canvasEl.width * .2;
   }
 
   static generateRandom(options) {
@@ -17,14 +16,10 @@ export default class DinoSprite extends Sprite {
   }
   
   cycleRunningFrame() {
-    this.frameXDelta = this.frameXDelta % 10 || 4;
-    this.setFrame(this.frameXDelta++, 0);
-  
-  }
-  
-  setFrame(frameX, frameY) {
-    this.frameX = frameX;
-    this.frameY = frameY;
+    const lastFrameNum = 9
+    const firstFrameNum = 3
+    const increment = 1;
+    this.frameX = (this.frameX % lastFrameNum || firstFrameNum) + increment;
   }
 
   startRun() {
