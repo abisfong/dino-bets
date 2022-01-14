@@ -1,4 +1,8 @@
-import { curry } from "../util";
+import { curry } from "../../util";
+import blurTimerInputFocus from "./blurTimerInputFocus";
+import isValidTimeInput from "./isValidTimeInput";
+import setTimeFromInput from "./setTimeFromInput";
+import setTimerInputReadOnly from "./setTimerInputReadOnly";
 
 export default class Timer {
   // 'time' is in seconds
@@ -104,29 +108,4 @@ export default class Timer {
     this.time -= currentSeconds;
     this.time += amount;
   }
-}
-
-function setTimeFromInput() {
-  const input = Array.from(arguments);
-  const setTimeMethodNames = ['setHours', 'setMinutes', 'setSeconds'];
-  for (let i = 0; i < 3; i++)
-    this[setTimeMethodNames[i]](input[i]);
-}
-
-function isValidTimeInput(value) {
-  return /^\d+$/.test(value) && value <= 99;
-}
-
-function blurTimerInputFocus(timer) {
-  const activeEl = document.activeElement;
-  const inputEls = Array.from(timer.inputEls);
-  if (inputEls.includes(activeEl))
-    document.activeElement.blur();
-}
-
-function setTimerInputReadOnly(timer, value) {
-  const inputEls = timer.inputEls;
-  timer.state.inputIsReadOnly = value;
-  for (let i = 0; i < inputEls.length; i++)
-    inputEls[i].readOnly = value;
 }
