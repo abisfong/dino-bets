@@ -18,8 +18,9 @@
 
   .title {
     color: $silver;
+    cursor: default;
     display: flex;
-    font-size: 58px;
+    font-size: 62px;
     font-weight: 500;
     text-align: justify;
 
@@ -91,7 +92,7 @@
     color: white;
   }
 
-  #bet-button {
+  #bet-type-button, #bet-submit-button {
     background-color: $silver;
     border-radius: 8px;
     color: black;
@@ -103,13 +104,25 @@
     width: 100%;
   }
 
-  #bet-button:hover, #prev:hover, #next:hover {
+  #bet-type-button {
+    margin-bottom: 8px;
+  }
+  
+  #bet-submit-button {
+    margin-bottom: 4px;
+  }
+
+  #bet-type-button:hover,
+  #bet-submit-button:hover, 
+  #prev:hover, 
+  #next:hover {
     background-color: white;
   }
 
   #amount,
   #amount::placeholder,
-  #bet-button,
+  #bet-type-button,
+  #bet-submit-button,
   #prev,
   #next {
     transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
