@@ -12,7 +12,7 @@ import stopDinoRace from './stop_dino_race';
 export default class Game {
   constructor(options) {
     this.canvas = new Canvas();
-    this.timer = new Timer(document.querySelector('#timer'));
+    this.timer = options.timer;
     this.state = { running: false };
     this.init(options);
   }
@@ -34,6 +34,10 @@ export default class Game {
   reset() {
     this.timer.reset();
     this.pause();
+  }
+
+  time() {
+    return this.timer.time;
   }
 
   init({ dinoColors }) {

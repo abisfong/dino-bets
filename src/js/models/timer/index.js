@@ -1,5 +1,5 @@
 import { curry } from "../../util";
-import blurTimerInputFocus from "./blur_timer_input_focus";
+import blurTimerInput from "./blur_timer_input";
 import isValidTimeInput from "./is_valid_time_input";
 import setTimeFromInput from "./set_time_from_input";
 import setTimerInputReadOnly from "./set_timer_input_read_only";
@@ -21,45 +21,6 @@ export default class Timer {
     this.seconds = 0;
     this.printTime();
     this.tick = this.tick.bind(this);
-  }
-
-  printTime() {
-    const hoursEl = this.timeEl.children[0];
-    const minutesEl = this.timeEl.children[1];
-    const secondsEl = this.timeEl.children[2];
-    hoursEl.value = this.hours < 10 ? '0' + this.hours : this.hours;
-    minutesEl.value = this.minutes < 10 ? '0' + this.minutes : this.minutes;
-    secondsEl.value = this.seconds < 10 ? '0' + this.seconds : this.seconds;
-  }
-
-  tick() {
-    if(this.remainingTime === 0) {
-      this.resetEl.click();
-    } else {
-      this.timeElapsed++;
-      this.updateTime();
-      this.printTime();
-    }
-  }
-
-  updateTime() {
-    this.remainingTime = this.time - this.timeElapsed;
-    this.hours = Math.floor(this.remainingTime / (60 * 60));
-    this.minutes = Math.floor((this.remainingTime % (3600)) / 60);
-    this.seconds = this.remainingTime % 60;
-  }
-
-  addTimeFromInput() {
-    const inputEls = this.inputEls;
-    const _setTimeFromInput = curry(setTimeFromInput, this, inputEls.length);
-    for(let i = 0; i < inputEls.length; i++) {
-      let input = inputEls[i].value;
-      if (isValidTimeInput(input)) {
-        let timeAmount = parseInt(input);
-        _setTimeFromInput(timeAmount);
-      }
-    }
-    blurTimerInputFocus(this);
   }
 
   start() {
@@ -88,6 +49,28 @@ export default class Timer {
     setTimerInputReadOnly(this, false);
   }
 
+  printTime() {
+    const hoursEl = this.timeEl.children[0];
+    const minutesEl = this.timeEl.children[1];
+    const secondsEl = this.timeEl.children[2];
+    hoursEl.value = this.hours < 10 ? '0' + this.hours : this.hours;
+    minutesEl.value = this.minutes < 10 ? '0' + this.minutes : this.minutes;
+    secondsEl.value = this.seconds < 10 ? '0' + this.seconds : this.seconds;
+  }
+
+  addTimeFromInput() {
+    const inputEls = this.inputEls;
+    const _setTimeFromInput = curry(setTimeFromInput, this, inputEls.length);
+    for(let i = 0; i < inputEls.length; i++) {
+      let input = inputEls[i].value;
+      if (isValidTimeInput(input)) {
+        let timeAmount = parseInt(input);
+        _setTimeFromInput(timeAmount);
+      }
+    }
+    blurTimerInput(this);
+  }
+
   setTime(time) {
     this.time = time;
   }
@@ -110,5 +93,22 @@ export default class Timer {
     const currentSeconds = this.seconds;
     this.time -= currentSeconds;
     this.time += amount;
+  }
+
+  tick() {
+    if(this.remainingTime === 0) {
+      this.resetEl.click();
+    } else {
+      this.timeElapsed++;
+      this.updateTime();
+      this.printTime();
+    }
+  }
+
+  updateTime() {
+    this.remainingTime = this.time - this.timeElapsed;
+    this.hours = Math.floor(this.remainingTime / (60 * 60));
+    this.minutes = Math.floor((this.remainingTime % (3600)) / 60);
+    this.seconds = this.remainingTime % 60;
   }
 }
