@@ -1,9 +1,4 @@
-export default function startDinoRace(game) {
-  startDinoRuns(game);
-}
-
-function startDinoRuns(game) {
-  let dinoMovables = game.dinoMovables;
+export default function startDinoRuns(dinoMovables) {
   dinoMovables.forEach((dinoMovable, i) => {
     dinoMovable.startRandomRun();
     setTimeout(() => {
