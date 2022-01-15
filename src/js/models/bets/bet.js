@@ -14,7 +14,7 @@ export default class Bet {
   }
 
   earnings() {
-    return this.amount / Bet.winProbabilty(this.type, this.race.dinoCount);
+    return this.amount / this.winProbabilty;
   }
 
   complete() {
@@ -25,8 +25,10 @@ export default class Bet {
     return this.complete;
   }
 
-  static winProbabilty(type, dinoCount) {
-    switch(type) {
+  winProbabilty() {
+    const dinoCount = this.race.dinoCount;
+    
+    switch(this.type) {
       case 'win':
         return 1 / dinoCount;
       case 'show':
