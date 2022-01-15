@@ -1,4 +1,4 @@
-import { factorial } from "../util";
+import { factorial } from "../../util";
 
 export default class Bet {
   constructor(type, choice, amount, race) {

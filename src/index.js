@@ -1,4 +1,4 @@
-import Bet from './js/models/bet';
+import Bet from './js/models/bets/bet';
 import DinoSprite from './js/models/drawables/dinoSprite';
 import Money from './js/models/Money';
 import Race from './js/models/race';

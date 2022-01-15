@@ -138,30 +138,71 @@ table {
 }
 
 .bet-controller {
+  box-shadow: 2px 2px 15px 5px #181934;
+  background-color: black;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   margin: 32px;
+  padding: 8px 16px;
   align-items: center;
-  height: 200px;
+  width: 352px;
 }
 .bet-controller .title {
   color: #ccc;
   display: flex;
-  font-size: 18px;
+  font-size: 58px;
   font-weight: 500;
-  padding: 4px;
+  text-align: justify;
+  margin-bottom: 8px;
+  padding-top: 4px;
   justify-content: center;
 }
-.bet-controller #amount {
+.bet-controller #selections {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 32px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.bet-controller #prev, .bet-controller #next {
   background-color: white;
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 100%;
+}
+.bet-controller #prev {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  margin-right: 4px;
+}
+.bet-controller #next {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin-left: 4px;
+}
+.bet-controller #amount {
+  background-color: transparent;
   border: none;
-  color: black;
+  caret-color: transparent;
+  color: #ccc;
   font-size: 64px;
+  text-align: center;
   outline: none;
+  margin: 0;
+  padding: 0;
+  width: 316px;
 }
 .bet-controller #amount::placeholder {
-  color: black;
+  color: #ccc;
+}
+.bet-controller #amount:focus, .bet-controller #amount:focus::placeholder {
+  color: white;
 }
 
 .bet-view {

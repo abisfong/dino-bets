@@ -1,8 +1,10 @@
 let prevInput = '0';
 
-export default function addAmountInputListener() {
+export default function addAmountInputListeners() {
   const inputEl = document.querySelector('#amount');
   inputEl.addEventListener('input', onChangeHandler);
+  inputEl.addEventListener('focus', moveCursorToInputEnd);
+  inputEl.addEventListener('click', moveCursorToInputEnd);
 }
   
 function onChangeHandler(e) {
@@ -16,7 +18,6 @@ function onChangeHandler(e) {
   preventDecimalWithNoLeadingNum(inputEl, numOfPeriods);
   preventDuplicateDecimalPoint(inputEl, numOfPeriods);
   preventWholeNumberWithLeadingZero(inputEl, numOfPeriods);
-  resizeInputElementToContentWidth(inputEl);
   prevInput = inputEl.value;
 }
 
@@ -65,10 +66,7 @@ function preventWholeNumberWithLeadingZero(inputEl, numOfPeriods) {
       inputEl.value = input.substring(1);
 }
 
-function resizeInputElementToContentWidth(inputEl) {
-  inputEl.style.width = 0;
-  if (inputEl.value.length == 0)
-    inputEl.style.width = '34px';
-  else
-    inputEl.style.width = `${inputEl.scrollWidth}px`;
+function moveCursorToInputEnd(e) {
+  const inputEl = e.target;
+  inputEl.value = inputEl.value;
 }

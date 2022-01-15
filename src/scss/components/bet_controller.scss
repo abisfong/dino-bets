@@ -2,36 +2,92 @@
 @import '../mixins/box_shadow.scss';
 
 .bet-controller {
+  @include box_shadow($color: $midnight-purple-dark);
+  
+  background-color: black;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
 
   margin: 32px;
+  padding: 8px 16px;
 
   align-items: center;
   
-  height: 200px;
+  width: 352px;
 
   .title {
     color: $silver;
     display: flex;
-    font-size: 18px;
+    font-size: 58px;
     font-weight: 500;
+    text-align: justify;
 
-    padding: 4px;
+    margin-bottom: 8px;
+    padding-top: 4px;
 
     justify-content: center;
   }
 
-  #amount {
+  #selections {
+    display: flex;
+    align-items: center;
+
+    margin-top: 12px;
+    margin-bottom: 32px;
+
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  #prev, #next {
     background-color: white;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 100%;
+  }
+
+  #prev {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+    margin-right: 4px;
+  }
+  
+  #next {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    margin-left: 4px;
+  }
+
+
+  #amount {
+    background-color: transparent;
     border: none;
-    color: black;
+    caret-color: transparent;
+    color: $silver;
     font-size: 64px;
+    text-align: center;
     outline: none;
+
+    margin: 0;
+    padding: 0;
+    
+    width: 316px;
   }
 
   #amount::placeholder {
-    color: black;
+    color: $silver;
+  }
+
+  #amount:focus, #amount:focus::placeholder {
+    color: white;
   }
 }
