@@ -1,10 +1,10 @@
 const selectionColors = ['green', 'red', 'yellow', 'purple'];
 let selection = 0;
 
-export default function addBetListeners() {
+export default function addBetListeners(betController) {
   addPrevListener();
   addNextListener();
-  addSubmitListener();
+  addSubmitListener(betController);
 }
 
 function addPrevListener() {
@@ -27,12 +27,11 @@ function rotateSelection(dir) {
   };
 }
 
-function addSubmitListener() {
+function addSubmitListener(betController) {
   const submitButtonEl = document.querySelector('#bet-submit-button');
-
-  submitButtonEl.addEventListener('click', createBet())
+  submitButtonEl.addEventListener('click', createBet(betController))
 }
 
-function createBet() {
-  
+function createBet(betController) {
+  return () => betController.createBet();
 }

@@ -21,6 +21,10 @@ export default class Bet {
     this.complete = true;
   }
 
+  isComplete() {
+    return this.complete;
+  }
+
   static winProbabilty(type, dinoCount) {
     switch(type) {
       case 'win':

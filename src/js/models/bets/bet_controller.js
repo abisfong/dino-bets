@@ -15,12 +15,17 @@ export default class betController {
     this.selection = selection;
   }
 
-  createBet(race) {
-    this.bets.push(new Bet(
-      'win',
-      this.selection,
-      this.amount,
-      race
-    ))
+  setRace(race) {
+    this.race = race;
+  }
+
+  createBet() {
+    if (amount > 0)
+      this.bets.push(new Bet(
+        'win',
+        this.selection,
+        this.amount,
+        this.race
+      ))
   }
 }

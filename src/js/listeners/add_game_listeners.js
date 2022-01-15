@@ -4,7 +4,7 @@ export default function addGameListeners(game) {
 }
 
 function addStartPauseButtonListener(game) {
-  const startPauseEl = game.timer.startPauseEl;
+  const startPauseEl = document.querySelector('#start-pause-btn');
   startPauseEl.addEventListener(
     'click',
     createStartPauseButtonCallback(game)
@@ -19,6 +19,6 @@ function createStartPauseButtonCallback(game) {
 }
 
 function addResetButtonListener(game) {
-  const resetEl = game.timer.resetEl;
+  const resetEl = document.querySelector('#reset-btn');
   resetEl.addEventListener('click', game.reset.bind(game));
 }
