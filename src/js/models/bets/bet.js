@@ -1,4 +1,4 @@
-import { factorial } from "../../util";
+import { factorial } from '../../util';
 
 export default class Bet {
   constructor(type, choice, amount, race) {
@@ -18,11 +18,11 @@ export default class Bet {
 
   static winProbabilty(type, dinoCount) {
     switch(type) {
-      case "win":
+      case 'win':
         return 1 / dinoCount;
-      case "show":
+      case 'show':
         return 3 / dinoCount;
-      case "sequence":
+      case 'sequence':
         return 1 / factorial(dinoCount);
     }
   }

@@ -235,6 +235,22 @@ table {
   transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
+#bet-controller.green {
+  background-color: #b8fd33;
+}
+
+#bet-controller.red {
+  background-color: #fd0d1b;
+}
+
+#bet-controller.yellow {
+  background-color: #fdad2a;
+}
+
+#bet-controller.purple {
+  background-color: #1f2041;
+}
+
 .bet-view {
   box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
   background-color: #1f2041;
