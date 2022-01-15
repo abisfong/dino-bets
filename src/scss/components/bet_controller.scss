@@ -1,8 +1,9 @@
 @import '../colors';
-@import '../mixins/box_shadow.scss';
+@import '../mixins/box_shadow';
+@import '../mixins/text_outline';
 
 #bet-controller {
-  @include box_shadow($color: $midnight-purple-dark);
+  @include box-shadow($color: $midnight-purple-dark);
   
   background-color: $dino-green;
   border-radius: 8px;
@@ -16,7 +17,9 @@
   
   width: 378px;
 
-  .title {
+  .title {    
+    @include text-outline($color: $extra-dark-grey);
+    
     color: $silver;
     cursor: default;
     display: flex;
@@ -43,6 +46,8 @@
 
   #prev, #next {
     background-color: $silver;
+    border: 1px solid $extra-dark-grey;
+    color: $extra-dark-grey;
     cursor: pointer;
     display: flex;
     text-align: center;
@@ -70,6 +75,8 @@
 
 
   #amount {
+    @include text-outline($color: $extra-dark-grey);
+    
     background-color: transparent;
     border: none;
     caret-color: transparent;
@@ -85,6 +92,8 @@
   }
 
   #amount::placeholder {
+    @include text-outline($color: $extra-dark-grey);
+    
     color: $silver;
   }
 
@@ -94,8 +103,9 @@
 
   #bet-type-button, #bet-submit-button {
     background-color: $silver;
+    border: 1px solid $extra-dark-grey;
     border-radius: 8px;
-    color: black;
+    color: $extra-dark-grey;
     cursor: pointer;
     font-size: 18px;
 
