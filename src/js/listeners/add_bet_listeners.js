@@ -2,28 +2,29 @@ const selectionColors = ['green', 'red', 'yellow', 'purple'];
 let selection = 0;
 
 export default function addBetListeners(betController) {
-  addPrevListener();
-  addNextListener();
+  addPrevListener(betController);
+  addNextListener(betController);
   addSubmitListener(betController);
 }
 
-function addPrevListener() {
+function addPrevListener(betController) {
   const prevEl = document.querySelector('#prev');
-  prevEl.addEventListener('click', rotateSelection(-1));
+  prevEl.addEventListener('click', rotateSelection(betController, -1));
 }
 
-function addNextListener() {
+function addNextListener(betController) {
   const nextEl = document.querySelector('#next');
-  nextEl.addEventListener('click', rotateSelection(1));
+  nextEl.addEventListener('click', rotateSelection(betController, 1));
 }
 
-function rotateSelection(dir) {
+function rotateSelection(betController, dir) {
   const betControllerEl = document.querySelector('#bet-controller');
   
   return e => {
     betControllerEl.classList.remove(selectionColors[selection]);
     selection = (((selection + dir) % 4 ) + 4 ) % 4
     betControllerEl.classList.add(selectionColors[selection]);
+    betController.setSelection(selectionColors[selection]);
   };
 }
 
@@ -33,5 +34,10 @@ function addSubmitListener(betController) {
 }
 
 function createBet(betController) {
-  return () => betController.createBet();
+  const amountEl = document.querySelector('#amount');
+  
+  return () => {
+    betController.setAmount(parseFloat(amountEl.value));
+    betController.createBet();
+  };
 }
