@@ -4,7 +4,7 @@
 #bet-controller {
   @include box_shadow($color: $midnight-purple-dark);
   
-  background-color: black;
+  background-color: $dino-green;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
