@@ -1,6 +1,7 @@
 import DinoSprite from '../drawables/dinoSprite';
 import Timer from '../timer';
 import Canvas from '../canvas';
+import * as listeners from '../../listeners';
 import createBackgrounds from './create_backgrounds';
 import createDinoMovables from './create_dino_movables';
 import createDinoSprites from './create_dino_sprites';
@@ -12,8 +13,10 @@ import stopDinoRace from './stop_dino_race';
 export default class Game {
   constructor(options) {
     this.canvas = new Canvas();
-    this.timer = options.timer;
+    this.timer = new Timer(document.querySelector('#timer'));
     this.state = { running: false };
+
+    listeners.init({ game: this, timer: this.timer });
     this.init(options);
   }
 
