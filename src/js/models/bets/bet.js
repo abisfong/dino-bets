@@ -1,19 +1,24 @@
 import { factorial } from '../../util';
 
 export default class Bet {
-  constructor(type, choice, amount, race) {
+  constructor(type, selection, amount, race) {
     this.type = type;
-    this.choice = choice;
+    this.selection = selection;
     this.amount = amount;
     this.race = race;
+    this.complete = false;
   }
 
-  matches(choice) {
-    return JSON.stringify(this.choice) === JSON.stringify(choice);
+  matches(selection) {
+    return JSON.stringify(this.selection) === JSON.stringify(selection);
   }
 
   earnings() {
     return this.amount / Bet.winProbabilty(this.type, this.race.dinoCount);
+  }
+
+  complete() {
+    this.complete = true;
   }
 
   static winProbabilty(type, dinoCount) {

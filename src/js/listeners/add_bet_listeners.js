@@ -29,4 +29,10 @@ function rotateSelection(dir) {
 
 function addSubmitListener() {
   const submitButtonEl = document.querySelector('#bet-submit-button');
+
+  submitButtonEl.addEventListener('click', createBet())
+}
+
+function createBet() {
+  
 }
