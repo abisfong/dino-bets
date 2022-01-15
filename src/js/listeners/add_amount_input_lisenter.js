@@ -5,6 +5,7 @@ export default function addAmountInputListeners() {
   inputEl.addEventListener('input', onChangeHandler);
   inputEl.addEventListener('focus', moveCursorToInputEnd);
   inputEl.addEventListener('click', moveCursorToInputEnd);
+  inputEl.addEventListener('keyup', moveCursorToInputEnd);
 }
   
 function onChangeHandler(e) {
@@ -67,5 +68,8 @@ function preventWholeNumberWithLeadingZero(inputEl, numOfPeriods) {
 
 function moveCursorToInputEnd(e) {
   const inputEl = e.target;
-  inputEl.value = inputEl.value;
+  if (e.type !== 'keyup' || /Arrow/.test(e.key)) {
+    console.log('moving cursor');
+    inputEl.value = inputEl.value;
+  }
 }
