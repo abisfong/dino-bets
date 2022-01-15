@@ -2,10 +2,11 @@ let prevInput = '0';
 
 export default function addAmountInputListener() {
   const inputEl = document.querySelector('#amount');
-  inputEl.addEventListener('change', onChangeHandler)
+  inputEl.addEventListener('input', onChangeHandler);
 }
   
 function onChangeHandler(e) {
+  console.log('onchange handler');
   const inputEl = e.target;
   const numOfPeriods = (inputEl.value.match(/[.]/g) || []).length;
 
@@ -16,7 +17,6 @@ function onChangeHandler(e) {
   preventDuplicateDecimalPoint(inputEl, numOfPeriods);
   preventWholeNumberWithLeadingZero(inputEl, numOfPeriods);
   resizeInputElementToContentWidth(inputEl);
-  validateAmountIsGreaterThanZero(inputEl);
   prevInput = inputEl.value;
 }
 
@@ -71,14 +71,4 @@ function resizeInputElementToContentWidth(inputEl) {
     inputEl.style.width = '34px';
   else
     inputEl.style.width = `${inputEl.scrollWidth}px`;
-}
-
-function validateAmountIsGreaterThanZero(inputEl) {
-  const { inputErrorTextEl } = getInputElements(inputEl);
-  const amount = Number.parseFloat(inputEl.value);
-
-  if (amount === 0 || Number.isNaN(amount))
-    addInvalidInputStyle(inputEl);
-  else
-    addValidInputStyle(inputEl);
 }
