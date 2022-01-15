@@ -1,7 +1,7 @@
 @import '../colors';
 @import '../mixins/box_shadow.scss';
 
-.bet-controller {
+#bet-controller {
   @include box_shadow($color: $midnight-purple-dark);
   
   background-color: black;
@@ -34,14 +34,14 @@
     align-items: center;
 
     margin-top: 12px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 
     box-sizing: border-box;
     width: 100%;
   }
 
   #prev, #next {
-    background-color: white;
+    background-color: $silver;
     cursor: pointer;
     display: flex;
     text-align: center;
@@ -89,5 +89,30 @@
 
   #amount:focus, #amount:focus::placeholder {
     color: white;
+  }
+
+  #bet-button {
+    background-color: $silver;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    font-size: 18px;
+
+    padding: 8px;
+    
+    width: 100%;
+  }
+
+  #bet-button:hover, #prev:hover, #next:hover {
+    background-color: white;
+  }
+
+  #amount,
+  #amount::placeholder,
+  #bet-button,
+  #prev,
+  #next {
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   }
 }

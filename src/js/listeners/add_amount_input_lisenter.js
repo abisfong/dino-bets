@@ -8,7 +8,6 @@ export default function addAmountInputListeners() {
 }
   
 function onChangeHandler(e) {
-  console.log('onchange handler');
   const inputEl = e.target;
   const numOfPeriods = (inputEl.value.match(/[.]/g) || []).length;
 

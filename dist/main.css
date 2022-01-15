@@ -137,7 +137,7 @@ table {
   border-spacing: 0;
 }
 
-.bet-controller {
+#bet-controller {
   box-shadow: 2px 2px 15px 5px #181934;
   background-color: black;
   border-radius: 8px;
@@ -148,7 +148,7 @@ table {
   align-items: center;
   width: 352px;
 }
-.bet-controller .title {
+#bet-controller .title {
   color: #ccc;
   display: flex;
   font-size: 58px;
@@ -158,16 +158,16 @@ table {
   padding-top: 4px;
   justify-content: center;
 }
-.bet-controller #selections {
+#bet-controller #selections {
   display: flex;
   align-items: center;
   margin-top: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   box-sizing: border-box;
   width: 100%;
 }
-.bet-controller #prev, .bet-controller #next {
-  background-color: white;
+#bet-controller #prev, #bet-controller #next {
+  background-color: #ccc;
   cursor: pointer;
   display: flex;
   text-align: center;
@@ -176,17 +176,17 @@ table {
   width: 20px;
   height: 100%;
 }
-.bet-controller #prev {
+#bet-controller #prev {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   margin-right: 4px;
 }
-.bet-controller #next {
+#bet-controller #next {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   margin-left: 4px;
 }
-.bet-controller #amount {
+#bet-controller #amount {
   background-color: transparent;
   border: none;
   caret-color: transparent;
@@ -198,11 +198,30 @@ table {
   padding: 0;
   width: 316px;
 }
-.bet-controller #amount::placeholder {
+#bet-controller #amount::placeholder {
   color: #ccc;
 }
-.bet-controller #amount:focus, .bet-controller #amount:focus::placeholder {
+#bet-controller #amount:focus, #bet-controller #amount:focus::placeholder {
   color: white;
+}
+#bet-controller #bet-button {
+  background-color: #ccc;
+  border-radius: 8px;
+  color: black;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 8px;
+  width: 100%;
+}
+#bet-controller #bet-button:hover, #bet-controller #prev:hover, #bet-controller #next:hover {
+  background-color: white;
+}
+#bet-controller #amount,
+#bet-controller #amount::placeholder,
+#bet-controller #bet-button,
+#bet-controller #prev,
+#bet-controller #next {
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
 .bet-view {
