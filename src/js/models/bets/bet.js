@@ -10,7 +10,7 @@ export default class Bet {
   }
 
   matches(selection) {
-    return JSON.stringify(this.selection) === JSON.stringify(selection);
+    return this.selection === selection;
   }
 
   earnings() {
