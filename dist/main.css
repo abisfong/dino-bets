@@ -139,7 +139,10 @@ table {
 
 .bet-controller {
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
   margin: 32px;
+  align-items: center;
   height: 200px;
 }
 .bet-controller .title {
@@ -149,6 +152,16 @@ table {
   font-weight: 500;
   padding: 4px;
   justify-content: center;
+}
+.bet-controller #amount {
+  background-color: white;
+  border: none;
+  color: black;
+  font-size: 64px;
+  outline: none;
+}
+.bet-controller #amount::placeholder {
+  color: black;
 }
 
 .bet-view {

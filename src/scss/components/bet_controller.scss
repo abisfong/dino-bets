@@ -2,12 +2,13 @@
 @import '../mixins/box_shadow.scss';
 
 .bet-controller {
-  // @include box_shadow($color: $midnight-purple-dark);
-  
   border-radius: 8px;
-  // background-color: $purple;
+  display: flex;
+  flex-direction: column;
 
   margin: 32px;
+
+  align-items: center;
   
   height: 200px;
 
@@ -20,5 +21,17 @@
     padding: 4px;
 
     justify-content: center;
+  }
+
+  #amount {
+    background-color: white;
+    border: none;
+    color: black;
+    font-size: 64px;
+    outline: none;
+  }
+
+  #amount::placeholder {
+    color: black;
   }
 }
