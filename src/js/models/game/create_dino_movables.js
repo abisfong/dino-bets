@@ -1,4 +1,4 @@
-import DinoMovable from "../movables/dinoMovable";
+import DinoMovable from "../movables/dino_movable";
 
 export default function createDinoMovables(dinoSprites) {
   return dinoSprites.map(dinoSprite => {

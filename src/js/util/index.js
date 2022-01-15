@@ -1,8 +1,8 @@
-import addLivePropsFrom from "./addLivePropsFrom";
+import addLivePropsFrom from "./add_live_props_from";
 import curry from "./curry";
-import calculateDisplacement from "./calculateDisplacement";
+import calculateDisplacement from "./calculate_displacement";
 import factorial from "./factorial";
-import isNumber from "./isNumber";
+import isNumber from "./is_number";
 
 export {
   addLivePropsFrom,

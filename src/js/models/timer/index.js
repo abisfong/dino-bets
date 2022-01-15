@@ -1,8 +1,8 @@
 import { curry } from "../../util";
-import blurTimerInputFocus from "./blurTimerInputFocus";
-import isValidTimeInput from "./isValidTimeInput";
-import setTimeFromInput from "./setTimeFromInput";
-import setTimerInputReadOnly from "./setTimerInputReadOnly";
+import blurTimerInputFocus from "./blur_timer_input_focus";
+import isValidTimeInput from "./is_valid_time_input";
+import setTimeFromInput from "./set_time_from_input";
+import setTimerInputReadOnly from "./set_timer_input_read_only";
 
 export default class Timer {
   // 'time' is in seconds

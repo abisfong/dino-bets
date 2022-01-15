@@ -1,14 +1,13 @@
 import DinoSprite from '../drawables/dinoSprite';
 import Timer from '../timer';
 import Canvas from '../canvas';
-import addAllListeners from '../../listeners/addAllListeners';
-import createBackgrounds from './createBackgrounds';
-import createDinoMovables from './createDinoMovables';
-import createDinoSprites from './createDinoSprites';
-import startBackgroundScroll from './startBackgroundScroll';
-import startDinoRace from './startDinoRace';
-import stopBackgroundScroll from './stopBackgroundScroll';
-import stopDinoRace from './stopDinoRace';
+import createBackgrounds from './create_backgrounds';
+import createDinoMovables from './create_dino_movables';
+import createDinoSprites from './create_dino_sprites';
+import startBackgroundScroll from './start_background_scroll';
+import startDinoRace from './start_dino_race';
+import stopBackgroundScroll from './stop_background_scroll';
+import stopDinoRace from './stop_dino_race';
 
 export default class Game {
   constructor(options) {
@@ -37,9 +36,8 @@ export default class Game {
     this.pause();
   }
 
-  init(data) {
-    addAllListeners(this);
-    this.dinoSprites = createDinoSprites(data.dinoColors || DinoSprite.COLORS);
+  init({ dinoColors }) {
+    this.dinoSprites = createDinoSprites(dinoColors || DinoSprite.COLORS);
     this.dinoMovables = createDinoMovables(this.dinoSprites);
     this.backgrounds = createBackgrounds(this);
     this.canvas.addDrawables([...this.backgrounds, ...this.dinoSprites]);

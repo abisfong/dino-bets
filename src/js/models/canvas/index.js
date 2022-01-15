@@ -1,4 +1,4 @@
-import throttleAnimation from "./throttleAnimation";
+import throttleAnimation from "./throttle_animation";
 
 export default class Canvas {
   constructor() {

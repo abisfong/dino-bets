@@ -1,5 +1,5 @@
 import Drawable from "./drawable";
-import getDirectionDelta from "../../util/getDirectionDelta";
+import getDirectionDelta from "../../util/get_direction_delta";
 
 export default class Background extends Drawable {
   constructor(options) {
