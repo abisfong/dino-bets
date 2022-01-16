@@ -3,7 +3,7 @@
 @import '../mixins/text_outline';
 
 #bet-controller {
-  @include box-shadow($color: $midnight-purple-dark);
+  @include box-shadow;
   
   background-color: $dino-green;
   border-radius: 8px;
@@ -18,9 +18,9 @@
   width: 378px;
 
   .title {    
-    @include text-outline($color: $extra-dark-grey);
+    @include text-outline($color: black);
     
-    color: $silver;
+    color: $whitest;
     cursor: default;
     display: flex;
     font-size: 62px;
@@ -45,9 +45,9 @@
   }
 
   #prev, #next {
-    background-color: $silver;
-    border: 1px solid $extra-dark-grey;
-    color: $extra-dark-grey;
+    background-color: $whitest;
+    border: 1px solid black;
+    color: black;
     cursor: pointer;
     display: flex;
     text-align: center;
@@ -75,12 +75,12 @@
 
 
   #amount {
-    @include text-outline($color: $extra-dark-grey);
+    @include text-outline($color: black);
     
     background-color: transparent;
     border: none;
     caret-color: transparent;
-    color: $silver;
+    color: $whitest;
     font-size: 64px;
     text-align: center;
     outline: none;
@@ -92,20 +92,20 @@
   }
 
   #amount::placeholder {
-    @include text-outline($color: $extra-dark-grey);
+    @include text-outline($color: black);
     
-    color: $silver;
+    color: $whitest;
   }
 
   #amount:focus, #amount:focus::placeholder {
-    color: white;
+    color: $silver;
   }
 
-  #bet-type-button, #bet-submit-button {
-    background-color: $silver;
-    border: 1px solid $extra-dark-grey;
+  #bet-type-button, #bet-submit-btn {
+    background-color: $whitest;
+    border: 1px solid black;
     border-radius: 8px;
-    color: $extra-dark-grey;
+    color: black;
     cursor: pointer;
     font-size: 18px;
 
@@ -118,21 +118,22 @@
     margin-bottom: 8px;
   }
   
-  #bet-submit-button {
+  #bet-submit-btn {
     margin-bottom: 4px;
   }
 
   #bet-type-button:hover,
-  #bet-submit-button:hover, 
+  #bet-submit-btn:hover, 
   #prev:hover, 
   #next:hover {
-    background-color: white;
+    background-color: $silver;
   }
 
+  .title,
   #amount,
   #amount::placeholder,
   #bet-type-button,
-  #bet-submit-button,
+  #bet-submit-btn,
   #prev,
   #next {
     transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
@@ -153,5 +154,35 @@
 }
 
 #bet-controller.purple {
-  background-color: $midnight-purple;
+  background-color: $dino-purple;
+
+  .title {
+    @include text-outline($color: white);
+
+    color: black;
+  }
+
+  #amount, #amount::placeholder {
+    @include text-outline($color: white);
+    
+    color: black;
+  }
+  
+  #amount:focus, #amount:focus::placeholder {    
+    color: $faded-black;
+  }
+
+  #bet-submit-btn,
+  #prev, 
+  #next {
+    background-color: black;
+    border-color: white;
+    color: white;
+  }
+  
+  #bet-submit-btn:hover,
+  #prev:hover, 
+  #next:hover {
+    background-color: $faded-black;
+  }
 }

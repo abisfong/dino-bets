@@ -138,7 +138,7 @@ table {
 }
 
 #bet-controller {
-  box-shadow: 2px 2px 15px 5px #181934;
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
   background-color: #b8fd33;
   border-radius: 8px;
   display: flex;
@@ -149,8 +149,8 @@ table {
   width: 378px;
 }
 #bet-controller .title {
-  text-shadow: -1px 1px 0 #5f5f5f, 1px 1px 0 #5f5f5f, 1px -1px 0 #5f5f5f, -1px -1px 0 #5f5f5f;
-  color: #ccc;
+  text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
+  color: #fff;
   cursor: default;
   display: flex;
   font-size: 62px;
@@ -169,9 +169,9 @@ table {
   width: 100%;
 }
 #bet-controller #prev, #bet-controller #next {
-  background-color: #ccc;
-  border: 1px solid #5f5f5f;
-  color: #5f5f5f;
+  background-color: #fff;
+  border: 1px solid black;
+  color: black;
   cursor: pointer;
   display: flex;
   text-align: center;
@@ -191,11 +191,11 @@ table {
   margin-left: 4px;
 }
 #bet-controller #amount {
-  text-shadow: -1px 1px 0 #5f5f5f, 1px 1px 0 #5f5f5f, 1px -1px 0 #5f5f5f, -1px -1px 0 #5f5f5f;
+  text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
   background-color: transparent;
   border: none;
   caret-color: transparent;
-  color: #ccc;
+  color: #fff;
   font-size: 64px;
   text-align: center;
   outline: none;
@@ -204,17 +204,17 @@ table {
   width: 330px;
 }
 #bet-controller #amount::placeholder {
-  text-shadow: -1px 1px 0 #5f5f5f, 1px 1px 0 #5f5f5f, 1px -1px 0 #5f5f5f, -1px -1px 0 #5f5f5f;
-  color: #ccc;
+  text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
+  color: #fff;
 }
 #bet-controller #amount:focus, #bet-controller #amount:focus::placeholder {
-  color: white;
+  color: #ccc;
 }
-#bet-controller #bet-type-button, #bet-controller #bet-submit-button {
-  background-color: #ccc;
-  border: 1px solid #5f5f5f;
+#bet-controller #bet-type-button, #bet-controller #bet-submit-btn {
+  background-color: #fff;
+  border: 1px solid black;
   border-radius: 8px;
-  color: #5f5f5f;
+  color: black;
   cursor: pointer;
   font-size: 18px;
   padding: 8px;
@@ -223,19 +223,20 @@ table {
 #bet-controller #bet-type-button {
   margin-bottom: 8px;
 }
-#bet-controller #bet-submit-button {
+#bet-controller #bet-submit-btn {
   margin-bottom: 4px;
 }
 #bet-controller #bet-type-button:hover,
-#bet-controller #bet-submit-button:hover,
+#bet-controller #bet-submit-btn:hover,
 #bet-controller #prev:hover,
 #bet-controller #next:hover {
-  background-color: white;
+  background-color: #ccc;
 }
+#bet-controller .title,
 #bet-controller #amount,
 #bet-controller #amount::placeholder,
 #bet-controller #bet-type-button,
-#bet-controller #bet-submit-button,
+#bet-controller #bet-submit-btn,
 #bet-controller #prev,
 #bet-controller #next {
   transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -254,12 +255,35 @@ table {
 }
 
 #bet-controller.purple {
-  background-color: #1f2041;
+  background-color: #351C75;
+}
+#bet-controller.purple .title {
+  text-shadow: -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
+  color: black;
+}
+#bet-controller.purple #amount, #bet-controller.purple #amount::placeholder {
+  text-shadow: -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
+  color: black;
+}
+#bet-controller.purple #amount:focus, #bet-controller.purple #amount:focus::placeholder {
+  color: #262626;
+}
+#bet-controller.purple #bet-submit-btn,
+#bet-controller.purple #prev,
+#bet-controller.purple #next {
+  background-color: black;
+  border-color: white;
+  color: white;
+}
+#bet-controller.purple #bet-submit-btn:hover,
+#bet-controller.purple #prev:hover,
+#bet-controller.purple #next:hover {
+  background-color: #262626;
 }
 
 .bet-view {
   box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
-  background-color: #1f2041;
+  background-color: transparent;
   border-radius: 8px;
   display: flex;
   font-family: "Roboto", sans-serif;
