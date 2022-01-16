@@ -5,6 +5,7 @@ export default function addBetListeners(betController) {
   addPrevListener(betController);
   addNextListener(betController);
   addSubmitListener(betController);
+  addRaceCompleteListener(betController);
 }
 
 function addPrevListener(betController) {
@@ -29,7 +30,7 @@ function rotateSelection(betController, dir) {
 }
 
 function addSubmitListener(betController) {
-  const submitButtonEl = document.querySelector('#bet-submit-button');
+  const submitButtonEl = document.querySelector('#bet-submit-btn');
   submitButtonEl.addEventListener('click', createBet(betController))
 }
 
@@ -38,6 +39,20 @@ function createBet(betController) {
   
   return () => {
     betController.setAmount(parseFloat(amountEl.value));
-    betController.createBet();
+    const placedBet = betController.createBet();
+    if (placedBet)
+      addPlacedBetComponent(placedBet);
   };
+}
+
+function addPlacedBetComponent(placedBet) {
+  const placedBetsView = document.querySelector('#placed-bets-view')
+  const placedBetContainer = document.createElement('div');
+  
+  placedBetContainer.classList.add('placed-bet');
+
+}
+
+function addRaceCompleteListener(betController) {
+  
 }

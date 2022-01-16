@@ -18,8 +18,7 @@ export default class BetController {
 
   createBet() {
     if (this.amount != 'NaN' && this.amount > 0) {
-      console.log('Creating bet');
-      this.bets.push(new Bet(
+      return this.bets.push(new Bet(
         'win',
         this.selection,
         this.amount
