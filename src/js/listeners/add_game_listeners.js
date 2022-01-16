@@ -1,6 +1,7 @@
 export default function addGameListeners(game) {
   addStartPauseButtonListener(game);
   addResetButtonListener(game);
+  addRaceCompleteListener(game);
 }
 
 function addStartPauseButtonListener(game) {
@@ -21,4 +22,12 @@ function createStartPauseButtonCallback(game) {
 function addResetButtonListener(game) {
   const resetEl = document.querySelector('#reset-btn');
   resetEl.addEventListener('click', game.reset.bind(game));
+}
+
+function addRaceCompleteListener(game) {
+  const resetEl = document.querySelector('#reset-btn');
+
+  resetEl.addEventListener('raceComplete', () => { 
+    game.completeBets();
+  })
 }

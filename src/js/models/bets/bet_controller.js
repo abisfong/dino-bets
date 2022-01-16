@@ -5,6 +5,7 @@ export default class BetController {
     this.amount = 0;
     this.selection = 'green';
     this.bets = [];
+    this.earnings = 0;
   }
 
   setAmount(amount) {
@@ -24,5 +25,19 @@ export default class BetController {
         this.amount
       ))
     }
+  }
+
+  earnings() {
+    return this.earnings;
+  }
+
+  completeBets(winner) {
+    this.earnings = 0;
+    this.bets.forEach(bet => {
+      if (!bet.isComplete()) {
+        bet.complete(winner);
+        this.earnings += bet.earnings();
+      }
+    })
   }
 }

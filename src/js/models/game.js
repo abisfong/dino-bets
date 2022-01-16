@@ -38,4 +38,20 @@ export default class Game {
   time() {
     return this.timer.time;
   }
+
+  winner() {
+    const dinoSprites = this.animator.dinoSprites;
+    const winner = dinoSprites.reduce((winner, dino) => {
+      if (winner.posX > dino.posX)
+        return winner;
+      return dino;
+    })
+
+    return winner.color;
+  }
+
+  completeBets() {
+    this.betController.completeBets(this.winner());
+    this.amount += this.betController.earnings();
+  }
 }

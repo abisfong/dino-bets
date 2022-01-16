@@ -6,17 +6,17 @@ export default class Bet {
     this.selection = selection;
     this.amount = amount;
     this.complete = false;
-  }
-
-  matches(selection) {
-    return this.selection === selection;
+    this.won = false;
   }
 
   earnings() {
-    return this.amount / this.winProbabilty;
+    const multiplier = this.won ? 1 : -1;
+    return this.amount / this.winProbabilty * multiplier;
   }
 
-  complete() {
+  complete(winner) {
+    if (winner === this.selection)
+      this.won = true;
     this.complete = true;
   }
 
