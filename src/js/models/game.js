@@ -51,7 +51,10 @@ export default class Game {
   }
 
   completeBets() {
+    const userAmountEl = document.querySelector('#user-amount .number');
+    
     this.betController.completeBets(this.winner());
     this.amount += this.betController.newEarnings();
+    userAmountEl.innerText = this.amount;
   }
 }

@@ -279,6 +279,7 @@ table {
   height: 45vw;
 }
 #race-view #user-amount {
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
   text-shadow: -1px 1px 0 #262626, 1px 1px 0 #262626, 1px -1px 0 #262626, -1px -1px 0 #262626;
   background-color: #1f2041;
   border-radius: 8px;
@@ -295,7 +296,7 @@ table {
   align-items: center;
   justify-content: center;
 }
-#race-view #user-amount span {
+#race-view #user-amount .money-sign {
   font-size: 16px;
   align-self: flex-start;
 }
