@@ -27,14 +27,14 @@ export default class BetController {
     }
   }
 
-  earnings() {
+  newEarnings() {
     return this.earnings;
   }
 
   completeBets(winner) {
     this.earnings = 0;
     this.bets.forEach(bet => {
-      if (!bet.isComplete()) {
+      if (!bet.isComplete) {
         bet.complete(winner);
         this.earnings += bet.earnings();
       }

@@ -5,23 +5,21 @@ export default class Bet {
     this.type = type;
     this.selection = selection;
     this.amount = amount;
-    this.complete = false;
+    this.isComplete = false;
     this.won = false;
   }
 
   earnings() {
-    const multiplier = this.won ? 1 : -1;
-    return this.amount / this.winProbabilty * multiplier;
+    if (this.won)
+      return this.amount / this.winProbabilty();
+    else
+      return -this.amount;
   }
 
   complete(winner) {
     if (winner === this.selection)
       this.won = true;
-    this.complete = true;
-  }
-
-  isComplete() {
-    return this.complete;
+    this.isComplete = true;
   }
 
   winProbabilty() {
