@@ -1,3 +1,6 @@
+@import '../colors';
+@import '../mixins/text_outline';
+
 $base_width: 80vw;
 $base_height: 45vw;
 
@@ -12,4 +15,31 @@ $base_height: 45vw;
 
   width: $base_width;
   height: $base_height;
+
+  #user-amount {
+    @include text-outline;
+
+    background-color: $midnight-purple;
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    font-family: "Roboto", sans-serif;
+    font-size: 64px;
+
+    margin: 4px;
+    padding: 16px;
+    padding-right: 24px;
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      font-size: 16px;
+      
+      align-self: flex-start;
+    }
+  }
 }
