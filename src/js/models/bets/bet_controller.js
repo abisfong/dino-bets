@@ -40,8 +40,8 @@ export default class BetController {
   }
 
   unlockBets() {
+    console.log('unlocking bets');
     this.bets.forEach(bet => {
-      console.log('Attempting to unlock bet', bet);
       if (!bet.isComplete) {
         bet.unlock()
         this.lockedBetsCount--;
@@ -55,8 +55,9 @@ export default class BetController {
 
   completeBets(winner) {
     this.earnings = 0;
+    console.log('completing bets');
     this.bets.forEach(bet => {
-      if (!bet.isComplete) {
+      if (!bet.isComplete && bet.isLocked) {
         bet.complete(winner);
         this.earnings += bet.earnings();
         this.lockedBetsCount--;

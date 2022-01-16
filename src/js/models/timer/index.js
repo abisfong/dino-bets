@@ -98,8 +98,8 @@ export default class Timer {
 
   tick() {
     if(this.remainingTime === 0) {
-      this.resetEl.click();
       this.resetEl.dispatchEvent(raceCompleteEvent);
+      this.resetEl.click();
     } else {
       this.timeElapsed++;
       this.updateTime();

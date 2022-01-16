@@ -7,6 +7,7 @@ export default class Bet {
     this.amount = amount;
     this.isComplete = false;
     this.won = false;
+    this.isLocked = false;
   }
 
   earnings() {
@@ -28,12 +29,12 @@ export default class Bet {
 
   lock() {
     this.cancelBtnEl.style.visibility = 'hidden';
+    this.isLocked = true;
   }
 
   unlock() {
-    console.log('unlocking', this);
     this.cancelBtnEl.style.visibility = 'visible';
-    console.log(this.cancelBtnEl);
+    this.isLocked = false;
   }
 
   winProbabilty() {
