@@ -38,19 +38,25 @@ function createBet(betController) {
   const amountEl = document.querySelector('#amount');
   
   return () => {
-    betController.setAmount(parseFloat(amountEl.value));
-    const placedBet = betController.createBet();
-    if (placedBet)
+    const amount = parseFloat(amountEl.value);
+    if (amount != 'NaN' && amount > 0) {
+      const placedBet = betController.createBet(amount);
       addPlacedBetComponent(placedBet);
+    }
   };
 }
 
 function addPlacedBetComponent(placedBet) {
   const placedBetsView = document.querySelector('#placed-bets-view')
-  const placedBetContainer = document.createElement('div');
+  const placedBetEl = document.createElement('div');
+  const placedBetAmountEl = document.createElement('div');
+  const placedBetStatusEl = document.createElement('div');
   
-  placedBetContainer.classList.add('placed-bet');
+  placedBetEl.classList.add('placed-bet');
+  placedBetAmountEl.classList.add('amount');
+  placedBetStatusEl.classList.add('status');
 
+  placedBet.placedBetStatusEl = placedBetStatusEl;
 }
 
 function addRaceCompleteListener(betController) {

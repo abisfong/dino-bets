@@ -1,7 +1,7 @@
 import { factorial } from '../../util';
 
 export default class Bet {
-  constructor(type, selection, amount, race) {
+  constructor(type, selection, amount) {
     this.type = type;
     this.selection = selection;
     this.amount = amount;
@@ -20,6 +20,7 @@ export default class Bet {
     if (winner === this.selection)
       this.won = true;
     this.isComplete = true;
+    this.placedBetStatusEl.innerText = this.won ? 'WON' : 'LOST';
   }
 
   winProbabilty() {
