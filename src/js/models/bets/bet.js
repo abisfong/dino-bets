@@ -21,7 +21,9 @@ export default class Bet {
       this.won = true;
     this.isComplete = true;
     this.placedBetStatusEl.innerText = this.won ? 'WON' : 'LOST';
-    this.cancelBtnEl.style.visibility = 'hidden';
+    this.placedBetStatusEl.classList.add(this.won ? 'won' : 'lost');
+    this.placedBetStatusEl.style.display = 'block';
+    this.cancelBtnEl.style.display = 'none';
   }
 
   winProbabilty() {

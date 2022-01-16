@@ -54,10 +54,38 @@
         color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
       padding: 8px;
+
+      box-sizing: border-box;
+      width: 100%;
     }
 
     .cancel-btn:hover {
       background-color: $silver;
+    }
+
+    .status {
+      @include box-shadow;
+      
+      border: 1px solid black;
+      border-radius: 8px;
+      cursor: default;
+      display: none;
+      font-size: 18px;
+      font-weight: 200;
+      text-align: center;
+      
+      padding: 8px;
+
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .status.lost {
+      background-color: $dino-red;
+    }
+
+    .status.won {
+      background-color: $dino-green;
     }
   }
 

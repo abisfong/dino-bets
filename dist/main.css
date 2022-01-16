@@ -345,9 +345,30 @@ table {
   font-weight: 200;
   transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   padding: 8px;
+  box-sizing: border-box;
+  width: 100%;
 }
 #placed-bets-view .placed-bet .cancel-btn:hover {
   background-color: #ccc;
+}
+#placed-bets-view .placed-bet .status {
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
+  border: 1px solid black;
+  border-radius: 8px;
+  cursor: default;
+  display: none;
+  font-size: 18px;
+  font-weight: 200;
+  text-align: center;
+  padding: 8px;
+  box-sizing: border-box;
+  width: 100%;
+}
+#placed-bets-view .placed-bet .status.lost {
+  background-color: #fd0d1b;
+}
+#placed-bets-view .placed-bet .status.won {
+  background-color: #b8fd33;
 }
 #placed-bets-view .placed-bet:first-child {
   margin-left: 12px;
