@@ -1,6 +1,6 @@
 import Bet from './bet';
 
-export default class betController {
+export default class BetController {
   constructor() {
     this.amount = 0;
     this.selection = 'green';
@@ -15,17 +15,14 @@ export default class betController {
     this.selection = selection;
   }
 
-  setRace(race) {
-    this.race = race;
-  }
-
   createBet() {
-    if (amount > 0)
+    if (this.amount != 'NaN' && this.amount > 0) {
+      console.log('Creating bet');
       this.bets.push(new Bet(
         'win',
         this.selection,
-        this.amount,
-        this.race
+        this.amount
       ))
+    }
   }
 }

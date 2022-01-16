@@ -68,8 +68,6 @@ function preventWholeNumberWithLeadingZero(inputEl, numOfPeriods) {
 
 function moveCursorToInputEnd(e) {
   const inputEl = e.target;
-  if (e.type !== 'keyup' || /Arrow/.test(e.key)) {
-    console.log('moving cursor');
+  if (e.type !== 'keyup' || /Arrow/.test(e.key))
     inputEl.value = inputEl.value;
-  }
 }

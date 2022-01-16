@@ -39,5 +39,6 @@ function createBet(betController) {
   return () => {
     betController.setAmount(parseFloat(amountEl.value));
     betController.createBet();
+    console.log(betController);
   };
 }

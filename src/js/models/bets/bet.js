@@ -5,7 +5,6 @@ export default class Bet {
     this.type = type;
     this.selection = selection;
     this.amount = amount;
-    this.race = race;
     this.complete = false;
   }
 
@@ -26,8 +25,8 @@ export default class Bet {
   }
 
   winProbabilty() {
-    const dinoCount = this.race.dinoCount;
-    
+    const dinoCount = 4;
+
     switch(this.type) {
       case 'win':
         return 1 / dinoCount;

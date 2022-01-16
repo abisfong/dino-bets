@@ -1,14 +1,20 @@
 import Timer from './timer';
 import * as listeners from '../listeners';
 import Animator from './animator';
+import BetController from './bets/bet_controller';
 
 export default class Game {
   constructor({ dinoColors }) {
     this.animator = new Animator({ dinoColors });
+    this.betController = new BetController();
     this.timer = new Timer(document.querySelector('#timer'));
     this.state = { running: false };
 
-    listeners.init({ game: this, timer: this.timer });
+    listeners.init({ 
+      betController: this.betController,
+      game: this,
+      timer: this.timer
+    });
   }
 
   start() {
