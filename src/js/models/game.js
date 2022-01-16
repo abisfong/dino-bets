@@ -53,6 +53,5 @@ export default class Game {
   completeBets() {
     this.betController.completeBets(this.winner());
     this.amount += this.betController.newEarnings();
-    console.log(this);
   }
 }
