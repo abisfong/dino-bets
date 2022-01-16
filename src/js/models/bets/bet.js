@@ -30,6 +30,12 @@ export default class Bet {
     this.cancelBtnEl.style.visibility = 'hidden';
   }
 
+  unlock() {
+    console.log('unlocking', this);
+    this.cancelBtnEl.style.visibility = 'visible';
+    console.log(this.cancelBtnEl);
+  }
+
   winProbabilty() {
     const dinoCount = 4;
 

@@ -28,6 +28,6 @@ export default class Animator {
   }
 
   reset() {
-
+    this.dinoSprites.forEach(dinoSprite => dinoSprite.posXDelta = 0);
   }
 }

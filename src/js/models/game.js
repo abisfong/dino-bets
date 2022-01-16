@@ -8,7 +8,7 @@ export default class Game {
     this.animator = new Animator({ dinoColors });
     this.betController = new BetController();
     this.timer = new Timer(document.querySelector('#timer'));
-    this.state = { running: false };
+    this.state = { running: false, started: false };
     this.amount = 0;
 
     listeners.init({ 
@@ -22,7 +22,10 @@ export default class Game {
     this.timer.start();
     this.animator.start();
     this.state.running = true;
-    this.lockBets();
+    if (!this.state.started) {
+      this.lockBets();
+      this.state.started = true;
+    }
   }
   
   pause() {
@@ -34,6 +37,9 @@ export default class Game {
   reset() {
     this.timer.reset();
     this.pause();
+    this.animator.reset();
+    this.unlockBets();
+    this.state.started = false;
   }
 
   time() {
@@ -42,6 +48,10 @@ export default class Game {
 
   lockBets() {
     this.betController.lockBets();
+  }
+
+  unlockBets() {
+    this.betController.unlockBets();
   }
 
   winner() {

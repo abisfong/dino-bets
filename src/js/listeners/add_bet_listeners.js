@@ -5,7 +5,6 @@ export default function addBetListeners(betController) {
   addPrevListener(betController);
   addNextListener(betController);
   addSubmitListener(betController);
-  addRaceCompleteListener(betController);
 }
 
 function addPrevListener(betController) {
@@ -86,8 +85,4 @@ function cancelPlacedBetCallback(betController, placedBet) {
     betController.cancelBet(placedBet);
     placedBetsViewEl.removeChild(placedBetEl);
   }
-}
-
-function addRaceCompleteListener(betController) {
-  
 }

@@ -5,6 +5,7 @@ export default class BetController {
     this.selection = 'green';
     this.bets = [];
     this.earnings = 0;
+    this.lockedBetsCount = 0;
   }
 
   setAmount(amount) {
@@ -21,7 +22,7 @@ export default class BetController {
       this.selection,
       amount
     );
-    this.bets.push(placedBet);
+    this.bets.unshift(placedBet);
     return placedBet;
   }
 
@@ -30,7 +31,22 @@ export default class BetController {
   }
 
   lockBets() {
-    this.bets.forEach(bet => bet.lock());
+    this.bets.forEach(bet => {
+      if (!bet.isComplete) {
+        bet.lock()
+        this.lockedBetsCount++;
+      }
+    });
+  }
+
+  unlockBets() {
+    this.bets.forEach(bet => {
+      console.log('Attempting to unlock bet', bet);
+      if (!bet.isComplete) {
+        bet.unlock()
+        this.lockedBetsCount--;
+      }
+    });
   }
 
   newEarnings() {
@@ -43,6 +59,7 @@ export default class BetController {
       if (!bet.isComplete) {
         bet.complete(winner);
         this.earnings += bet.earnings();
+        this.lockedBetsCount--;
       }
     })
   }
