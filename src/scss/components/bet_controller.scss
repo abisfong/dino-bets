@@ -16,7 +16,7 @@
   position: relative;
   z-index: 10;
   
-  width: 397px;
+  min-width: 397px;
 
   .title {    
     @include text-outline($color: black);
@@ -176,6 +176,13 @@
     @include text-outline($color: white);
 
     color: black;
+  }
+
+  #selections label {
+    @include text-outline($color: white);
+
+    color: black;
+    display: flex;
   }
 
   #amount, #amount::placeholder {

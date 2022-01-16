@@ -147,7 +147,7 @@ table {
   align-items: center;
   position: relative;
   z-index: 10;
-  width: 397px;
+  min-width: 397px;
 }
 #bet-controller .title {
   text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
@@ -271,6 +271,11 @@ table {
 #bet-controller.purple .title {
   text-shadow: -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
   color: black;
+}
+#bet-controller.purple #selections label {
+  text-shadow: -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
+  color: black;
+  display: flex;
 }
 #bet-controller.purple #amount, #bet-controller.purple #amount::placeholder {
   text-shadow: -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
@@ -453,8 +458,13 @@ table {
 }
 #placed-bets-view .placed-bet.purple .status {
   background-color: black;
-  border: 1px solid white;
+  border-color: white;
   color: white;
+}
+#placed-bets-view .placed-bet.purple .status.lost {
+  background-color: #fd0d1b;
+  border-color: black;
+  color: black;
 }
 
 #placed-bets-view::-webkit-scrollbar {

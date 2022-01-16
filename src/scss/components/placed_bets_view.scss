@@ -131,8 +131,14 @@
 
     .status {
       background-color: black;
-      border: 1px solid white;
+      border-color: white;
       color: white;
+    }
+
+    .status.lost {
+      background-color: $dino-red;
+      border-color: black;
+      color: black;
     }
   }
 }
