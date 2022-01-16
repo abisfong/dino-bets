@@ -1,6 +1,7 @@
 import Movable from "./movable";
 import { calculateDisplacement } from "../../util";
 import getRandomDirection from "../../util/get_random_direction";
+import getRandomNumFrom1To from "../../util/get_random_num_from_1_to";
 
 export default class DinoMovable extends Movable {
   constructor(options) {
@@ -9,15 +10,15 @@ export default class DinoMovable extends Movable {
     this.timeoutIDs = this.timeoutIDs();
   }
 
-  startRandomRun() {
-    const maxSpeed = 5;
-    this.startRun();
-    this.timeoutIDs.randomRunMovement = setInterval(() => {
+  startRandomRun(newTimeInterval=0) {
+    const dir = getRandomDirection();
+    const timeInterval = newTimeInterval;
+    this.timeoutIDs.randomRunMovement = setTimeout(() => {
       this.stopRun();
-      const dir = getRandomDirection();
-      this.dinoSprite.speed = Math.floor(Math.random() * (maxSpeed + 1)) * dir;
+      this.dinoSprite.speed = getRandomNumFrom1To(5) * dir;
       this.startRun(dir);
-    }, 5000);
+      this.startRandomRun(getRandomNumFrom1To(5000));
+    }, timeInterval);
   }
 
   stopRandomRun() {

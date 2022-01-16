@@ -1,5 +1,5 @@
 import Background from "../drawables/background";
-import DinoSprite from "../drawables/dinoSprite";
+import DinoSprite from "../drawables/dino_sprite";
 
 export default function createBackgrounds(canvasWidth) {
   return [

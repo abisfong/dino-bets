@@ -1,4 +1,4 @@
-import DinoSprite from "../drawables/dinoSprite";
+import DinoSprite from "../drawables/dino_sprite";
 
 export default function createDinoSprites(dinoColors=DinoSprite.COLORS) {
   return dinoColors.map((dinoColor, i) => new DinoSprite({

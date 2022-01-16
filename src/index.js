@@ -1,5 +1,5 @@
 import Bet from './js/models/bets/bet';
-import DinoSprite from './js/models/drawables/dinoSprite';
+import DinoSprite from './js/models/drawables/dino_sprite';
 import Money from './js/models/Money';
 import Race from './js/models/race';
 import Timer from './js/models/timer';

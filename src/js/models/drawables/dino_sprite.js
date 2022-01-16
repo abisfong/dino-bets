@@ -7,15 +7,10 @@ export default class DinoSprite extends Sprite {
     this.height = DinoSprite.SIZES[options.size] || 24;
     this.sprite.src = `${Sprite.BASE_URL}/${options.color}-dino-${options.size || 'small'}.png`;
     this.color = options.color;
-  }
-
-  static generateRandom(options) {
-    let colorCount = DinoSprite.COLORS.length;
-    let color = DinoSprite.COLORS[Math.round(Math.random() * (colorCount - 1))];
-    return new DinoSprite({color});
+    console.log(this);
   }
   
-  cycleRunningFrame() {
+  cycleThroughRunningFrames() {
     const lastFrameNum = 9
     const firstFrameNum = 3
     const increment = 1;
@@ -25,7 +20,7 @@ export default class DinoSprite extends Sprite {
   startRun() {
     const frameCycleRate = this.baseFrameCylceRate - (4 * (this.speed - 1));
     this.timeoutIDs.runAnimation = setInterval(() => {
-      this.cycleRunningFrame();
+      this.cycleThroughRunningFrames();
     }, frameCycleRate)
   }
 
