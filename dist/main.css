@@ -306,16 +306,20 @@ table {
 
 #placed-bets-view {
   display: flex;
-  flex-wrap: wrap;
-  margin: 32px 8px;
+  overflow-y: scroll;
 }
 #placed-bets-view .placed-bet {
   box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 16px;
+  background-size: 100px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  margin: 32px 0;
   margin-right: 8px;
   padding: 12px 16px;
   box-sizing: border-box;
@@ -345,21 +349,24 @@ table {
 #placed-bets-view .placed-bet .cancel-btn:hover {
   background-color: #ccc;
 }
+#placed-bets-view .placed-bet:first-child {
+  margin-left: 12px;
+}
 #placed-bets-view .placed-bet.green {
   background-color: #b8fd33;
-}
-#placed-bets-view .placed-bet.green::before {
-  width: 100%;
-  background-image: url("/dist/assets/images/green-dino-small.png");
+  background-image: url("/dist/assets/images/green-dino-small-single.png");
 }
 #placed-bets-view .placed-bet.red {
   background-color: #fd0d1b;
+  background-image: url("/dist/assets/images/red-dino-small-single.png");
 }
 #placed-bets-view .placed-bet.yellow {
   background-color: #fdad2a;
+  background-image: url("/dist/assets/images/yellow-dino-small-single.png");
 }
 #placed-bets-view .placed-bet.purple {
   background-color: #351C75;
+  background-image: url("/dist/assets/images/purp-dino-small-single.png");
 }
 #placed-bets-view .placed-bet.purple .amount {
   text-shadow: -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
@@ -372,6 +379,15 @@ table {
 }
 #placed-bets-view .placed-bet.purple .cancel-btn:hover {
   background-color: #262626;
+}
+
+.placed-bet-view::-webkit-scrollbar {
+  display: none;
+}
+
+.placed-bet-view {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 #race-view {

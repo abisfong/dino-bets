@@ -4,13 +4,15 @@
 
 #placed-bets-view {
   display: flex;
-  flex-wrap: wrap;
-
-  margin: 32px 8px;
+  overflow-y: scroll;
 
   .placed-bet {
     @include box-shadow;
     
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 16px;
+    background-size: 100px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -18,6 +20,7 @@
     align-items: center;
     justify-content: flex-end;
     
+    margin: 32px 0;
     margin-right: 8px;
     padding: 12px 16px;
 
@@ -58,24 +61,28 @@
     }
   }
 
+  .placed-bet:first-child {
+    margin-left: 12px;
+  }
+
   .placed-bet.green {
     background-color: $dino-green;
-  }
-  .placed-bet.green::before {
-    width: 100%;
-    background-image: url('/dist/assets/images/green-dino-small.png');
+    background-image: url('/dist/assets/images/green-dino-small-single.png');
   }
   
   .placed-bet.red {
     background-color: $dino-red;
+    background-image: url('/dist/assets/images/red-dino-small-single.png');
   }
   
   .placed-bet.yellow {
     background-color: $dino-yellow;
+    background-image: url('/dist/assets/images/yellow-dino-small-single.png');
   }
   
   .placed-bet.purple {
     background-color: $dino-purple;
+    background-image: url('/dist/assets/images/purp-dino-small-single.png');
 
     .amount {
       @include text-outline($color: white);
@@ -93,4 +100,13 @@
       background-color: $faded-black;
     }
   }
+}
+
+.placed-bet-view::-webkit-scrollbar {
+  display: none;
+}
+
+.placed-bet-view {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
