@@ -102,11 +102,11 @@
   }
 }
 
-.placed-bet-view::-webkit-scrollbar {
+#placed-bets-view::-webkit-scrollbar {
   display: none;
 }
 
-.placed-bet-view {
+#placed-bets-view {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

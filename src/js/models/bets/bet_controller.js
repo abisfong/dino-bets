@@ -25,6 +25,10 @@ export default class BetController {
     return placedBet;
   }
 
+  cancelBet(placedBet) {
+    this.bets = this.bets.filter(bet => bet != placedBet);
+  }
+
   newEarnings() {
     return this.earnings;
   }

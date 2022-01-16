@@ -41,12 +41,12 @@ function createBet(betController) {
     const amount = parseFloat(amountEl.value);
     if (amount != 'NaN' && amount > 0) {
       const placedBet = betController.createBet(amount);
-      addPlacedBetComponent(placedBet);
+      addPlacedBetComponent(betController, placedBet);
     }
   };
 }
 
-function addPlacedBetComponent(placedBet) {
+function addPlacedBetComponent(betController, placedBet) {
   const placedBetsViewEl = document.querySelector('#placed-bets-view')
   const placedBetEl = document.createElement('div');
   const placedBetAmountEl = document.createElement('div');
@@ -67,10 +67,25 @@ function addPlacedBetComponent(placedBet) {
   placedBetEl.append(placedBetAmountEl);
   placedBetEl.append(placedBetStatusEl);
   placedBetEl.append(cancelBtnEl);
-  placedBetsViewEl.append(placedBetEl);
+  placedBetsViewEl.prepend(placedBetEl);
     
   placedBet.placedBetStatusEl = placedBetStatusEl;
   placedBet.cancelBtnEl = cancelBtnEl;
+
+  cancelBtnEl.addEventListener(
+    'click', 
+    cancelPlacedBetCallback(betController, placedBet)
+  );
+}
+
+function cancelPlacedBetCallback(betController, placedBet) {
+  return e => {
+    const placedBetEl = e.target.parentElement;
+    const placedBetsViewEl = placedBetEl.parentElement;
+    
+    betController.cancelBet(placedBet);
+    placedBetsViewEl.removeChild(placedBetEl);
+  }
 }
 
 function addRaceCompleteListener(betController) {
