@@ -2,7 +2,7 @@
 @import '../mixins/box_shadow';
 @import '../mixins/text_outline';
 
-#placed-bets-view {
+#placed-bets-view {  
   display: flex;
   overflow-y: scroll;
 
@@ -11,8 +11,8 @@
     
     background-repeat: no-repeat;
     background-position-x: center;
-    background-position-y: 16px;
-    background-size: 100px;
+    background-position-y: 10px;
+    background-size: 80px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
