@@ -22,6 +22,7 @@ export default class Game {
     this.timer.start();
     this.animator.start();
     this.state.running = true;
+    this.lockBets();
   }
   
   pause() {
@@ -37,6 +38,10 @@ export default class Game {
 
   time() {
     return this.timer.time;
+  }
+
+  lockBets() {
+    this.betController.lockBets();
   }
 
   winner() {

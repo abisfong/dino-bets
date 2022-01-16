@@ -29,6 +29,10 @@ export default class BetController {
     this.bets = this.bets.filter(bet => bet != placedBet);
   }
 
+  lockBets() {
+    this.bets.forEach(bet => bet.lock());
+  }
+
   newEarnings() {
     return this.earnings;
   }

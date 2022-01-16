@@ -15,7 +15,7 @@ function addStartPauseButtonListener(game) {
 function createStartPauseButtonCallback(game) {
   return function toggleStartPause() {
     if (game.time() <= 0) return;
-      game.state.running ? game.pause() : game.start();
+    game.state.running ? game.pause() : game.start();
   }
 }
 
