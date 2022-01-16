@@ -62,6 +62,7 @@ function addPlacedBetComponent(betController, placedBet) {
   placedBetAmountEl.innerHTML = `
     <span class='money-sign'>$</span>
     <span class='number'>${placedBet.amount}</span>`;
+  placedBetStatusEl.innerText = 'LOCKED'
   cancelBtnEl.innerText = 'CANCEL';
     
   placedBetEl.append(placedBetAmountEl);

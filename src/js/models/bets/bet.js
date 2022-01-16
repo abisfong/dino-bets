@@ -23,17 +23,18 @@ export default class Bet {
     this.isComplete = true;
     this.placedBetStatusEl.innerText = this.won ? 'WON' : 'LOST';
     this.placedBetStatusEl.classList.add(this.won ? 'won' : 'lost');
-    this.placedBetStatusEl.style.display = 'block';
     this.cancelBtnEl.style.display = 'none';
   }
-
+  
   lock() {
-    this.cancelBtnEl.style.visibility = 'hidden';
+    this.placedBetStatusEl.style.display = 'block';
+    this.cancelBtnEl.style.display = 'none';
     this.isLocked = true;
   }
 
   unlock() {
-    this.cancelBtnEl.style.visibility = 'visible';
+    this.placedBetStatusEl.style.display = 'none';
+    this.cancelBtnEl.style.display = 'block';
     this.isLocked = false;
   }
 

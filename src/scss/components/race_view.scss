@@ -2,18 +2,20 @@
 @import '../mixins/box_shadow';
 @import '../mixins/text_outline';
 
-$base_width: 80vw;
-$base_height: 45vw;
+$base_width: 100vw;
+$base_height: 56.25vw;
 
 #race-view {
-  background-color: antiquewhite;
+  background-color: $midnight-purple;
   border-radius: 8px;
-  
-  margin: 2.5vw auto;
   
   position: relative;
   z-index: 0;
+  
+  margin: 0 auto;
 
+  max-height: 100vh;
+  max-width: 156.25vh;
   width: $base_width;
   height: $base_height;
 
