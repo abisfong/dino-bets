@@ -147,14 +147,14 @@ table {
   align-items: center;
   position: relative;
   z-index: 10;
-  width: 378px;
+  width: 397px;
 }
 #bet-controller .title {
   text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
   color: #fff;
   cursor: default;
   display: flex;
-  font-size: 62px;
+  font-size: 65px;
   font-weight: 500;
   text-align: justify;
   margin-bottom: 8px;
@@ -163,11 +163,21 @@ table {
 }
 #bet-controller #selections {
   display: flex;
-  align-items: center;
   margin-top: 12px;
   margin-bottom: 24px;
+  align-items: center;
+  justify-content: space-between;
   box-sizing: border-box;
   width: 100%;
+}
+#bet-controller #selections label {
+  text-shadow: -1px 1px 0 #262626, 1px 1px 0 #262626, 1px -1px 0 #262626, -1px -1px 0 #262626;
+  color: white;
+  display: flex;
+}
+#bet-controller #selections label span {
+  font-size: 18px;
+  margin-top: 12px;
 }
 #bet-controller #prev, #bet-controller #next {
   background-color: #fff;
@@ -202,7 +212,7 @@ table {
   outline: none;
   margin: 0;
   padding: 0;
-  width: 330px;
+  width: 37px;
 }
 #bet-controller #amount::placeholder {
   text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
@@ -440,6 +450,11 @@ table {
 }
 #placed-bets-view .placed-bet.purple .cancel-btn:hover {
   background-color: #262626;
+}
+#placed-bets-view .placed-bet.purple .status {
+  background-color: black;
+  border: 1px solid white;
+  color: white;
 }
 
 #placed-bets-view::-webkit-scrollbar {

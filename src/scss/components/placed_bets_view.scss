@@ -128,6 +128,12 @@
     .cancel-btn:hover {
       background-color: $faded-black;
     }
+
+    .status {
+      background-color: black;
+      border: 1px solid white;
+      color: white;
+    }
   }
 }
 

@@ -18,6 +18,7 @@ function onChangeHandler(e) {
   preventDecimalWithNoLeadingNum(inputEl, numOfPeriods);
   preventDuplicateDecimalPoint(inputEl, numOfPeriods);
   preventWholeNumberWithLeadingZero(inputEl, numOfPeriods);
+  resizeInputElementToContentWidth(inputEl);
   prevInput = inputEl.value;
 }
 
@@ -70,4 +71,12 @@ function moveCursorToInputEnd(e) {
   const inputEl = e.target;
   if (e.type !== 'keyup' || /Arrow/.test(e.key))
     inputEl.value = inputEl.value;
+}
+
+function resizeInputElementToContentWidth(inputEl) {
+  inputEl.style.width = 0;
+  if (inputEl.value.length == 0)
+    inputEl.style.width = '37px';
+  else
+    inputEl.style.width = `${inputEl.scrollWidth}px`;
 }

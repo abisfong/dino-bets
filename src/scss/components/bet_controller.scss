@@ -16,7 +16,7 @@
   position: relative;
   z-index: 10;
   
-  width: 378px;
+  width: 397px;
 
   .title {    
     @include text-outline($color: black);
@@ -24,7 +24,7 @@
     color: $whitest;
     cursor: default;
     display: flex;
-    font-size: 62px;
+    font-size: 65px;
     font-weight: 500;
     text-align: justify;
 
@@ -36,13 +36,28 @@
 
   #selections {
     display: flex;
-    align-items: center;
 
     margin-top: 12px;
     margin-bottom: 24px;
+    
+    align-items: center;
+    justify-content: space-between;
 
     box-sizing: border-box;
     width: 100%;
+
+    label {
+      @include text-outline;
+      
+      color: white;
+      display: flex;
+
+      span {
+        font-size: 18px;
+        
+        margin-top: 12px;
+      }
+    }
   }
 
   #prev, #next {
@@ -89,7 +104,7 @@
     margin: 0;
     padding: 0;
     
-    width: 330px;
+    width: 37px;
   }
 
   #amount::placeholder {
