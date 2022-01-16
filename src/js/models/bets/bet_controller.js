@@ -16,11 +16,13 @@ export default class BetController {
   }
 
   createBet(amount) {
-    return this.bets.push(new Bet(
+    const placedBet = new Bet(
       'win',
       this.selection,
       amount
-    ))
+    );
+    this.bets.push(placedBet);
+    return placedBet;
   }
 
   newEarnings() {

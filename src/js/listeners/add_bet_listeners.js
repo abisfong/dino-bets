@@ -47,7 +47,7 @@ function createBet(betController) {
 }
 
 function addPlacedBetComponent(placedBet) {
-  const placedBetsView = document.querySelector('#placed-bets-view')
+  const placedBetsViewEl = document.querySelector('#placed-bets-view')
   const placedBetEl = document.createElement('div');
   const placedBetAmountEl = document.createElement('div');
   const placedBetStatusEl = document.createElement('div');
@@ -56,6 +56,16 @@ function addPlacedBetComponent(placedBet) {
   placedBetAmountEl.classList.add('amount');
   placedBetStatusEl.classList.add('status');
 
+  console.log(placedBet);
+
+  placedBetAmountEl.innerHTML = `
+    <span class='money-sign'>$</span>
+    <span class='amount'>${placedBet.amount}</span>`;
+    
+  placedBetEl.append(placedBetAmountEl);
+  placedBetEl.append(placedBetStatusEl);
+  placedBetsViewEl.append(placedBetEl);
+    
   placedBet.placedBetStatusEl = placedBetStatusEl;
 }
 
