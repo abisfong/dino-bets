@@ -9,6 +9,7 @@ export default class Game {
     this.betController = new BetController();
     this.timer = new Timer(document.querySelector('#timer'));
     this.state = { running: false };
+    this.amount = 0;
 
     listeners.init({ 
       betController: this.betController,

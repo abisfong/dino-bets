@@ -3,6 +3,7 @@ import blurTimerInput from "./blur_timer_input";
 import isValidTimeInput from "./is_valid_time_input";
 import setTimeFromInput from "./set_time_from_input";
 import setTimerInputReadOnly from "./set_timer_input_read_only";
+import raceCompleteEvent from "../../events/race_complete_event";
 
 export default class Timer {
   // 'time' is in seconds
@@ -98,6 +99,7 @@ export default class Timer {
   tick() {
     if(this.remainingTime === 0) {
       this.resetEl.click();
+      this.resetEl.dispatchEvent(raceCompleteEvent);
     } else {
       this.timeElapsed++;
       this.updateTime();
