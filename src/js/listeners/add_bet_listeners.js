@@ -51,22 +51,26 @@ function addPlacedBetComponent(placedBet) {
   const placedBetEl = document.createElement('div');
   const placedBetAmountEl = document.createElement('div');
   const placedBetStatusEl = document.createElement('div');
+  const cancelBtnEl = document.createElement('button');
   
   placedBetEl.classList.add('placed-bet');
+  placedBetEl.classList.add(placedBet.selection);
   placedBetAmountEl.classList.add('amount');
   placedBetStatusEl.classList.add('status');
-
-  console.log(placedBet);
+  cancelBtnEl.classList.add('cancel-btn');
 
   placedBetAmountEl.innerHTML = `
     <span class='money-sign'>$</span>
-    <span class='amount'>${placedBet.amount}</span>`;
+    <span class='number'>${placedBet.amount}</span>`;
+  cancelBtnEl.innerText = 'CANCEL';
     
   placedBetEl.append(placedBetAmountEl);
   placedBetEl.append(placedBetStatusEl);
+  placedBetEl.append(cancelBtnEl);
   placedBetsViewEl.append(placedBetEl);
     
   placedBet.placedBetStatusEl = placedBetStatusEl;
+  placedBet.cancelBtnEl = cancelBtnEl;
 }
 
 function addRaceCompleteListener(betController) {
