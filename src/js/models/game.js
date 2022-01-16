@@ -42,7 +42,10 @@ export default class Game {
   winner() {
     const dinoSprites = this.animator.dinoSprites;
     const winner = dinoSprites.reduce((winner, dino) => {
-      if (winner.posX > dino.posX)
+      const winnerPosX = winner.posX + winner.posXDelta;
+      const dinoPosX = dino.posX + dino.posXDelta;
+
+      if (winnerPosX > dinoPosX)
         return winner;
       return dino;
     })
