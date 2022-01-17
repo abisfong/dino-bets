@@ -6,15 +6,15 @@ export default class Foley {
   playSoundEffectFor(soundEffect) {
     switch(soundEffect) {
       case 'placedBet':
-        this.setUrl('/');
+        console.log('Playing:', soundEffect)
+        this.setUrl('/dist/assets/audios/placed-bet.wav');
         break;
     }
-
     this.audio.play();
   }
 
-  setUrl(url) {
-    this.audio.url = url;
+  setUrl(src) {
+    this.audio.src = src;
     this.audio.load();
   }
 }

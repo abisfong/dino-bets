@@ -1,11 +1,12 @@
 import Bet from './bet';
 
 export default class BetController {
-  constructor() {
+  constructor({foley}) {
     this.selection = 'green';
     this.bets = [];
     this.earnings = 0;
     this.lockedBetsCount = 0;
+    this.foley = foley;
   }
 
   setAmount(amount) {
@@ -22,6 +23,7 @@ export default class BetController {
       this.selection,
       amount
     );
+    this.foley.playSoundEffectFor('placedBet');
     this.bets.unshift(placedBet);
     return placedBet;
   }

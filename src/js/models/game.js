@@ -2,11 +2,13 @@ import Timer from './timer';
 import * as listeners from '../listeners';
 import Animator from './animator';
 import BetController from './bets/bet_controller';
+import Foley from './foley';
 
 export default class Game {
   constructor({ dinoColors }) {
+    this.foley = new Foley();
     this.animator = new Animator({ dinoColors });
-    this.betController = new BetController();
+    this.betController = new BetController({foley: this.foley});
     this.timer = new Timer(document.querySelector('#timer'));
     this.state = { running: false, started: false, raceCompleted: false };
     this.amount = 0;
