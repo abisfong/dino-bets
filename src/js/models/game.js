@@ -8,7 +8,7 @@ export default class Game {
     this.animator = new Animator({ dinoColors });
     this.betController = new BetController();
     this.timer = new Timer(document.querySelector('#timer'));
-    this.state = { running: false, started: false };
+    this.state = { running: false, started: false, raceCompleted: false };
     this.amount = 0;
 
     listeners.init({ 
@@ -40,6 +40,10 @@ export default class Game {
     this.animator.reset();
     this.unlockBets();
     this.state.started = false;
+    if (this.state.raceCompleted) {
+      this.animator.displayDinoPlacements();
+      this.state.raceCompleted = false;
+    }
   }
 
   time() {
@@ -73,6 +77,7 @@ export default class Game {
     
     this.betController.completeBets(this.winner());
     this.amount += this.betController.newEarnings();
+    this.state.raceCompleted = true;
     userAmountEl.innerText = this.amount;
   }
 }

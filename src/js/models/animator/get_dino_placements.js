@@ -10,4 +10,6 @@ export default function getDinoPlacements(dinoSprites) {
         placement++;
     placements[i] = placement + 1;
   }
+
+  return placements;
 }
