@@ -85,7 +85,7 @@ function cancelPlacedBetCallback(betController, placedBet) {
     const placedBetsViewEl = placedBetEl.parentElement;
     
     betController.cancelBet(placedBet);
-    setTimeout(() => placedBetsViewEl.removeChild(placedBetEl), 250);
+    placedBetsViewEl.removeChild(placedBetEl);
 
     betController.foley.playSoundEffectFor('canceledBet');
   }
@@ -96,15 +96,13 @@ function addToggleListener(betController) {
   const betViewToggleIconEl = betViewToggleEl.querySelector('.icon');
 
   betViewToggleEl.addEventListener('click', () => {
-    setTimeout(() => {
-      betViewToggleEl.classList.toggle('open');
-      betViewToggleEl.classList.toggle('close');
-    
-      betViewToggleIconEl.classList.toggle('far');
-      betViewToggleIconEl.classList.toggle('fas');
-      betViewToggleIconEl.classList.toggle('fa-times');
-      betViewToggleIconEl.classList.toggle('fa-dollar-sign');
-    }, 250);
+    betViewToggleEl.classList.toggle('open');
+    betViewToggleEl.classList.toggle('close');
+  
+    betViewToggleIconEl.classList.toggle('far');
+    betViewToggleIconEl.classList.toggle('fas');
+    betViewToggleIconEl.classList.toggle('fa-times');
+    betViewToggleIconEl.classList.toggle('fa-dollar-sign');
     
     betController.foley.playSoundEffectFor('betViewToggle');
   })

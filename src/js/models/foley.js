@@ -1,29 +1,14 @@
 export default class Foley {
   constructor() {
-    this.audio = new Audio();
     this.src;
+    this.audios = {
+      placedBet: new Audio('/dist/assets/audios/placed-bet.wav'),
+      canceledBet: new Audio('/dist/assets/audios/canceled-bet.wav'),
+      betViewToggle: new Audio('/dist/assets/audios/bet-view-toggle.wav')
+    }
   }
 
   playSoundEffectFor(soundEffect) {
-    switch(soundEffect) {
-      case 'placedBet':
-        this.setUrl('placed-bet.wav');
-        break;
-      case 'canceledBet':
-        this.setUrl('canceled-bet.wav');
-        break;
-      case 'betViewToggle':
-        this.setUrl('bet-view-toggle.wav');
-        break;
-    }
-    this.audio.play();
-  }
-
-  setUrl(src) {
-    this.audio.src = `/dist/assets/audios/${src}`;
-    if (this.src != src) {
-      this.audio.load();
-      this.src = src;
-    }
+    this.audios[soundEffect].play();
   }
 }
