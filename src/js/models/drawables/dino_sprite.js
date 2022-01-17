@@ -7,7 +7,6 @@ export default class DinoSprite extends Sprite {
     this.height = DinoSprite.SIZES[options.size] || 24;
     this.sprite.src = `${Sprite.BASE_URL}/${options.color}-dino-${options.size || 'small'}.png`;
     this.color = options.color;
-    console.log(this);
   }
   
   cycleThroughRunningFrames() {

@@ -31,13 +31,16 @@ export default class Animator {
 
   displayDinoPlacements() {
     const placements = getDinoPlacements(this.dinoSprites);
+    const canvasDimensionRatios = this.canvas.getDimensionRatios();
     
     this.dinoSprites.forEach((dinoSprite, i) => {
-      const posX = dinoSprite.posX + dinoSprite.posXDelta;
-      const posY = dinoSprite.posY + dinoSprite.posYDelta;
+      const posX = (dinoSprite.posX + dinoSprite.posXDelta);
+      const posY = (dinoSprite.posY + dinoSprite.posYDelta);
+      const posXScaled = posX * canvasDimensionRatios[0];
+      const posYScaled = posY * canvasDimensionRatios[1];
       
       displayPopUp(
-        [posX, posY],
+        [posXScaled, posYScaled],
         placements[i]
       );
     });

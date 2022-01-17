@@ -36,10 +36,10 @@ export default class Canvas {
   }
 
   styleWidth() {
-    return this.canvasEl.style.width;
+    return this.canvasEl.offsetWidth;
   }
 
   styleHeight() {
-    return this.canvasEl.style.height;
+    return this.canvasEl.offsetHeight;
   }
 }
