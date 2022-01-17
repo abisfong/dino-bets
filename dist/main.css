@@ -476,6 +476,50 @@ table {
   scrollbar-width: none;
 }
 
+.pop-up {
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
+  -webkit-animation: fadein 300ms;
+  -moz-animation: fadein 300ms;
+  -ms-animation: fadein 300ms;
+  -o-animation: fadein 300ms;
+  animation: fadein 300ms;
+  background-color: black;
+  border-radius: 4px;
+  color: white;
+  display: flex;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+  height: 2vw;
+  width: 2vw;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 #race-view {
   background-color: #1f2041;
   border-radius: 8px;

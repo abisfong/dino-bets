@@ -35,15 +35,18 @@ export default class Game {
   }
 
   reset() {
+    let resetTimeInterval = 0;
+    
     this.timer.reset();
     this.pause();
-    this.animator.reset();
     this.unlockBets();
     this.state.started = false;
     if (this.state.raceCompleted) {
       this.animator.displayDinoPlacements();
       this.state.raceCompleted = false;
+      resetTimeInterval = 2500;
     }
+    setTimeout(() => this.animator.reset(), resetTimeInterval);
   }
 
   time() {

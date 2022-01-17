@@ -1,4 +1,4 @@
-export default function displayPopUp(pos, message, time=5000) {
+export default function displayPopUp(pos, message, timeInterval=2500) {
   const raceViewEl = document.querySelector('#race-view');
   const popUpEl = document.createElement('div');
 
@@ -9,5 +9,5 @@ export default function displayPopUp(pos, message, time=5000) {
   popUpEl.style.top = `${pos[1]}px`;
   raceViewEl.append(popUpEl);
 
-  // setTimeout(() => raceViewEl.removeChild(popUpEl), time);
+  setTimeout(() => raceViewEl.removeChild(popUpEl), timeInterval);
 }

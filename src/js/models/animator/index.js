@@ -29,12 +29,12 @@ export default class Animator {
     stopDinoRuns(this.dinoMovables);
   }
 
-  displayDinoPlacements() {
+  displayDinoPlacements(timeInterval) {
     const placements = getDinoPlacements(this.dinoSprites);
     const canvasDimensionRatios = this.canvas.getDimensionRatios();
     
     this.dinoSprites.forEach((dinoSprite, i) => {
-      const xOffset = 35;
+      const xOffset = 25;
       const yOffset = -20;
       const posX = (dinoSprite.posX + dinoSprite.posXDelta + xOffset);
       const posY = (dinoSprite.posY + dinoSprite.posYDelta + yOffset);
@@ -43,7 +43,8 @@ export default class Animator {
       
       displayPopUp(
         [posXScaled, posYScaled],
-        placements[i]
+        placements[i],
+        timeInterval
       );
     });
   }
