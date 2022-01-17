@@ -364,6 +364,11 @@ table {
 }
 #placed-bets-view .placed-bet {
   box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
+  -webkit-animation: expand 1s, fadein 1.5s;
+  -moz-animation: expand 1s, fadein 1.5s;
+  -ms-animation: expand 1s, fadein 1.5s;
+  -o-animation: expand 1s, fadein 1.5s;
+  animation: expand 1s, fadein 1.5s;
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: 10px;
@@ -476,6 +481,58 @@ table {
   scrollbar-width: none;
 }
 
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes expand {
+  from {
+    width: 0;
+  }
+  to {
+    width: auto;
+  }
+}
+/* Firefox < 16 */
+@-moz-keyframes expand {
+  from {
+    width: 0;
+  }
+  to {
+    width: auto;
+  }
+}
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes expand {
+  from {
+    width: 0;
+  }
+  to {
+    width: auto;
+  }
+}
 .pop-up {
   box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
   -webkit-animation: fadein 300ms;

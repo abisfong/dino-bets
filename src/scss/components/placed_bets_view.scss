@@ -9,6 +9,11 @@
   .placed-bet {
     @include box-shadow;
     
+    -webkit-animation: expand 1s, fadein 1.5s; 
+       -moz-animation: expand 1s, fadein 1.5s; 
+        -ms-animation: expand 1s, fadein 1.5s; 
+         -o-animation: expand 1s, fadein 1.5s; 
+            animation: expand 1s, fadein 1.5s;
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: 10px;
@@ -150,4 +155,38 @@
 #placed-bets-view {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes expand {
+  from { width: 0; }
+  to { width: auto; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes expand {
+  from { width: 0; }
+  to { width: auto; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes expand {
+  from { width: 0; }
+  to { width: auto; }
 }

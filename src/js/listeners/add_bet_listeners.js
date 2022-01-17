@@ -85,7 +85,9 @@ function cancelPlacedBetCallback(betController, placedBet) {
     const placedBetsViewEl = placedBetEl.parentElement;
     
     betController.cancelBet(placedBet);
-    placedBetsViewEl.removeChild(placedBetEl);
+    setTimeout(() => placedBetsViewEl.removeChild(placedBetEl), 250);
+
+    betController.foley.playSoundEffectFor('canceledBet');
   }
 }
 
