@@ -5,5 +5,6 @@ export default class Foley {
 
   setUrl(url) {
     this.audio.url = url;
+    this.audio.load();
   }
 }
