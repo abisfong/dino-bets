@@ -5,6 +5,7 @@ import Race from './js/models/race';
 import Timer from './js/models/timer';
 import * as Util from './js/util';
 import Game from './js/models/game';
+import Foley from './js/models/foley';
 
 if (document.title === "Jasmine Spec Runner") {
   window['Bet'] = Bet;
@@ -20,4 +21,5 @@ if (document.title === "Jasmine Spec Runner") {
 if (document.title !== "Jasmine Spec Runner")
   document.addEventListener("DOMContentLoaded", function () {
     const game = new Game({});
+    window.Foley = Foley;
   });
