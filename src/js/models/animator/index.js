@@ -34,8 +34,10 @@ export default class Animator {
     const canvasDimensionRatios = this.canvas.getDimensionRatios();
     
     this.dinoSprites.forEach((dinoSprite, i) => {
-      const posX = (dinoSprite.posX + dinoSprite.posXDelta);
-      const posY = (dinoSprite.posY + dinoSprite.posYDelta);
+      const xOffset = 35;
+      const yOffset = -20;
+      const posX = (dinoSprite.posX + dinoSprite.posXDelta + xOffset);
+      const posY = (dinoSprite.posY + dinoSprite.posYDelta + yOffset);
       const posXScaled = posX * canvasDimensionRatios[0];
       const posYScaled = posY * canvasDimensionRatios[1];
       
