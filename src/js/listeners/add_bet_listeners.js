@@ -99,8 +99,6 @@ function addToggleListener(betController) {
     betViewToggleEl.classList.toggle('open');
     betViewToggleEl.classList.toggle('close');
   
-    betViewToggleIconEl.classList.toggle('far');
-    betViewToggleIconEl.classList.toggle('fas');
     betViewToggleIconEl.classList.toggle('fa-times');
     betViewToggleIconEl.classList.toggle('fa-dollar-sign');
     
