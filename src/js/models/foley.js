@@ -12,6 +12,9 @@ export default class Foley {
       case 'canceledBet':
         this.setUrl('canceled-bet.wav');
         break;
+      case 'betViewToggle':
+        this.setUrl('bet-view-toggle.wav');
+        break;
     }
     this.audio.play();
   }

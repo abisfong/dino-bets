@@ -5,7 +5,7 @@ export default function addBetListeners(betController) {
   addPrevListener(betController);
   addNextListener(betController);
   addSubmitListener(betController);
-  addToggleListener();
+  addToggleListener(betController);
 }
 
 function addPrevListener(betController) {
@@ -91,17 +91,21 @@ function cancelPlacedBetCallback(betController, placedBet) {
   }
 }
 
-function addToggleListener() {
+function addToggleListener(betController) {
   const betViewToggleEl = document.querySelector('#bet-view-toggle');
   const betViewToggleIconEl = betViewToggleEl.querySelector('.icon');
 
   betViewToggleEl.addEventListener('click', () => {
-    betViewToggleEl.classList.toggle('open');
-    betViewToggleEl.classList.toggle('close');
-  
-    betViewToggleIconEl.classList.toggle('far');
-    betViewToggleIconEl.classList.toggle('fas');
-    betViewToggleIconEl.classList.toggle('fa-times');
-    betViewToggleIconEl.classList.toggle('fa-dollar-sign');
+    setTimeout(() => {
+      betViewToggleEl.classList.toggle('open');
+      betViewToggleEl.classList.toggle('close');
+    
+      betViewToggleIconEl.classList.toggle('far');
+      betViewToggleIconEl.classList.toggle('fas');
+      betViewToggleIconEl.classList.toggle('fa-times');
+      betViewToggleIconEl.classList.toggle('fa-dollar-sign');
+    }, 250);
+    
+    betController.foley.playSoundEffectFor('betViewToggle');
   })
 }
