@@ -85,6 +85,7 @@ export default class Game {
     newEarnings = this.betController.newEarnings();
     this.amount += newEarnings;
     this.state.raceCompleted = true;
+    console.log(this.amount);
 
     if (newEarnings !== 0)
       setTimeout(() => {

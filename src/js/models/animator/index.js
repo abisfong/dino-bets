@@ -58,7 +58,7 @@ export default class Animator {
     const userAmountEl = document.querySelector('#user-amount .number');
     const intervals = 10;
     const increment = (amount - prevAmount) / intervals;
-    let runningSum = 0;
+    let runningSum = prevAmount;
     
     (function incrementAmount(interval) {
       if (interval > intervals)
