@@ -63,7 +63,8 @@ export default class Animator {
     (function increaseAmount(interval) {
       if (interval > intervals)
       return;
-      runningSum = roundTo2Decimals(runningSum + interval);
+      runningSum = roundTo2Decimals(runningSum + increment);
+      console.log(runningSum);
       userAmountEl.innerText = runningSum;
       setTimeout(() => increaseAmount(interval + 1), 2000 / intervals);
     })(1);
