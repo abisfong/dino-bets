@@ -60,13 +60,12 @@ export default class Animator {
     const increment = (amount - prevAmount) / intervals;
     let runningSum = 0;
     
-    (function increaseAmount(interval) {
+    (function incrementAmount(interval) {
       if (interval > intervals)
       return;
       runningSum = roundTo2Decimals(runningSum + increment);
-      console.log(runningSum);
       userAmountEl.innerText = runningSum;
-      setTimeout(() => increaseAmount(interval + 1), 2000 / intervals);
+      setTimeout(() => incrementAmount(interval + 1), 2000 / intervals);
     })(1);
   }
 }
