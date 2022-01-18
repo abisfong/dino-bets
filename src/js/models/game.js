@@ -10,7 +10,12 @@ export default class Game {
     this.animator = new Animator({ dinoColors });
     this.betController = new BetController({foley: this.foley});
     this.timer = new Timer(document.querySelector('#timer'));
-    this.state = { running: false, started: false, raceCompleted: false };
+    this.state = { 
+      running: false, 
+      started: false, 
+      raceCompleted: false,
+      runningPlacementsAnimation: false
+    };
     this.amount = 0;
 
     listeners.init({ 
@@ -21,6 +26,7 @@ export default class Game {
   }
 
   start() {
+    if (this.state.runningPlacementsAnimation) return;
     this.timer.start();
     this.animator.start();
     this.state.running = true;
@@ -46,9 +52,13 @@ export default class Game {
     if (this.state.raceCompleted) {
       this.animator.displayDinoPlacements();
       this.state.raceCompleted = false;
+      this.state.runningPlacementsAnimation = true;
       resetTimeInterval = 2500;
     }
-    setTimeout(() => this.animator.reset(), resetTimeInterval);
+    setTimeout(() => {
+      this.animator.reset();
+      this.state.runningPlacementsAnimation = false;
+    }, resetTimeInterval);
   }
 
   time() {

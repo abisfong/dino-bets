@@ -38,7 +38,7 @@ export default class BetController {
       if (!bet.isComplete) {
         bet.lock()
         this.lockedBetsCount++;
-        this.completeABet = false;
+        this.completedABet = false;
       }
     });
   }
