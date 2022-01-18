@@ -7,7 +7,8 @@ export default class Foley {
       invalidBet: new Audio('/dist/assets/audios/invalid-bet.mov'),
       betViewToggle: new Audio('/dist/assets/audios/bet-view-toggle.wav'),
       betSelection: new Audio('/dist/assets/audios/bet-selection.wav'),
-      timerBtnClick: new Audio('/dist/assets/audios/timer-btn-click.wav')
+      timerBtnClick: new Audio('/dist/assets/audios/timer-btn-click.wav'),
+      positiveBetReturn: new Audio('/dist/assets/audios/positive-bet-return.wav'),
     }
   }
 

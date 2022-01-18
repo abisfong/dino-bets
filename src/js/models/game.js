@@ -84,5 +84,8 @@ export default class Game {
     this.amount += this.betController.newEarnings();
     this.state.raceCompleted = true;
     userAmountEl.innerText = this.amount;
+
+    if (this.betController.newEarnings() > 0)
+      this.foley.playSoundEffectFor('positiveBetReturn');
   }
 }
