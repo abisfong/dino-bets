@@ -27,7 +27,8 @@ function addResetButtonListener(game) {
   const resetEl = document.querySelector('#reset-btn');
 
   resetEl.addEventListener('click', () => {
-    foley.playSoundEffectFor('timerBtnClick');
+    if (!game.state.raceCompleted)
+      foley.playSoundEffectFor('timerBtnClick');
     game.reset();
   });
 }
