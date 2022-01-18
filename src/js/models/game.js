@@ -9,7 +9,7 @@ export default class Game {
     this.foley = new Foley();
     this.animator = new Animator({ dinoColors });
     this.betController = new BetController({foley: this.foley});
-    this.timer = new Timer(document.querySelector('#timer'), this.foley);
+    this.timer = new Timer(document.querySelector('#timer'));
     this.state = { running: false, started: false, raceCompleted: false };
     this.amount = 0;
 
