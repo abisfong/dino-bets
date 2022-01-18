@@ -9,7 +9,7 @@ function init({ betController, game, timer }) {
   addTimerListeners(timer);
   addGameListeners(game);
   addAmountInputListeners();
-  addBetListeners(betController, foley);
+  addBetListeners(betController);
 }
 
 export {

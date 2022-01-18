@@ -22,12 +22,14 @@ function addNextListener(betController) {
 
 function rotateSelection(betController, dir) {
   const betControllerEl = document.querySelector('#bet-controller');
+  const foley = betController.foley;
   
   return e => {
     betControllerEl.classList.remove(selectionColors[selection]);
     selection = (((selection + dir) % 4 ) + 4 ) % 4
     betControllerEl.classList.add(selectionColors[selection]);
     betController.setSelection(selectionColors[selection]);
+    foley.playSoundEffectFor('betSelection');
   };
 }
 
@@ -90,7 +92,7 @@ function createPlacedBetAmountElement(amount) {
 
 function displayInvalidAmountAnimations(betController) {
   const foley = betController.foley;
-  
+
   foley.playSoundEffectFor('invalidBet');
   blinkBetControllerAmount();
 }
@@ -134,9 +136,10 @@ function cancelPlacedBetCallback(betController, placedBet) {
   }
 }
 
-function addToggleListener(betController, foley) {
+function addToggleListener(betController) {
   const betViewToggleEl = document.querySelector('#bet-view-toggle');
   const betViewToggleIconEl = betViewToggleEl.querySelector('.icon');
+  const foley = betController.foley;
 
   betViewToggleEl.addEventListener('click', () => {
     betViewToggleEl.classList.toggle('open');

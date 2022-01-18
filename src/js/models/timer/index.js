@@ -7,7 +7,7 @@ import raceCompleteEvent from "../../events/race_complete_event";
 
 export default class Timer {
   // 'time' is in seconds
-  constructor(timerEl, time = 0) {
+  constructor(timerEl, foley, time = 0) {
     this.timerEl = timerEl;
     this.timeElapsed = 0;
     this.time = time;
@@ -22,6 +22,7 @@ export default class Timer {
     this.seconds = 0;
     this.printTime();
     this.tick = this.tick.bind(this);
+    this.foley = foley;
   }
 
   start() {
