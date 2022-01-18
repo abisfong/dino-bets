@@ -441,7 +441,7 @@ table {
 }
 #placed-bets-view .placed-bet.red {
   background-color: #fd0d1b;
-  background-image: url("./dist/assets/images/red-dino-small-single.png");
+  background-image: url("./assets/images/red-dino-small-single.png");
 }
 #placed-bets-view .placed-bet.yellow {
   background-color: #fdad2a;
