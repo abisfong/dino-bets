@@ -7,6 +7,7 @@ export default class BetController {
     this.earnings = 0;
     this.lockedBetsCount = 0;
     this.foley = foley;
+    this.completedABet = false;
   }
 
   setAmount(amount) {
@@ -37,6 +38,7 @@ export default class BetController {
       if (!bet.isComplete) {
         bet.lock()
         this.lockedBetsCount++;
+        this.completeABet = false;
       }
     });
   }
@@ -61,6 +63,7 @@ export default class BetController {
         bet.complete(winner);
         this.earnings += bet.earnings();
         this.lockedBetsCount--;
+        this.completedABet = true;
       }
     })
   }
