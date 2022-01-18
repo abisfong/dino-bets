@@ -3,19 +3,19 @@ import { curry } from "../util";
 const selectionColors = ['green', 'red', 'yellow', 'purple'];
 let selection = 0;
 
-export default function addBetListeners(betController, foley) {
-  addPrevListener(betController, foley);
-  addNextListener(betController, foley);
-  addSubmitListener(betController, foley);
-  addToggleListener(betController, foley);
+export default function addBetListeners(betController) {
+  addPrevListener(betController);
+  addNextListener(betController);
+  addSubmitListener(betController);
+  addToggleListener(betController);
 }
 
-function addPrevListener(betController, foley) {
+function addPrevListener(betController) {
   const prevEl = document.querySelector('#prev');
   prevEl.addEventListener('click', rotateSelection(betController, -1));
 }
 
-function addNextListener(betController, foley) {
+function addNextListener(betController) {
   const nextEl = document.querySelector('#next');
   nextEl.addEventListener('click', rotateSelection(betController, 1));
 }
@@ -31,7 +31,7 @@ function rotateSelection(betController, dir) {
   };
 }
 
-function addSubmitListener(betController, foley) {
+function addSubmitListener(betController) {
   const submitButtonEl = document.querySelector('#bet-submit-btn');
   submitButtonEl.addEventListener('click', createBet(betController))
 }
@@ -88,7 +88,9 @@ function createPlacedBetAmountElement(amount) {
   )
 }
 
-function displayInvalidAmountAnimations(betController, foley) {
+function displayInvalidAmountAnimations(betController) {
+  const foley = betController.foley;
+  
   foley.playSoundEffectFor('invalidBet');
   blinkBetControllerAmount();
 }
@@ -119,6 +121,8 @@ function blinkBetControllerAmount() {
 
 
 function cancelPlacedBetCallback(betController, placedBet) {
+  const foley = betController.foley;
+
   return e => {
     const placedBetEl = e.target.parentElement;
     const placedBetsViewEl = placedBetEl.parentElement;
