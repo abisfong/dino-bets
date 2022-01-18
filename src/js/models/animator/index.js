@@ -20,12 +20,12 @@ export default class Animator {
   }
 
   start() {
-    startBackgroundScroll(this.backgrounds);
+    startBackgroundScroll();
     startDinoRuns(this.dinoMovables);
   }
 
   pause() {
-    stopBackgroundScroll(this.backgrounds);
+    stopBackgroundScroll();
     stopDinoRuns(this.dinoMovables);
   }
 

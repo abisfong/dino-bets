@@ -2,6 +2,9 @@ import Drawable from "./drawable";
 import getDirectionDelta from "../../util/get_direction_delta";
 
 export default class Background extends Drawable {
+  static posDelta = [0, 0];
+  static timeoutIDs = {};
+  
   constructor(options) {
     super(options);
     this.speed = options.speed || 4;
@@ -12,31 +15,33 @@ export default class Background extends Drawable {
   draw() {
     this.ctx.drawImage(
       this.image,
-      this.posX + this.posXDelta,
-      this.posY + this.posYDelta,
+      this.posX + this.constructor.posDelta[0],
+      this.posY + this.constructor.posDelta[1],
       this.canvasEl.width + 1,
       this.canvasEl.height + 1,
     );
   }
 
-  scroll(direction) {
-    let delta = getDirectionDelta(direction);
+  static scroll(direction) {
+    console.log('baseFrameCycleRate: ', Drawable.baseFrameCycleRate);
+    console.log(this.timeoutIDs);
+    console.log(this.posDelta);
+    const dirDelta = getDirectionDelta(direction);
     this.timeoutIDs.scroll = setInterval(() => {
-      this.updatePosition(delta);
-    }, this.baseFrameCylceRate / this.speed);
+      this.incrementStaticPosDelta(dirDelta);
+    }, this.constructor.baseFrameCycleRate / this.speed);
   }
 
-  stopScroll() {
+  static stopScroll() {
     clearInterval(this.timeoutIDs.scroll);
   }
 
-  updatePosition(delta) {
-    const canvasEl = this.canvasEl;
-    const posXDelta = this.posXDelta + delta[0];
-    const posYDelta = this.posYDelta + delta[1];
-
-    this.posXDelta = posXDelta % canvasEl.width;
-    this.posYDelta = posYDelta % canvasEl.height;
+  static incrementStaticPosDelta(delta) {
+    const canvasWidth = 1000;
+    const canvasHeight = 562.75
+    
+    this.posDelta[0] = (this.posDelta[0] + delta[0]) % canvasWidth;
+    this.posDelta[1] = (this.posDelta[1] + delta[1]) % canvasHeight;
   }
 }
 

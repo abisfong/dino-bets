@@ -1,4 +1,6 @@
 export default class Drawable {
+  static baseFrameCycleRate = 100;
+  
   constructor (options) {
     this.posX = options.pos ? options.pos[0] : 0;
     this.posY = options.pos ? options.pos[1]: 0;
@@ -17,7 +19,6 @@ export default class Drawable {
     this.moving = options.moving || false;
     this.canvasEl = document.getElementById('canvas');
     this.ctx = this.canvasEl.getContext('2d');
-    this.baseFrameCylceRate = 100;
     this.timeoutIDs = {};
   }
 

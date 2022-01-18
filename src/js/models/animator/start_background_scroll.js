@@ -1,5 +1,5 @@
-export default function startBackgroundScroll(backgrounds) {
-  backgrounds.forEach((background) => {
-    background.scroll('left');
-  });
+import Background from "../drawables/background";
+
+export default function startBackgroundScroll() {
+  Background.scroll('left');
 }

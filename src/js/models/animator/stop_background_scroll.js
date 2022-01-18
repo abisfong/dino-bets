@@ -1,5 +1,5 @@
-export default function stopBackgroundScroll(backgrounds) {
-  backgrounds.forEach((background) => {
-    background.stopScroll();
-  });
+import Background from "../drawables/background";
+
+export default function stopBackgroundScroll() {
+  Background.stopScroll('left');
 }
