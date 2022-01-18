@@ -107,6 +107,6 @@ export default class Game {
     else if (newEarnings < 0)
       this.foley.playSoundEffectFor('negativeBetReturn');
     else if (this.betController.completedABet)
-      this.foley.playSoundEffectFor('evenBetReturn');
+      this.foley.playSoundEffectFor('breakingEven');
   }
 }
