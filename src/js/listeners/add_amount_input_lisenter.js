@@ -8,7 +8,7 @@ export default function addAmountInputListeners() {
   inputEl.addEventListener('keyup', moveCursorToInputEnd);
 }
   
-function onChangeHandler() {
+function onChangeHandler(e) {
   const inputEl = e.target;
   const numOfPeriods = (inputEl.value.match(/[.]/g) || []).length;
 
