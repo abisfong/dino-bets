@@ -34,11 +34,11 @@ export default class BetController {
   }
 
   lockBets() {
+    this.completedABet = false;
     this.bets.forEach(bet => {
       if (!bet.isComplete) {
         bet.lock()
         this.lockedBetsCount++;
-        this.completedABet = false;
       }
     });
   }
@@ -64,6 +64,7 @@ export default class BetController {
         this.earnings += bet.earnings();
         this.lockedBetsCount--;
         this.completedABet = true;
+        console.log('completing a bet');
       }
     })
   }
