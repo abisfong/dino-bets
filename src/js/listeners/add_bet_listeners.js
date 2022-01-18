@@ -95,19 +95,28 @@ function displayInvalidAmountAnimations(betController, foley) {
 
 function blinkBetControllerAmount() {
   let timeoutID;
+  let timeInterval = 0;
   const amountLabelEl = document.getElementById('amount-label');
-  const blinkCount = 6;
+  const blinkCount = 4;
   const stopBlinkingCurry = curry(
-    () => clearInterval(timeoutID), 
+    () => {
+      clearInterval(timeoutID);
+      return true;
+    }, 
     window, 
     blinkCount
   );
   
-  timeoutID = setInterval(() => {
-    amountLabelEl.classList.toggle('blink');
-    stopBlinkingCurry();
-  }, 200)
+  (function blinkBetControllerAmountRecur() {
+    timeoutID = setTimeout(() => {
+      timeInterval = 250;
+      amountLabelEl.classList.toggle('blink');
+      if (stopBlinkingCurry() !== true)
+        blinkBetControllerAmountRecur();
+    }, timeInterval)
+  })();
 }
+
 
 function cancelPlacedBetCallback(betController, placedBet) {
   return e => {

@@ -89,6 +89,14 @@
     margin-left: 4px;
   }
 
+  #amount-label {
+    transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    opacity: 1;
+  }
+
+  #amount-label.blink {
+    opacity: 0;
+  }
 
   #amount {
     @include text-outline($color: black);

@@ -201,6 +201,13 @@ table {
   border-bottom-right-radius: 8px;
   margin-left: 4px;
 }
+#bet-controller #amount-label {
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  opacity: 1;
+}
+#bet-controller #amount-label.blink {
+  opacity: 0;
+}
 #bet-controller #amount {
   text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
   background-color: transparent;
