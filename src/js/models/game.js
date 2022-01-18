@@ -78,14 +78,21 @@ export default class Game {
   }
 
   completeBets() {
-    const userAmountEl = document.querySelector('#user-amount .number');
+    const prevAmount = this.amount;
+    let newEarnings = 0;
     
     this.betController.completeBets(this.winner());
-    this.amount += this.betController.newEarnings();
+    newEarnings = this.betController.newEarnings();
+    this.amount += newEarnings;
     this.state.raceCompleted = true;
-    userAmountEl.innerText = this.amount;
 
-    if (this.betController.newEarnings() > 0)
+    if (newEarnings !== 0)
+      setTimeout(() => {
+        this.animator.updateAmount(prevAmount, this.amount);
+        this.foley.playSoundEffectFor('updateAmount')
+      }, 500);
+
+    if (newEarnings > 0)
       this.foley.playSoundEffectFor('positiveBetReturn');
   }
 }

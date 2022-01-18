@@ -52,4 +52,19 @@ export default class Animator {
   reset() {
     this.dinoSprites.forEach(dinoSprite => dinoSprite.posXDelta = 0);
   }
+
+  updateAmount(prevAmount, amount) {
+    const userAmountEl = document.querySelector('#user-amount .number');
+    const intervals = 10;
+    const increment = (amount - prevAmount) / intervals;
+    let runningSum = 0;
+    
+    (function increaseAmount(interval) {
+      if (interval > intervals)
+      return;
+      runningSum = Math.round(((runningSum + increment) + Number.EPSILON) * 100) / 100
+      userAmountEl.innerText = runningSum;
+      setTimeout(() => increaseAmount(interval + 1), 2000 / intervals);
+    })(1);
+  }
 }
