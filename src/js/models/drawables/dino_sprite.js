@@ -17,7 +17,7 @@ export default class DinoSprite extends Sprite {
   }
 
   startRun() {
-    const frameCycleRate = this.constructor.baseFrameCycleRate - (4 * (this.speed - 1));
+    const frameCycleRate = DinoSprite.baseFrameCycleRate - (4 * (this.speed - 1));
     this.timeoutIDs.runAnimation = setInterval(() => {
       this.cycleThroughRunningFrames();
     }, frameCycleRate)

@@ -23,13 +23,10 @@ export default class Background extends Drawable {
   }
 
   static scroll(direction) {
-    console.log('baseFrameCycleRate: ', Drawable.baseFrameCycleRate);
-    console.log(this.timeoutIDs);
-    console.log(this.posDelta);
     const dirDelta = getDirectionDelta(direction);
     this.timeoutIDs.scroll = setInterval(() => {
       this.incrementStaticPosDelta(dirDelta);
-    }, this.constructor.baseFrameCycleRate / this.speed);
+    }, Background.baseFrameCycleRate / this.speed);
   }
 
   static stopScroll() {
