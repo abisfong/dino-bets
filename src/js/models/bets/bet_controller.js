@@ -64,7 +64,6 @@ export default class BetController {
         this.earnings += bet.earnings();
         this.lockedBetsCount--;
         this.completedABet = true;
-        console.log('completing a bet');
       }
     })
   }
