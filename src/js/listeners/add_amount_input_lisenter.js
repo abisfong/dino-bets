@@ -5,7 +5,7 @@ export default function addAmountInputListeners() {
   inputEl.addEventListener('input', onChangeHandler);
   inputEl.addEventListener('focus', moveCursorToInputEnd);
   inputEl.addEventListener('click', moveCursorToInputEnd);
-  inputEl.addEventListener('keyup', moveCursorToInputEnd);
+  inputEl.addEventListener('keyup', keyUpHandler());
 }
   
 function onChangeHandler(e) {
@@ -67,6 +67,14 @@ function preventWholeNumberWithLeadingZero(inputEl, numOfPeriods) {
       inputEl.value = input.substring(1);
 }
 
+function resizeInputElementToContentWidth(inputEl) {
+  inputEl.style.width = 0;
+  if (inputEl.value.length == 0)
+    inputEl.style.width = '37px';
+  else
+    inputEl.style.width = `${inputEl.scrollWidth}px`;
+}
+
 function moveCursorToInputEnd(e) {
   const inputEl = e.target;
   if (e.type !== 'keyup' || /Arrow/.test(e.key)) {
@@ -74,10 +82,12 @@ function moveCursorToInputEnd(e) {
   }
 }
 
-function resizeInputElementToContentWidth(inputEl) {
-  inputEl.style.width = 0;
-  if (inputEl.value.length == 0)
-    inputEl.style.width = '37px';
-  else
-    inputEl.style.width = `${inputEl.scrollWidth}px`;
+function keyUpHandler() {
+  const betSubmitBtnEl = document.getElementById('bet-submit-btn');
+
+  return e => {
+    moveCursorToInputEnd(e);
+    if (e.key === 'Enter')
+      betSubmitBtnEl.click();
+  }
 }
