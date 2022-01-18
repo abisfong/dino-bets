@@ -1,3 +1,4 @@
+import roundTo2Decimals from "../../util/round_to_2_decimals";
 import Canvas from "../canvas";
 import createBackgrounds from "./create_backgrounds";
 import createDinoMovables from "./create_dino_movables";
@@ -62,7 +63,7 @@ export default class Animator {
     (function increaseAmount(interval) {
       if (interval > intervals)
       return;
-      runningSum = Math.round(((runningSum + increment) + Number.EPSILON) * 100) / 100
+      runningSum = roundTo2Decimals(runningSum + interval);
       userAmountEl.innerText = runningSum;
       setTimeout(() => increaseAmount(interval + 1), 2000 / intervals);
     })(1);
