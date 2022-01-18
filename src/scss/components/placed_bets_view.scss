@@ -96,22 +96,22 @@
 
   .placed-bet.green {
     background-color: $dino-green;
-    background-image: url('/dist/assets/images/green-dino-small-single.png');
+    background-image: url('./dist/assets/images/green-dino-small-single.png');
   }
   
   .placed-bet.red {
     background-color: $dino-red;
-    background-image: url('/dist/assets/images/red-dino-small-single.png');
+    background-image: url('./dist/assets/images/red-dino-small-single.png');
   }
   
   .placed-bet.yellow {
     background-color: $dino-yellow;
-    background-image: url('/dist/assets/images/yellow-dino-small-single.png');
+    background-image: url('./dist/assets/images/yellow-dino-small-single.png');
   }
   
   .placed-bet.purple {
     background-color: $dino-purple;
-    background-image: url('/dist/assets/images/purp-dino-small-single.png');
+    background-image: url('./dist/assets/images/purp-dino-small-single.png');
 
     .amount {
       @include text-outline($color: white);

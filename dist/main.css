@@ -437,19 +437,19 @@ table {
 }
 #placed-bets-view .placed-bet.green {
   background-color: #b8fd33;
-  background-image: url("/dist/assets/images/green-dino-small-single.png");
+  background-image: url("./dist/assets/images/green-dino-small-single.png");
 }
 #placed-bets-view .placed-bet.red {
   background-color: #fd0d1b;
-  background-image: url("/dist/assets/images/red-dino-small-single.png");
+  background-image: url("./dist/assets/images/red-dino-small-single.png");
 }
 #placed-bets-view .placed-bet.yellow {
   background-color: #fdad2a;
-  background-image: url("/dist/assets/images/yellow-dino-small-single.png");
+  background-image: url("./dist/assets/images/yellow-dino-small-single.png");
 }
 #placed-bets-view .placed-bet.purple {
   background-color: #351C75;
-  background-image: url("/dist/assets/images/purp-dino-small-single.png");
+  background-image: url("./dist/assets/images/purp-dino-small-single.png");
 }
 #placed-bets-view .placed-bet.purple .amount {
   text-shadow: -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
