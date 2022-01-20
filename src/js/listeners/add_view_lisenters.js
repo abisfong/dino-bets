@@ -1,6 +1,6 @@
 export default function addViewLisenters(foley) {
   addBetViewToggleListener(foley);
-  addHelpViewToggleListener(foley);
+  addHelpViewToggleListeners(foley);
 }
 
 function addBetViewToggleListener(foley) {
@@ -18,28 +18,27 @@ function addBetViewToggleListener(foley) {
   })
 }
 
-function addHelpViewToggleListener(foley) {
-  const helpViewEl = document.getElementById('help-view');
-  const helpViewToggleEl = document.getElementById('help-view-toggle');
-  const helpViewToggleIconEl = helpViewToggleEl.querySelector('.icon');
-  const innerText = ['Help', ''];
-  let innerTextSelection = 0;
+function addHelpViewToggleListeners(foley) {
+  addOpenHelpViewListener(foley);
+  addCloseHelpViewListener(foley);
+}
 
-  helpViewEl.style.display = 'none';
-
-  helpViewToggleEl.addEventListener('click', () => {
-    const helpViewDisplay = helpViewEl.style.display;
-    innerTextSelection = (innerTextSelection + 1) % 2;
-
-    helpViewEl.style.display = helpViewDisplay === 'none' ? 'block' : 'none';
-
-    helpViewToggleEl.classList.toggle('open');
-    helpViewToggleEl.classList.toggle('close');
+function addOpenHelpViewListener(foley) {
+  const helpViewEl = document.querySelector('help-view');
+  const helpViewOpenBtnEl = document.querySelector('.help-view-toggle.open');
   
-    helpViewToggleIconEl.classList.toggle('far');
-    helpViewToggleIconEl.classList.toggle('fa-times');
-    helpViewToggleIconEl.innerText = innerText[innerTextSelection];
-    
+  helpViewOpenBtnEl.addEventListener('click', () => {
+    helpViewEl.style.diplay = 'block';
+    foley.playSoundEffectFor('betViewToggle');
+  })
+}
+
+function addCloseHelpViewListener(foley) {
+  const helpViewEl = document.querySelector('help-view');
+  const helpViewCloseBtnEl = document.querySelector('.help-view-toggle.close');
+
+  helpViewCloseBtnEl.addEventListener('click', () => {
+    helpViewEl.style.diplay = 'none';
     foley.playSoundEffectFor('betViewToggle');
   })
 }

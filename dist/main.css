@@ -364,6 +364,7 @@ table {
 #help-view {
   background-color: #181934;
   color: white;
+  display: none;
   font-family: "Roboto", sans-serif;
   overflow: scroll;
   padding: 0 12%;
@@ -400,7 +401,7 @@ table {
   line-height: 1.33;
 }
 
-#help-view-toggle {
+.help-view-toggle {
   background-color: white;
   border: 4px solid black;
   border-radius: 8px;
@@ -413,15 +414,16 @@ table {
   position: absolute;
   top: 8px;
   right: 8px;
-  z-index: 9999;
+  z-index: 9;
 }
 
-#help-view-toggle:hover {
+.help-view-toggle:hover {
   opacity: 1;
 }
 
-#help-view-toggle.close {
+.help-view-toggle.close {
   font-size: 22px;
+  z-index: 99;
   padding: 5px 8px 4px;
 }
 
