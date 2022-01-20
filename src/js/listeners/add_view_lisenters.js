@@ -21,13 +21,18 @@ function addBetViewToggleListener(foley) {
 function addHelpViewToggleListener(foley) {
   const helpViewToggleEl = document.querySelector('#help-view-toggle');
   const helpViewToggleIconEl = helpViewToggleEl.querySelector('.icon');
+  const innerText = ['Help', ''];
+  let innerTextSelection = 0;
 
   helpViewToggleEl.addEventListener('click', () => {
+    innerTextSelection = (innerTextSelection + 1) % 2;
+
     helpViewToggleEl.classList.toggle('open');
     helpViewToggleEl.classList.toggle('close');
   
+    helpViewToggleIconEl.classList.toggle('far');
     helpViewToggleIconEl.classList.toggle('fa-times');
-    helpViewToggleIconEl.classList.toggle('fa-dollar-sign');
+    helpViewToggleIconEl.innerText = innerText[innerTextSelection];
     
     foley.playSoundEffectFor('betViewToggle');
   })
