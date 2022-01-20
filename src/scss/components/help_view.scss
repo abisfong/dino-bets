@@ -58,6 +58,7 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: $roboto;
+  font-weight: 500;
   opacity: .4;
   transition: opacity 300ms $cubicBezierNoDelay;
 
@@ -74,7 +75,9 @@
 }
 
 #help-view-toggle.close {
-
+  font-size: 22px;
+  
+  padding: 5px 8px 4px;
 }
 
 #help-view-toggle.open + #help-view{
