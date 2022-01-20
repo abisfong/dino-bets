@@ -1,3 +1,4 @@
+@import '../colors';
 @import '../mixins/box_shadow';
 
 #social-links {
@@ -14,5 +15,9 @@
     font-size: 48px;
     
     padding: 5px;
+  }
+
+  a {
+    color: $midnight-purple;
   }
 }

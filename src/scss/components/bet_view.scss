@@ -1,10 +1,12 @@
 @import '../colors';
+@import '../fonts';
+@import '../mixins/transitions';
 
 #bet-view {  
   background-color: transparent;
   border-radius: 8px;
   display: flex;
-  font-family: "Roboto", sans-serif;
+  font-family: $roboto;
 
   margin: 32px;
   margin-top: 100px;
@@ -26,8 +28,8 @@
   border-radius: 50%;
   color: rgba(0, 0, 0, .4);
   cursor: pointer;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    color 100ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 300ms $cubicBezierNoDelay,
+    color 100ms $cubicBezierNoDelay;
 
 
   padding: 2px;
@@ -59,3 +61,17 @@
   border-color: black;
   color: black;
 }
+
+// @media only screen and (max-width: 874px) {
+//   #bet-view {
+//     position: relative;
+//   }
+
+//   #bet-view-toggle {
+//     display: none;
+//   }
+  
+//   #bet-view-toggle.open+#bet-view {
+//     display: flex;
+//   }
+// }

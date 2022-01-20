@@ -1,4 +1,5 @@
 @import '../colors';
+@import '../fonts';
 @import '../mixins/box_shadow';
 @import '../mixins/text_outline';
 
@@ -27,7 +28,7 @@ $base_height: 56.25vw;
     border-radius: 8px;
     color: white;
     display: flex;
-    font-family: "Roboto", sans-serif;
+    font-family: $roboto;
     font-size: 18px;
 
     margin: 8px;
