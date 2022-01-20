@@ -368,10 +368,10 @@ table {
   overflow: scroll;
   padding: 0 12%;
   position: absolute;
-  z-index: 999;
+  z-index: 99;
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 #help-view #how-to-play {
   display: flex;
@@ -423,10 +423,6 @@ table {
 #help-view-toggle.close {
   font-size: 22px;
   padding: 5px 8px 4px;
-}
-
-#help-view-toggle.open + #help-view {
-  display: none;
 }
 
 #placed-bets-view {
@@ -739,4 +735,5 @@ table {
 
 body {
   background-color: black;
+  position: relative;
 }

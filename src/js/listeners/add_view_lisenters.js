@@ -4,7 +4,7 @@ export default function addViewLisenters(foley) {
 }
 
 function addBetViewToggleListener(foley) {
-  const betViewToggleEl = document.querySelector('#bet-view-toggle');
+  const betViewToggleEl = document.getElementById('bet-view-toggle');
   const betViewToggleIconEl = betViewToggleEl.querySelector('.icon');
 
   betViewToggleEl.addEventListener('click', () => {
@@ -19,13 +19,19 @@ function addBetViewToggleListener(foley) {
 }
 
 function addHelpViewToggleListener(foley) {
-  const helpViewToggleEl = document.querySelector('#help-view-toggle');
+  const helpViewEl = document.getElementById('help-view');
+  const helpViewToggleEl = document.getElementById('help-view-toggle');
   const helpViewToggleIconEl = helpViewToggleEl.querySelector('.icon');
   const innerText = ['Help', ''];
   let innerTextSelection = 0;
 
+  helpViewEl.style.display = 'none';
+
   helpViewToggleEl.addEventListener('click', () => {
+    const helpViewDisplay = helpViewEl.style.display;
     innerTextSelection = (innerTextSelection + 1) % 2;
+
+    helpViewEl.style.display = helpViewDisplay === 'none' ? 'block' : 'none';
 
     helpViewToggleEl.classList.toggle('open');
     helpViewToggleEl.classList.toggle('close');
