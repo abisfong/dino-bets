@@ -388,6 +388,9 @@ table {
   box-sizing: border-box;
   width: 100%;
 }
+#help-view .ui > img {
+  width: 100%;
+}
 #help-view h1 {
   color: white;
   font-size: 64px;
