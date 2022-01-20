@@ -381,30 +381,6 @@ table {
   margin: 0;
   padding: 64px 32px;
 }
-#help-view #how-to-play {
-  display: flex;
-  flex-wrap: wrap;
-}
-#help-view #how-to-play div {
-  box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
-  background-color: black;
-  border: 4px solid white;
-  border-radius: 8px;
-  margin: 12px 0;
-  padding: 32px;
-  box-sizing: border-box;
-  width: 100%;
-}
-#help-view #ui {
-  background-color: black;
-  border: 4px solid white;
-  border-radius: 8px;
-  padding: 32px;
-  box-sizing: border-box;
-}
-#help-view #ui > img {
-  width: 100%;
-}
 #help-view h1 {
   color: white;
   font-size: 64px;
@@ -453,6 +429,32 @@ table {
   font-size: 22px;
   z-index: 9999;
   padding: 5px 8px 4px;
+}
+
+#ui {
+  background-color: black;
+  border: 4px solid white;
+  border-radius: 8px;
+  padding: 32px;
+  box-sizing: border-box;
+}
+#ui img {
+  width: 100%;
+}
+
+#how-to-play {
+  display: flex;
+  flex-wrap: wrap;
+}
+#how-to-play div {
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
+  background-color: black;
+  border: 4px solid white;
+  border-radius: 8px;
+  margin: 12px 0;
+  padding: 32px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 #placed-bets-view {
