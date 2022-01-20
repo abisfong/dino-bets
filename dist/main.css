@@ -368,11 +368,18 @@ table {
   font-family: "Roboto", sans-serif;
   overflow: scroll;
   padding: 0 12%;
+  padding-bottom: 32px;
   position: absolute;
   z-index: 99;
   box-sizing: border-box;
   height: 100vh;
   width: 100vw;
+}
+#help-view .title {
+  font-size: 104px;
+  font-weight: 500;
+  margin: 0;
+  padding: 64px 32px;
 }
 #help-view #how-to-play {
   display: flex;
@@ -384,11 +391,18 @@ table {
   border: 4px solid white;
   border-radius: 8px;
   margin: 12px 0;
-  padding: 8px;
+  padding: 32px;
   box-sizing: border-box;
   width: 100%;
 }
-#help-view .ui > img {
+#help-view #ui {
+  background-color: black;
+  border: 4px solid white;
+  border-radius: 8px;
+  padding: 32px;
+  box-sizing: border-box;
+}
+#help-view #ui > img {
   width: 100%;
 }
 #help-view h1 {
@@ -418,6 +432,15 @@ table {
   top: 8px;
   right: 8px;
   z-index: 9;
+}
+
+#help-view::-webkit-scrollbar {
+  display: none;
+}
+
+#help-view {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .help-view-toggle:hover {
