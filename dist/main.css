@@ -362,7 +362,7 @@ table {
 }
 
 #help-view {
-  background-color: #181934;
+  background: linear-gradient(#181934, #1f2041);
   color: white;
   display: none;
   font-family: "Roboto", sans-serif;

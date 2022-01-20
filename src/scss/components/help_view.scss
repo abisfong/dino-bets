@@ -4,7 +4,7 @@
 @import '../mixins/transitions';
 
 #help-view {
-  background-color: $midnight-purple-dark;
+  background: linear-gradient($midnight-purple-dark, $midnight-purple);
   color: white;
   display: none;
   font-family: $roboto;
