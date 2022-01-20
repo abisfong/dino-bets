@@ -32,7 +32,7 @@ function addOpenHelpViewListener(foley) {
   helpViewOpenBtnEl.addEventListener('click', () => {
     helpViewEl.style.display = 'block';
     helpViewCloseBtnEl.style.display = 'block';
-    foley.playSoundEffectFor('betViewToggle');
+    foley.playSoundEffectFor('helpViewToggle');
   })
 }
 
@@ -43,6 +43,6 @@ function addCloseHelpViewListener(foley) {
   helpViewCloseBtnEl.addEventListener('click', () => {
     helpViewEl.style.display = 'none';
     helpViewCloseBtnEl.style.display = 'none';
-    foley.playSoundEffectFor('betViewToggle');
+    foley.playSoundEffectFor('helpViewToggle');
   })
 }
