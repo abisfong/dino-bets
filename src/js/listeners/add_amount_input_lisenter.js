@@ -84,10 +84,17 @@ function moveCursorToInputEnd(e) {
 
 function keyUpHandler() {
   const betSubmitBtnEl = document.getElementById('bet-submit-btn');
+  const prevEl = document.getElementById('prev');
+  const nextEl = document.getElementById('next');
 
   return e => {
     moveCursorToInputEnd(e);
+    console.log(e.key);
     if (e.key === 'Enter')
       betSubmitBtnEl.click();
+    if (e.key === 'ArrowLeft')
+      prevEl.click();
+    if (e.key === 'ArrowRight')
+      nextEl.click();
   }
 }
