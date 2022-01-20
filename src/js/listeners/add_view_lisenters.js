@@ -24,21 +24,25 @@ function addHelpViewToggleListeners(foley) {
 }
 
 function addOpenHelpViewListener(foley) {
-  const helpViewEl = document.querySelector('help-view');
+  const helpViewEl = document.getElementById('help-view');
+  const helpViewCloseBtnEl = document.querySelector('.help-view-toggle.close');
   const helpViewOpenBtnEl = document.querySelector('.help-view-toggle.open');
+  console.log(helpViewEl);
   
   helpViewOpenBtnEl.addEventListener('click', () => {
-    helpViewEl.style.diplay = 'block';
+    helpViewEl.style.display = 'block';
+    helpViewCloseBtnEl.style.display = 'block';
     foley.playSoundEffectFor('betViewToggle');
   })
 }
 
 function addCloseHelpViewListener(foley) {
-  const helpViewEl = document.querySelector('help-view');
+  const helpViewEl = document.getElementById('help-view');
   const helpViewCloseBtnEl = document.querySelector('.help-view-toggle.close');
 
   helpViewCloseBtnEl.addEventListener('click', () => {
-    helpViewEl.style.diplay = 'none';
+    helpViewEl.style.display = 'none';
+    helpViewCloseBtnEl.style.display = 'none';
     foley.playSoundEffectFor('betViewToggle');
   })
 }
