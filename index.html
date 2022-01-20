@@ -14,6 +14,70 @@
 </head>
 <body>
   <div id='race-view'>
+    <div id='help-view-toggle' class='open'>
+      <i class='far'>Help</i>
+    </div>
+    <div id='help-view'>
+      <div id='ui'>
+        picture with names on the buttons
+      </div>
+      <div id='how-to-play'>
+        <div id='timer-use'>
+          <h1>Timer</h1>
+          <p>
+            To start the timer and a race, type in the seconds, minutes, and/or 
+            hours that you want, then press start.
+          </p>
+          <p>
+            After pressing start, you can press pause to pause the timer and the 
+            race.
+          </p>
+          <p>
+            Press reset to restart a race and all bets. Press reset before the 
+            race starts to reset the timer to 0.
+          </p>
+        </div>
+        <div id='placing-bets'>
+          <h1 class='header'>Placing Bets</h1>
+          <p>
+            To place a bet, open up the bet view using the $ button on the top 
+            left corner of the screen. Type in the amount that you want to bet 
+            (must be greater than zero). Select the dino you want to bet on 
+            using the carrets &#60; &#62;. Press the submit button to place your 
+            bet.
+          </p>
+          <p>
+            You can place a bet at any time, but only bets placed before the
+            timer starts will be locked and counted towards your earnings when
+            the time is up. Because of this, any bets placed while the timer is 
+            running can be canceled but locked bets cannot be.
+          </p>
+        </div>
+        <div id='canceling-bets'>
+          <h1>Canceling Bets</h1>
+          <p>
+            Press the cancel button on the placed bet you want to cancel.
+          </p>
+          <p>
+            Bets are locked once the timer has started. To cancel a locked
+            bet, you must reset the timer first before the time ends.
+          </p>
+        </div>
+        <div id='earnings'>
+          <h1>Earnings</h1>
+          <p>
+            The amount you earn per bet is determined by dividing its
+            amount by the probability of it winning. For example, placing and
+            winning a bet of $4 will yield a return of $16.
+            <br><br>
+            Losing a bet subtracts the bet amount from your total amount.
+            <br><br>
+            If you place multiple bets and break even, your amount does not 
+            change.
+          </p>
+        </div>
+      </div>
+    </div>
     <div id='timer'>
       <button id='start-pause-btn' class='start'>START</button>
       <div id='time'>

@@ -357,12 +357,69 @@ table {
 #canvas {
   box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
   border-radius: 5px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
   width: 100%;
   height: 100%;
+}
+
+#help-view {
+  background-color: #181934;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  overflow: scroll;
+  padding: 0 12%;
+  position: absolute;
+  z-index: 999;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+#help-view #how-to-play {
+  display: flex;
+  flex-wrap: wrap;
+}
+#help-view #how-to-play div {
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
+  background-color: black;
+  border: 4px solid white;
+  border-radius: 8px;
+  margin: 12px 0;
+  padding: 8px;
+  box-sizing: border-box;
+  width: 100%;
+}
+#help-view h1 {
+  color: white;
+  font-size: 64px;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+#help-view p {
+  color: #ccc;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.33;
+}
+
+#help-view-toggle {
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  opacity: 0.4;
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  padding: 8px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+#help-view-toggle:hover {
+  opacity: 1;
+}
+
+#help-view-toggle.open + #help-view {
+  display: none;
 }
 
 #placed-bets-view {
@@ -574,6 +631,9 @@ table {
   font-size: 48px;
   padding: 5px;
 }
+#social-links a {
+  color: #1f2041;
+}
 
 #timer {
   display: flex;
@@ -667,7 +727,7 @@ table {
 
 #start-pause-btn, #reset-btn {
   cursor: pointer;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms border-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
 body {

@@ -1,4 +1,4 @@
-import { curry } from "../util";
+import { curry } from "../../util";
 
 const selectionColors = ['green', 'red', 'yellow', 'purple'];
 let selection = 0;
@@ -7,7 +7,6 @@ export default function addBetListeners(betController) {
   addPrevListener(betController);
   addNextListener(betController);
   addSubmitListener(betController);
-  addToggleListener(betController);
 }
 
 function addPrevListener(betController) {
@@ -134,20 +133,4 @@ function cancelPlacedBetCallback(betController, placedBet) {
 
     foley.playSoundEffectFor('canceledBet');
   }
-}
-
-function addToggleListener(betController) {
-  const betViewToggleEl = document.querySelector('#bet-view-toggle');
-  const betViewToggleIconEl = betViewToggleEl.querySelector('.icon');
-  const foley = betController.foley;
-
-  betViewToggleEl.addEventListener('click', () => {
-    betViewToggleEl.classList.toggle('open');
-    betViewToggleEl.classList.toggle('close');
-  
-    betViewToggleIconEl.classList.toggle('fa-times');
-    betViewToggleIconEl.classList.toggle('fa-dollar-sign');
-    
-    foley.playSoundEffectFor('betViewToggle');
-  })
 }
