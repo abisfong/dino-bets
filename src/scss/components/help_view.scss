@@ -3,6 +3,14 @@
 @import '../mixins/box_shadow';
 @import '../mixins/transitions';
 
+@media only screen and (min-width: 1425px) {
+  $message-pos-delta: 10%;
+}
+
+// @media only screen and (min-width: 1650px) {
+//   $message-pos-delta: 0;
+// }
+
 #help-view {
   background: linear-gradient($midnight-purple-dark, $midnight-purple);
   color: white;
@@ -91,14 +99,85 @@
   border-radius: 8px;
   padding: 32px;
 
+  margin-bottom: 12px;
+
   box-sizing: border-box;
-
-  img {
-    width: 100%;
-  }
-
   
+  .container {
+    position: relative;
+
+    width: 100%;
+  
+    img {
+      width: 100%;
+    }
+
+    .bet-view-message-box {
+      top: 6.5vw;
+      left: 8px;
+    }
+
+    .bet-view-message-box:after {
+      left: 4px;
+      right: auto;
+    }
+    
+    .start-pause-message-box {
+      top: 7vw;
+      left: 30.5%;
+    }
+
+    .start-pause-message-box:after {
+      left: 30%;
+      right: auto;
+    }
+    
+    .reset-message-box {
+      top: 7vw;
+      left: 57.5%
+    }
+
+    .reset-message-box:after {
+      left: 40%;
+      right: auto;
+    }
+    
+    .help-view-message-box {
+      top: 4.5vw;
+      left: auto;
+      right: 8px;
+    }
+
+    .help-view-message-box:after {
+      left: auto;
+      right: 4px;
+    }
+    
+    .amount-message-box {
+      top: auto;
+      bottom: 4.5vw;
+      left: 8px;
+    }
+
+    .amount-message-box:after {
+      left: 4px;
+      right: auto;
+    }
+    
+    .social-links-message-box {
+      top: auto;
+      bottom: 5vw;
+      right: 8px;
+      left: auto;
+    }
+
+    .social-links-message-box:after {
+      left: auto;
+      right: 4px;
+    }
+  }
 }
+
 
 #how-to-play {
   display: flex;
