@@ -447,10 +447,13 @@ table {
   width: 100%;
 }
 #ui .container .bet-view-message-box {
+  background-color: black;
+  color: white;
   top: 6.5vw;
   left: 8px;
 }
 #ui .container .bet-view-message-box:after {
+  color: black;
   left: 4px;
   right: auto;
 }
@@ -481,7 +484,7 @@ table {
 }
 #ui .container .amount-message-box {
   top: auto;
-  bottom: 36.5vw;
+  bottom: 34.5vw;
   left: 8px;
 }
 #ui .container .amount-message-box:after {
@@ -490,7 +493,7 @@ table {
 }
 #ui .container .social-links-message-box {
   top: auto;
-  bottom: 37vw;
+  bottom: 35.25vw;
   right: 8px;
   left: auto;
 }
@@ -499,42 +502,54 @@ table {
   right: 4px;
 }
 #ui .container .bet-submit-message-box {
+  background-color: white;
+  color: black;
   top: auto;
   bottom: 7vw;
   left: 8px;
   left: auto;
 }
 #ui .container .bet-submit-message-box:after {
+  border-bottom-color: white;
   left: 4px;
   right: auto;
 }
 #ui .container .bet-prev-selection-message-box {
+  background-color: black;
+  color: white;
+  top: auto;
+  bottom: 18vw;
+  right: auto;
+  left: 5.25%;
+}
+#ui .container .bet-prev-selection-message-box:after {
+  border-bottom-color: black;
+  left: 4px;
+  right: auto;
+}
+#ui .container .bet-next-selection-message-box {
+  background-color: black;
+  color: white;
   top: auto;
   bottom: 7vw;
   right: auto;
-  left: 5vw;
+  left: 27.75%;
 }
-#ui .container .bet-prev-selection-message-box:after {
+#ui .container .bet-next-selection-message-box:after {
+  border-bottom-color: black;
   left: auto;
   right: 4px;
 }
-#ui .container .bet-next-selection-message-box {
-  top: auto;
-  bottom: 7vw;
-  right: 5vw;
-  left: auto;
-}
-#ui .container .bet-next-selection-message-box:after {
-  left: auto;
-  right: 10vw;
-}
 #ui .container .bet-status-message-box {
+  background-color: white;
+  color: black;
   top: auto;
   bottom: 7vw;
   right: 8px;
   left: auto;
 }
 #ui .container .bet-status-message-box:after {
+  border-bottom-color: white;
   left: auto;
   right: 4px;
 }
@@ -555,6 +570,7 @@ table {
 }
 
 .message-box {
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
   color: #fff;
   background-color: black;
   border-radius: 4px;
@@ -579,6 +595,7 @@ table {
 }
 .message-box.arrow:after {
   content: " ";
+  border-bottom-color: black;
   position: absolute;
 }
 

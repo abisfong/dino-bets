@@ -1,4 +1,7 @@
+@import '../mixins/box_shadow';
+
 .message-box {
+  @include box-shadow;
   color: #fff;
   background-color: black;
   border-radius: 4px;
@@ -28,6 +31,7 @@
 
 .message-box.arrow:after {
   content: " ";
+  border-bottom-color: black;
 
   position: absolute;
 }
