@@ -155,7 +155,7 @@
     
     .amount-message-box {
       top: auto;
-      bottom: 4.5vw;
+      bottom: 36.5vw;
       left: 8px;
     }
 
@@ -166,12 +166,60 @@
     
     .social-links-message-box {
       top: auto;
-      bottom: 5vw;
+      bottom: 37vw;
       right: 8px;
       left: auto;
     }
 
     .social-links-message-box:after {
+      left: auto;
+      right: 4px;
+    }
+    
+    .bet-submit-message-box {
+      top: auto;
+      bottom: 7vw;
+      left: 8px;
+      left: auto;
+    }
+
+    .bet-submit-message-box:after {
+      left: 4px;
+      right: auto;
+    }
+    
+    .bet-prev-selection-message-box {
+      top: auto;
+      bottom: 7vw;
+      right: auto;
+      left: 5vw;
+    }
+
+    .bet-prev-selection-message-box:after {
+      left: auto;
+      right: 4px;
+    }
+    
+    .bet-next-selection-message-box {
+      top: auto;
+      bottom: 7vw;
+      right: 5vw;
+      left: auto;
+    }
+
+    .bet-next-selection-message-box:after {
+      left: auto;
+      right: 10vw;
+    }
+    
+    .bet-status-message-box {
+      top: auto;
+      bottom: 7vw;
+      right: 8px;
+      left: auto;
+    }
+
+    .bet-status-message-box:after {
       left: auto;
       right: 4px;
     }

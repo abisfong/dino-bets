@@ -481,7 +481,7 @@ table {
 }
 #ui .container .amount-message-box {
   top: auto;
-  bottom: 4.5vw;
+  bottom: 36.5vw;
   left: 8px;
 }
 #ui .container .amount-message-box:after {
@@ -490,11 +490,51 @@ table {
 }
 #ui .container .social-links-message-box {
   top: auto;
-  bottom: 5vw;
+  bottom: 37vw;
   right: 8px;
   left: auto;
 }
 #ui .container .social-links-message-box:after {
+  left: auto;
+  right: 4px;
+}
+#ui .container .bet-submit-message-box {
+  top: auto;
+  bottom: 7vw;
+  left: 8px;
+  left: auto;
+}
+#ui .container .bet-submit-message-box:after {
+  left: 4px;
+  right: auto;
+}
+#ui .container .bet-prev-selection-message-box {
+  top: auto;
+  bottom: 7vw;
+  right: auto;
+  left: 5vw;
+}
+#ui .container .bet-prev-selection-message-box:after {
+  left: auto;
+  right: 4px;
+}
+#ui .container .bet-next-selection-message-box {
+  top: auto;
+  bottom: 7vw;
+  right: 5vw;
+  left: auto;
+}
+#ui .container .bet-next-selection-message-box:after {
+  left: auto;
+  right: 10vw;
+}
+#ui .container .bet-status-message-box {
+  top: auto;
+  bottom: 7vw;
+  right: 8px;
+  left: auto;
+}
+#ui .container .bet-status-message-box:after {
   left: auto;
   right: 4px;
 }
