@@ -1,0 +1,160 @@
+#ui {
+  background-color: black;
+  border: 4px solid white;
+  border-radius: 8px;
+
+  margin: 12px;
+  margin-top: 0;
+  padding: 32px 12%;
+
+  box-sizing: border-box;
+
+  .container {
+    position: relative;
+
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+
+    .bet-view-message-box {
+      background-color: black;
+      color: white;
+      top: 6.5vw;
+      left: 8px;
+    }
+
+    .bet-view-message-box:after {
+      color: black;
+      left: 4px;
+      right: auto;
+    }
+
+    .time-input-message-box {
+      top: 11vw;
+      left: 45.5%;
+    }
+
+    .time-input-message-box:after {
+      border-bottom-width: 70px;
+      transform: translateY(-75%);
+
+      left: 30%;
+      right: auto;
+    }
+
+    .start-pause-message-box {
+      top: 7vw;
+      left: 30.5%;
+    }
+
+    .start-pause-message-box:after {
+      left: 30%;
+      right: auto;
+    }
+
+    .reset-message-box {
+      top: 7vw;
+      left: 57.5%
+    }
+
+    .reset-message-box:after {
+      left: 40%;
+      right: auto;
+    }
+
+    .help-view-message-box {
+      top: 4.5vw;
+      left: auto;
+      right: 8px;
+    }
+
+    .help-view-message-box:after {
+      left: auto;
+      right: 4px;
+    }
+
+    .amount-message-box {
+      top: auto;
+      bottom: 34.5vw;
+      left: 8px;
+    }
+
+    .amount-message-box:after {
+      left: 4px;
+      right: auto;
+    }
+
+    .social-links-message-box {
+      top: auto;
+      bottom: 35.25vw;
+      right: 8px;
+      left: auto;
+    }
+
+    .social-links-message-box:after {
+      left: auto;
+      right: 4px;
+    }
+
+    .bet-submit-message-box {
+      background-color: white;
+      color: black;
+      top: auto;
+      bottom: 3.5vw;
+      left: 9%;
+    }
+
+    .bet-submit-message-box:after {
+      border-bottom-color: white;
+      left: 4px;
+      right: auto;
+    }
+
+    .bet-prev-selection-message-box {
+      background-color: black;
+      color: white;
+      top: auto;
+      bottom: 17.25vw;
+      right: auto;
+      left: 5.25%;
+    }
+
+    .bet-prev-selection-message-box:after {
+      border-bottom-color: black;
+      left: 4px;
+      right: auto;
+    }
+
+    .bet-next-selection-message-box {
+      background-color: black;
+      color: white;
+      top: auto;
+      bottom: 7vw;
+      right: auto;
+      left: 27.75%;
+    }
+
+    .bet-next-selection-message-box:after {
+      border-bottom-color: black;
+      left: auto;
+      right: 4px;
+    }
+
+    .bet-status-message-box {
+      background-color: white;
+      color: black;
+      top: auto;
+      bottom: 4.25vw;
+      right: 10%;
+      left: auto;
+    }
+
+    .bet-status-message-box:after {
+      border-bottom-color: white;
+      left: auto;
+      right: 4px;
+    }
+  }
+}
