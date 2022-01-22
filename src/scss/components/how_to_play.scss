@@ -1,3 +1,5 @@
+@import '../mixins/transitions';
+
 #how-to-play {
   display: flex;
   flex-wrap: wrap;
@@ -32,12 +34,19 @@
 
 #demo-bet-view-btn {
   background-color: white;
+  transition: opacity 300ms $cubicBezierNoDelay;
   border: 2px solid $faded-black;
   border-radius: 50%;
   color: $faded-black;
+  cursor: pointer;
   font-weight: 500;
+  opacity: .4;
 
   padding: 0 5px;
+}
+
+#demo-bet-view-btn:hover {
+  opacity: 1;
 }
 
 #selection-btns-demo {
@@ -54,8 +63,11 @@
     background-color: white;
     border: 1px solid $faded-black;
     color: $faded-black;
+    cursor: pointer;
     display: inline-flex;
     line-height: .75;
+    opacity: 1;
+    transition: background-color 300ms $cubicBezierNoDelay;
   
     padding: 16px 4px;
   
@@ -64,6 +76,16 @@
     
     height: 76px;
     width: 20px;
+  }
+
+  .prev-demo:hover,
+  .next-demo:hover {
+    background-color: $silver;
+  }
+  
+  .prev-demo.black:hover,
+  .next-demo.black:hover {
+    background-color: $faded-black;
   }
 
  .prev-demo.black,

@@ -459,11 +459,18 @@ table {
 
 #demo-bet-view-btn {
   background-color: white;
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   border: 2px solid #262626;
   border-radius: 50%;
   color: #262626;
+  cursor: pointer;
   font-weight: 500;
+  opacity: 0.4;
   padding: 0 5px;
+}
+
+#demo-bet-view-btn:hover {
+  opacity: 1;
 }
 
 #selection-btns-demo {
@@ -478,13 +485,24 @@ table {
   background-color: white;
   border: 1px solid #262626;
   color: #262626;
+  cursor: pointer;
   display: inline-flex;
   line-height: 0.75;
+  opacity: 1;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   padding: 16px 4px;
   align-items: center;
   justify-content: center;
   height: 76px;
   width: 20px;
+}
+#selection-btns-demo .prev-demo:hover,
+#selection-btns-demo .next-demo:hover {
+  background-color: #ccc;
+}
+#selection-btns-demo .prev-demo.black:hover,
+#selection-btns-demo .next-demo.black:hover {
+  background-color: #262626;
 }
 #selection-btns-demo .prev-demo.black,
 #selection-btns-demo .next-demo.black {
