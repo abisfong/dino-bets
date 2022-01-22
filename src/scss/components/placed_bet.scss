@@ -42,6 +42,7 @@
     background-color: white;
     border: 1px solid black;
     border-radius: 8px;
+    display: flex;
     cursor: pointer;
     font-size: 18px;
     font-weight: 200;
@@ -49,6 +50,9 @@
       color 300ms $cubicBezierNoDelay;
 
     padding: 8px;
+
+    align-items: center;
+    justify-content: center;
 
     box-sizing: border-box;
     width: 100%;
@@ -88,6 +92,12 @@
 
 .placed-bet:first-child {
   margin-left: 12px;
+}
+
+.placed-bet.green,
+.placed-bet.red,
+.placed-bet.yellow {
+  color: black;
 }
 
 .placed-bet.green {
