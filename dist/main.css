@@ -534,6 +534,20 @@ table {
   margin-top: -150px;
 }
 
+#locked-bet-demo {
+  display: flex;
+  overflow: hidden;
+  align-content: bottom;
+  justify-content: center;
+}
+#locked-bet-demo .placed-bet {
+  height: 230px;
+  margin-top: -150px;
+}
+#locked-bet-demo .placed-bet .status {
+  display: block;
+}
+
 .message-box {
   box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
   color: #fff;

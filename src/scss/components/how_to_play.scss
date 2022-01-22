@@ -125,3 +125,22 @@
     margin-top: -150px;
   }
 }
+
+#locked-bet-demo {
+  display: flex;
+  overflow: hidden;
+
+  align-content: bottom;
+  justify-content: center;
+  
+  .placed-bet {
+    height: 230px;
+
+    margin-top: -150px;
+
+    .status {
+      display: block;
+    }
+  }
+
+}
