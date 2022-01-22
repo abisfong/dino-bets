@@ -91,5 +91,15 @@
 }
 
 #cancel-bet-demo {
-  height: 200px;
+  display: flex;
+  overflow: hidden;
+
+  align-content: bottom;
+  justify-content: center;
+  
+  .placed-bet {
+    height: 230px;
+
+    margin-top: -150px;
+  }
 }
