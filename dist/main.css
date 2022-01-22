@@ -580,37 +580,36 @@ table {
 
 .message-box.arrow.top:after {
   border-top: none;
-  border-right: 1vw solid transparent;
-  border-left: 1vw solid transparent;
+  border-right: 0.75vw solid transparent;
+  border-left: 0.75vw solid transparent;
   border-bottom: 1vw solid black;
   transform: translateY(-100%);
-  right: 24px;
   top: 0;
 }
 
 .message-box.arrow.right:after {
-  border-top: 1vw solid transparent;
+  border-top: 0.75vw solid transparent;
   border-right: none;
   border-left: 1vw solid black;
-  border-bottom: 1vw solid transparent;
+  border-bottom: 0.75vw solid transparent;
   transform: translateX(100%);
   top: 0;
 }
 
 .message-box.arrow.bottom:after {
   border-top: 1vw solid black;
-  border-right: 1vw solid transparent;
-  border-left: 1vw solid transparent;
+  border-right: 0.75vw solid transparent;
+  border-left: 0.75vw solid transparent;
   border-bottom: none;
   transform: translateY(100%);
   bottom: 0;
 }
 
 .message-box.arrow.left:after {
-  border-top: 1vw solid transparent;
+  border-top: 0.75vw solid transparent;
   border-right: 1vw solid black;
   border-left: none;
-  border-bottom: 1vw solid transparent;
+  border-bottom: 0.75vw solid transparent;
   transform: translateX(-100%);
   left: 0;
 }
@@ -973,6 +972,8 @@ table {
 }
 #ui .container .time-input-message-box:after {
   border-bottom-width: 6vw;
+  border-right: 0.65vw solid transparent;
+  border-left: 0.65vw solid transparent;
   left: 4px;
   right: auto;
 }
@@ -993,18 +994,19 @@ table {
   right: auto;
 }
 #ui .container .help-view-message-box {
-  top: 4.5vw;
+  top: 10vw;
   left: auto;
-  right: 8px;
+  right: 1%;
 }
 #ui .container .help-view-message-box:after {
+  border-bottom-width: 7vw;
   left: auto;
   right: 4px;
 }
 #ui .container .amount-message-box {
   top: auto;
-  bottom: 34.5vw;
-  left: 8px;
+  bottom: 27.5vw;
+  left: 1%;
 }
 #ui .container .amount-message-box:after {
   left: 4px;
@@ -1012,8 +1014,8 @@ table {
 }
 #ui .container .social-links-message-box {
   top: auto;
-  bottom: 35.25vw;
-  right: 8px;
+  bottom: 28.25vw;
+  right: 1%;
   left: auto;
 }
 #ui .container .social-links-message-box:after {

@@ -38,6 +38,8 @@
 
     .time-input-message-box:after {
       border-bottom-width: 6vw;
+      border-right: .65vw solid transparent;
+      border-left: .65vw solid transparent;
 
       left: 4px;
       right: auto;
@@ -64,20 +66,22 @@
     }
 
     .help-view-message-box {
-      top: 4.5vw;
+      top: 10vw;
       left: auto;
-      right: 8px;
+      right: 1%;
     }
 
-    .help-view-message-box:after {
+    .help-view-message-box:after {      
+      border-bottom-width: 7vw;
+      
       left: auto;
       right: 4px;
     }
 
     .amount-message-box {
       top: auto;
-      bottom: 34.5vw;
-      left: 8px;
+      bottom: 27.5vw;
+      left: 1%;
     }
 
     .amount-message-box:after {
@@ -87,8 +91,8 @@
 
     .social-links-message-box {
       top: auto;
-      bottom: 35.25vw;
-      right: 8px;
+      bottom: 28.25vw;
+      right: 1%;
       left: auto;
     }
 

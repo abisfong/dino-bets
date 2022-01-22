@@ -1,5 +1,8 @@
 @import '../mixins/box_shadow';
 
+$arrow-height: 1vw solid black;
+$arrow-width: .75vw solid transparent;
+
 .message-box {
   @include box-shadow;
   color: #fff;
@@ -38,29 +41,28 @@
 
 .message-box.arrow.top:after {
   border-top: none;
-  border-right: 1vw solid transparent;
-  border-left: 1vw solid transparent;
-  border-bottom: 1vw solid black;
+  border-right: $arrow-width;
+  border-left: $arrow-width;
+  border-bottom: $arrow-height;
   transform: translateY(-100%);
 
-  right: 24px;
   top: 0;
 }
 
 .message-box.arrow.right:after {
-  border-top: 1vw solid transparent;
+  border-top: $arrow-width;
   border-right: none;
-  border-left: 1vw solid black;
-  border-bottom: 1vw solid transparent;
+  border-left: $arrow-height;
+  border-bottom: $arrow-width;
   transform: translateX(100%);
   
   top: 0;
 }
 
 .message-box.arrow.bottom:after {
-  border-top: 1vw solid black;
-  border-right: 1vw solid transparent;
-  border-left: 1vw solid transparent;
+  border-top: $arrow-height;
+  border-right: $arrow-width;
+  border-left: $arrow-width;
   border-bottom: none;
   transform: translateY(100%);
   
@@ -68,10 +70,10 @@
 }
 
 .message-box.arrow.left:after {
-  border-top: 1vw solid transparent;
-  border-right: 1vw solid black;
+  border-top: $arrow-width;
+  border-right: $arrow-height;
   border-left: none;
-  border-bottom: 1vw solid transparent;
+  border-bottom: $arrow-width;
   transform: translateX(-100%);
   
   left: 0;
