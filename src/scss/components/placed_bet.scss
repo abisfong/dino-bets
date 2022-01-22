@@ -20,6 +20,7 @@
   justify-content: flex-end;
 
   box-sizing: border-box;
+  width: fit-content;
 
   .amount {
     @include text-outline;
