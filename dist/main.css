@@ -599,6 +599,7 @@ table {
   align-items: center;
   justify-content: flex-end;
   box-sizing: border-box;
+  width: fit-content;
 }
 .placed-bet .amount {
   text-shadow: -1px 1px 0 #262626, 1px 1px 0 #262626, 1px -1px 0 #262626, -1px -1px 0 #262626;
