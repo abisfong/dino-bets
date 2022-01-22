@@ -37,37 +37,42 @@
 }
 
 .message-box.arrow.top:after {
-  right: 24px;
-  top: -12px;
   border-top: none;
-  border-right: 12px solid transparent;
-  border-left: 12px solid transparent;
-  border-bottom: 12px solid black;
+  border-right: 1vw solid transparent;
+  border-left: 1vw solid transparent;
+  border-bottom: 1vw solid black;
+  transform: translateY(-100%);
+
+  right: 24px;
+  top: 0;
 }
 
 .message-box.arrow.right:after {
-  right: -12px;
-  top: 12px;
-  border-top: 12px solid transparent;
+  border-top: 1vw solid transparent;
   border-right: none;
-  border-left: 12px solid black;
-  border-bottom: 12px solid transparent;
+  border-left: 1vw solid black;
+  border-bottom: 1vw solid transparent;
+  transform: translateX(100%);
+  
+  top: 0;
 }
 
 .message-box.arrow.bottom:after {
-  right: 24px;
-  bottom: -12px;
-  border-top: 12px solid black;
-  border-right: 12px solid transparent;
-  border-left: 12px solid transparent;
+  border-top: 1vw solid black;
+  border-right: 1vw solid transparent;
+  border-left: 1vw solid transparent;
   border-bottom: none;
+  transform: translateY(100%);
+  
+  bottom: 0;
 }
 
 .message-box.arrow.left:after {
-  left: -12px;
-  top: 12px;
-  border-top: 12px solid transparent;
-  border-right: 12px solid black;
+  border-top: 1vw solid transparent;
+  border-right: 1vw solid black;
   border-left: none;
-  border-bottom: 12px solid transparent;
+  border-bottom: 1vw solid transparent;
+  transform: translateX(-100%);
+  
+  left: 0;
 }

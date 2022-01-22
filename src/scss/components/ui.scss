@@ -21,8 +21,8 @@
     .bet-view-message-box {
       background-color: black;
       color: white;
-      top: 6.5vw;
-      left: 8px;
+      top: 9%;
+      left: 1%;
     }
 
     .bet-view-message-box:after {
@@ -33,34 +33,33 @@
 
     .time-input-message-box {
       top: 11vw;
-      left: 45.5%;
+      left: 47.75%;
     }
 
     .time-input-message-box:after {
-      border-bottom-width: 70px;
-      transform: translateY(-75%);
+      border-bottom-width: 6vw;
 
-      left: 30%;
+      left: 4px;
       right: auto;
     }
 
     .start-pause-message-box {
-      top: 7vw;
-      left: 30.5%;
+      top: 6vw;
+      left: 33.25%;
     }
 
     .start-pause-message-box:after {
-      left: 30%;
+      left: 4px;
       right: auto;
     }
 
     .reset-message-box {
-      top: 7vw;
-      left: 57.5%
+      top: 6vw;
+      left: 60.25%;
     }
 
     .reset-message-box:after {
-      left: 40%;
+      left: 4px;
       right: auto;
     }
 
