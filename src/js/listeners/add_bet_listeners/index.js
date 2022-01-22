@@ -54,24 +54,12 @@ function createBet(betController) {
 function appendPlacedBetComponent(betController, placedBet) {
   const placedBetsViewEl = document.querySelector('#placed-bets-view')
   const placedBetEl = document.createElement('div');
-  const placedBetAmountEl = document.createElement('div');
-  const placedBetStatusEl = document.createElement('div');
-  const cancelBtnEl = document.createElement('button');
-  
-  placedBetEl.classList.add('placed-bet');
-  placedBetEl.classList.add(placedBet.selection);
-  placedBetAmountEl.classList.add('amount');
-  placedBetStatusEl.classList.add('status');
-  cancelBtnEl.classList.add('cancel-btn');
+  let placedBetStatusEl, cancelBtnEl;
 
-  placedBetAmountEl.innerHTML = createPlacedBetAmountElement(placedBet.amount);
-  placedBetStatusEl.innerText = 'LOCKED'
-  cancelBtnEl.innerText = 'CANCEL';
-    
-  placedBetEl.append(placedBetAmountEl);
-  placedBetEl.append(placedBetStatusEl);
-  placedBetEl.append(cancelBtnEl);
+  placedBetEl.innerHTML = getPlacedBetInnerHTML(placedBet);
   placedBetsViewEl.prepend(placedBetEl);
+  placedBetStatusEl = placedBetsViewEl.querySelector('.status');
+  cancelBtnEl = placedBetsViewEl.querySelector('.cancel-btn');
     
   placedBet.placedBetStatusEl = placedBetStatusEl;
   placedBet.cancelBtnEl = cancelBtnEl;
@@ -82,11 +70,17 @@ function appendPlacedBetComponent(betController, placedBet) {
   );
 }
 
-function createPlacedBetAmountElement(amount) {
-  return (
-    `<span class='money-sign'>$</span>
-    <span class='number'>${amount}</span>`
-  )
+function getPlacedBetInnerHTML({selection, amount}) {
+  return `
+    <div class='placed-bet ${selection}'>
+      <div class='amount'>
+        <span class='money-sign'>$</span>
+        <span class='number'>${amount}</span>
+      </div>
+      <div class='status'>LOCKED</div>
+      <div class='cancel-btn'>CANCEL</div>
+    </div>
+  `
 }
 
 function displayInvalidAmountAnimations(betController) {
