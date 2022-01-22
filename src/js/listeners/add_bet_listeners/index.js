@@ -52,6 +52,9 @@ function createBet(betController) {
 }
 
 function appendPlacedBetComponent(betController, placedBet) {
+  // TODO: Listen for raceComplete to handle innerText changes of status.
+  //       Dispatch custom lock/unlock events to handle LOCK
+  //       changes of status.
   const placedBetsViewEl = document.querySelector('#placed-bets-view')
   const placedBetEl = document.createElement('div');
   let placedBetStatusEl, cancelBtnEl;
@@ -64,10 +67,7 @@ function appendPlacedBetComponent(betController, placedBet) {
   placedBet.placedBetStatusEl = placedBetStatusEl;
   placedBet.cancelBtnEl = cancelBtnEl;
 
-  cancelBtnEl.addEventListener(
-    'click', 
-    cancelPlacedBetCallback(betController, placedBet)
-  );
+  addPlacedBetCancelBtnListener(betController, placedBet, cancelBtnEl);
 }
 
 function getPlacedBetInnerHTML({selection, amount}) {
@@ -81,6 +81,13 @@ function getPlacedBetInnerHTML({selection, amount}) {
       <div class='cancel-btn'>CANCEL</div>
     </div>
   `
+}
+
+function addPlacedBetCancelBtnListener(betController, placedBet, cancelBtnEl) {
+  cancelBtnEl.addEventListener(
+    'click', 
+    cancelPlacedBetCallback(betController, placedBet)
+  );
 }
 
 function displayInvalidAmountAnimations(betController) {

@@ -505,6 +505,10 @@ table {
   border-bottom-right-radius: 8px;
 }
 
+#cancel-bet-demo {
+  height: 200px;
+}
+
 .message-box {
   box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
   color: #fff;
@@ -600,6 +604,7 @@ table {
   justify-content: flex-end;
   box-sizing: border-box;
   width: fit-content;
+  height: calc(100% - 32px);
 }
 .placed-bet .amount {
   text-shadow: -1px 1px 0 #262626, 1px 1px 0 #262626, 1px -1px 0 #262626, -1px -1px 0 #262626;

@@ -21,6 +21,7 @@
 
   box-sizing: border-box;
   width: fit-content;
+  height: calc(100% - 32px);
 
   .amount {
     @include text-outline;
