@@ -475,26 +475,36 @@ table {
   align-items: center;
   justify-content: center;
 }
-
-#prev-demo, #next-demo {
+#selection-btns-demo .prev-demo,
+#selection-btns-demo .next-demo {
   background-color: white;
-  border: 2px solid #262626;
+  border: 1px solid #262626;
   color: #262626;
   display: inline-flex;
+  line-height: 0.75;
   padding: 16px 4px;
   align-items: center;
   justify-content: center;
-  line-height: 0.75;
+  height: 76px;
+  width: 20px;
 }
-
-#prev-demo {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+#selection-btns-demo .prev-demo.black,
+#selection-btns-demo .next-demo.black {
+  background-color: black;
+  border-color: white;
+  color: white;
 }
-
-#next-demo {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+#selection-btns-demo .prev-demo {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  margin-right: 8%;
+}
+#selection-btns-demo .prev-demo.black {
+  margin-left: 12%;
+}
+#selection-btns-demo .next-demo {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .message-box {
@@ -566,110 +576,6 @@ table {
 #placed-bets-view {
   display: flex;
   overflow-y: scroll;
-}
-#placed-bets-view .placed-bet {
-  box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
-  background-repeat: no-repeat;
-  background-position-x: center;
-  background-position-y: 10px;
-  background-size: 80px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  margin: 16px 4px;
-  padding: 12px 16px;
-  align-items: center;
-  justify-content: flex-end;
-  box-sizing: border-box;
-}
-#placed-bets-view .placed-bet .amount {
-  text-shadow: -1px 1px 0 #262626, 1px 1px 0 #262626, 1px -1px 0 #262626, -1px -1px 0 #262626;
-  color: white;
-  display: flex;
-}
-#placed-bets-view .placed-bet .money-sign {
-  font-size: 18px;
-  align-self: flex-start;
-}
-#placed-bets-view .placed-bet .number {
-  font-size: 64px;
-}
-#placed-bets-view .placed-bet .cancel-btn {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: 200;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  padding: 8px;
-  box-sizing: border-box;
-  width: 100%;
-}
-#placed-bets-view .placed-bet .cancel-btn:hover {
-  background-color: #ccc;
-}
-#placed-bets-view .placed-bet .status {
-  box-shadow: 2px 2px 15px 5px rgba(0, 0, 255, 0.2);
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 8px;
-  cursor: default;
-  display: none;
-  font-size: 18px;
-  font-weight: 200;
-  text-align: center;
-  padding: 8px;
-  box-sizing: border-box;
-  min-width: 84px;
-  width: 100%;
-}
-#placed-bets-view .placed-bet .status.lost {
-  background-color: #fd0d1b;
-}
-#placed-bets-view .placed-bet .status.won {
-  background-color: #b8fd33;
-}
-#placed-bets-view .placed-bet:first-child {
-  margin-left: 12px;
-}
-#placed-bets-view .placed-bet.green {
-  background-color: #b8fd33;
-  background-image: url("./assets/images/green-dino-small-single.png");
-}
-#placed-bets-view .placed-bet.red {
-  background-color: #fd0d1b;
-  background-image: url("./assets/images/red-dino-small-single.png");
-}
-#placed-bets-view .placed-bet.yellow {
-  background-color: #fdad2a;
-  background-image: url("./assets/images/yellow-dino-small-single.png");
-}
-#placed-bets-view .placed-bet.purple {
-  background-color: #351C75;
-  background-image: url("./assets/images/purp-dino-small-single.png");
-}
-#placed-bets-view .placed-bet.purple .amount {
-  text-shadow: -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
-  color: black;
-}
-#placed-bets-view .placed-bet.purple .cancel-btn {
-  background-color: black;
-  border-color: white;
-  color: white;
-}
-#placed-bets-view .placed-bet.purple .cancel-btn:hover {
-  background-color: #262626;
-}
-#placed-bets-view .placed-bet.purple .status {
-  background-color: black;
-  border-color: white;
-  color: white;
-}
-#placed-bets-view .placed-bet.purple .status.lost {
-  background-color: #fd0d1b;
-  border-color: black;
-  color: black;
 }
 
 #placed-bets-view::-webkit-scrollbar {
