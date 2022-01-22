@@ -6,6 +6,7 @@ export default function addAmountInputListeners() {
   inputEl.addEventListener('focus', moveCursorToInputEnd);
   inputEl.addEventListener('click', moveCursorToInputEnd);
   inputEl.addEventListener('keyup', keyUpHandler());
+  inputEl.addEventListener('keydown', keyDownHandler);
 }
   
 function onChangeHandler(e) {
@@ -86,10 +87,12 @@ function keyUpHandler() {
   const betSubmitBtnEl = document.getElementById('bet-submit-btn');
   const prevEl = document.getElementById('prev');
   const nextEl = document.getElementById('next');
-
+  
   return e => {
+    const inputEl = e.target;
+
     moveCursorToInputEnd(e);
-    console.log(e.key);
+
     if (e.key === 'Enter')
       betSubmitBtnEl.click();
     if (e.key === 'ArrowLeft')
@@ -97,4 +100,17 @@ function keyUpHandler() {
     if (e.key === 'ArrowRight')
       nextEl.click();
   }
+}
+
+function keyDownHandler(e) {
+  const inputEl = e.target;
+  
+  if (e.key === 'ArrowUp') {
+      inputEl.value = parseFloat(inputEl.value) + 1 || 1;
+      onChangeHandler({target: inputEl});
+    }
+    if (e.key === 'ArrowDown') {
+      inputEl.value = parseFloat(inputEl.value) - 1 || '';
+      onChangeHandler({target: inputEl});
+    }
 }
