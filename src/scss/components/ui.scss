@@ -28,7 +28,7 @@
     .bet-view-message-box:after {
       color: black;
       left: 4px;
-      right: auto;
+      top: 1px;
     }
 
     .time-input-message-box {
@@ -84,7 +84,8 @@
       left: 1%;
     }
 
-    .amount-message-box:after {
+    .amount-message-box:after {      
+      bottom: 0;
       left: 4px;
       right: auto;
     }

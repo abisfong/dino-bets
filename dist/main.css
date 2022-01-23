@@ -987,7 +987,7 @@ table {
 #ui .container .bet-view-message-box:after {
   color: black;
   left: 4px;
-  right: auto;
+  top: 1px;
 }
 #ui .container .time-input-message-box {
   top: 11vw;
@@ -1032,6 +1032,7 @@ table {
   left: 1%;
 }
 #ui .container .amount-message-box:after {
+  bottom: 0;
   left: 4px;
   right: auto;
 }
