@@ -1021,6 +1021,14 @@ table {
   left: auto;
   right: 1%;
 }
+#ui .container .audio-toggle-message-box {
+  left: auto;
+  right: 6.5%;
+  top: 3.25vw;
+}
+#ui .container .audio-toggle-message-box:after {
+  right: 4px;
+}
 #ui .container .help-view-message-box:after {
   border-bottom-width: 7vw;
   left: auto;

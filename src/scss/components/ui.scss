@@ -71,6 +71,16 @@
       right: 1%;
     }
 
+    .audio-toggle-message-box {
+      left: auto;
+      right: 6.5%;
+      top: 3.25vw;
+    }
+
+    .audio-toggle-message-box:after {
+      right: 4px;
+    }
+    
     .help-view-message-box:after {      
       border-bottom-width: 7vw;
       
