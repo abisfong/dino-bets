@@ -1063,8 +1063,8 @@ table {
   color: white;
   top: auto;
   bottom: 5.5vw;
-  right: auto;
-  left: 24%;
+  right: 57.25%;
+  left: auto;
 }
 #ui .container .bet-next-selection-message-box:after {
   border-bottom-color: black;
