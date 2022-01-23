@@ -101,6 +101,20 @@
       right: 4px;
     }
 
+    .bet-amount-message-box {
+      bottom: 12.5vw;
+      left: 29%;
+      top: auto;
+    }
+
+    .bet-amount-message-box:after {
+      transform: translateY(35%) rotate(-45deg);
+      
+      top: auto;
+      bottom: 0;
+      left: -3%;
+    }
+
     .bet-submit-message-box {
       background-color: white;
       color: black;
