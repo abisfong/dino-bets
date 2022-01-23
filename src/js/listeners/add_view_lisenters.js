@@ -27,7 +27,6 @@ function addOpenHelpViewListener(foley) {
   const helpViewEl = document.getElementById('help-view');
   const helpViewCloseBtnEl = document.querySelector('.help-view-toggle.close');
   const helpViewOpenBtnEl = document.querySelector('.help-view-toggle.open');
-  console.log(helpViewEl);
   
   helpViewOpenBtnEl.addEventListener('click', () => {
     helpViewEl.style.display = 'block';
