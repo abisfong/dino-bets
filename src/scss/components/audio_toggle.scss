@@ -1,0 +1,28 @@
+@import '../mixins/transitions';
+
+#audio-toggle {
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+  color: black;
+  font-size: 18px;
+  opacity: .4;
+  transition: opacity 300ms $cubicBezierNoDelay;
+
+  padding: 4px;
+  
+  position: absolute;
+  bottom: auto;
+  left: 75%;
+  right: auto;
+  top: 8px;
+}
+
+#audio-toggle:hover {
+  opacity: 1;
+}
+
+#audio-toggle.fa-volume-up {
+  padding-right: 1.75px;
+}
