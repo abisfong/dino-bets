@@ -13,6 +13,7 @@ export default class Foley {
       negativeBetReturn: new Audio('./dist/assets/audios/negative-bet-return.wav'),
       breakingEven: new Audio('./dist/assets/audios/breaking-even.wav'),
       updateAmount: new Audio('./dist/assets/audios/update-amount.wav'),
+      raceEndNoBets: new Audio('./dist/assets/audios/race-end-no-bets.wav'),
     }
   }
 
