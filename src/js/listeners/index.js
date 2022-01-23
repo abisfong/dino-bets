@@ -13,7 +13,7 @@ function init({ betController, game, timer }) {
   addAmountInputListeners();
   addBetListeners(betController);
   addViewLisenters(foley);
-  addAudioListeners();
+  addAudioListeners(foley);
 }
 
 export {
