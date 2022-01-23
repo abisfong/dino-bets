@@ -1,4 +1,4 @@
-import { curry } from "../../util";
+import { curry } from "../util";
 
 const selectionColors = ['green', 'red', 'yellow', 'purple'];
 let selection = 0;
